@@ -12,7 +12,7 @@
                             <a class="motivLink vorderseite" v-on:click="flip()">Rückseite&nbsp;&nbsp;<font-awesome-icon :icon="['fas', 'share']" /></a>
                             <img class="motivPaketBild img-fluid" src="../../assets/img/textil_bg.png">
                             <div class="zentriertesMotiv">
-                                <img class="motiv" src="../../assets/img/motiv_abschlussmeister.png">
+                                <img class="motiv" src="../../assets/motifs/motiv_abschlussmeister.png">
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                             <a class="motivLink rueckseite" v-on:click="flip()"><font-awesome-icon :icon="['fas', 'reply']" />&nbsp;&nbsp;Vorderseite</a>
                             <img class="motivPaketBild img-fluid" src="../../assets/img/textil_bg.png">
                             <div class="zentriertesMotiv zentriertesMotivRueckseite">
-                                <img class="motiv" src="../../assets/img/motiv_abschlussmeister_rueckseite.png">
+                                <img class="motiv" src="../../assets/motifs/motiv_abschlussmeister_rueckseite.png">
                             </div>
                         </div>
                     </div>
