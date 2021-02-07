@@ -1,7 +1,12 @@
+<p align="center"><img src="https://ak-wear.de/img/logo.png" alt="AK-Wear Logo" width="50px">&nbsp;&nbsp;<span style="font-size:45px">AK Wear</span></p>
+<p align="center"><a href="https://laravel.com/docs/8.x/"><img src="https://img.shields.io/static/v1?label=laravel&message=8.12&color=orange" alt="laravel version"></a>&nbsp;
+<a href="https://vuejs.org/v2/guide/"><img src="https://img.shields.io/static/v1?label=vue&message=2.6.12&color=42b883" alt="vue version"></a>
+</p>
+
 ## Installation
 
 **Prerequisites:**
-- a) Using Laravel Sail 
+- a) Using Laravel Sail / Docker
     - Make sure to install [Docker Desktop](https://www.docker.com/products/docker-desktop)
     - On Windows:
         - Ensure that Windows Subsystem for Linux 2 (WSL2) [is installed and enabled](https://docs.microsoft.com/de-de/windows/wsl/install-win10).
@@ -16,7 +21,7 @@
 1. Clone repository to a directory of your choice
 2. Create a copy of the `.env.example` file and rename it to  `.env`. Apply the desired environment configuration.
 3. a) Using Laravel Sail
-    1. In Terminal run `./vendor/bin/sail up` to start up the laravel sail development container. 
+    1. In Terminal run `./vendor/bin/sail up` to start up the laravel sail development container.
     2. Run `./vendor/bin/sail artisan key:generate` to generate a random project key.
     3. Run `./vendor/bin/sail artisan migrate` to automatically create all tables used in the project to your database.
     4. Run `./vendor/bin/sail artisan db:seed` to fill your database with preset data.
@@ -28,9 +33,10 @@
     5. Run `php artisan db:seed` to fill your database with preset data.
 
 ## Usage ##
-Use `npm run watch-poll` or `yarn run watch-poll` to run live reloading of changed files. 
-Run `npm run dev`or `yarn run development` for compiling assets for development.
-Run `npm run prod` or `yarn run production` for compiling assets for production.
+Use `(./vendor/bin/sail) npm run hot` or  `(./vendor/bin/sail) yarn run hot` to run with hot module replacement.  
+Run `(./vendor/bin/sail) npm run watch-poll` or `(./vendor/bin/sail) yarn run watch-poll` to run live reloading of changed files.  
+Run `(./vendor/bin/sail) npm run dev`or `(./vendor/bin/sail) yarn run dev` for compiling assets for development.  
+Run `(./vendor/bin/sail) npm run prod` or `(./vendor/bin/sail) yarn run prod` for compiling assets for production.
 
 ## Project Structure ##
 The Project is built with a Laravel backend that serves data over api routes to a Vue application which contains a Vue Router.
