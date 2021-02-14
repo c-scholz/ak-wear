@@ -21,32 +21,26 @@
 **Installation**
 1. Clone repository to a directory of your choice
 2. Create a copy of the `.env.example` file and rename it to  `.env`. Apply the desired environment configuration.
-3. a) Using Docker
-    1. In `.env` file set `DB_HOST` to `mysql`.
-    2. Switch to the laradock directory.
-    3. Create a copy of the `env-example` file and rename it to `.env`. 
-    4. Open the `.env` file
+3. If you're not using Docker skip to step 4
+    1. In Terminal enter project directory and run `git submodule init` and `git submodule update`.
+    2. Open `.env` file and set `DB_HOST` to `mysql`.
+    3. Enter the `/laradock` directory.
+    4. Create a copy of the `env-example` file and rename it to `.env`.
+    5. Open the `.env` file
         - Change the value for `COMPOSE_PROJECT_NAME` to a preferred project name.
         - Change the value for `PHP_VERSION` to `7.4` or a higher preferred PHP-Version.
         - Under the section `### MYSQL ###` change the values to the corresponding values for your Database in the project's `.env`.
-    5. In Terminal run `docker-compose up -d nginx mysql`. Running the first time it'll create all images from scratch, this could take some time.
-    6. When all containers are up and running:
-        1. In Terminal run `docker-compose exec workspace bash` to enter the workspace container.
-        2. Run `php artisan key:generate`.
-        3. Run `php artisan migrate`.
-        4. Run `php artisan db:seed`.
-        5. Run `npm run dev` or `yarn run dev` to setup your project assets.
-3. b) Using other configurations:
-    1. In Terminal run `composer install` to install needed composer packages
-    2. Run `npm install` or `yarn install` to install the needed javascript packages
-    3. Run `php artisan key:generate` to generate a random project key.
-    4. Run `php artisan migrate` to automatically create all tables used in the project to your database.
-    5. Run `php artisan db:seed` to fill your database with preset data.
-    6. Run `npm run dev` or `yarn run dev` to setup your project assets.
-    7. Run `php artisan serve` to use the php development server.
+    6. In Terminal run `docker-compose up -d nginx mysql`. (Running the first time it'll create all images from scratch, this could take some time.)
+    7. Once all containers are up and running, run `docker-compose exec workspace bash` to enter the workspace container.
+4. In Terminal run `composer install` to install required composer packages.
+5. Run `npm install` or `yarn` to install the required javascript packages.
+6. Run `php artisan key:generate` to generate a random project key.
+7. Run `php artisan migrate:fresh` to automatically create all tables used in the project to your database.
+8. Run `php artisan db:seed` to fill your database with preset data.
+9. Run `npm run dev` or `yarn run dev` to setup your project assets.
 
 ## Usage ##
-Note: When using docker, the following commands have to be executed in the workspace container (enter it by running `docker-compose exec workspace bash`).
+**Note:** When using docker, the following commands have to be executed in the workspace container (enter it by running `docker-compose exec workspace bash`).
 
 Use `npm run hot` or  `yarn run hot` to run with hot module replacement.
 Run `npm run watch-poll` or `yarn run watch-poll` to run live reloading of changed files. 
