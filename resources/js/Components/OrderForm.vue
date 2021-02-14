@@ -238,7 +238,13 @@
                         <!-- MITTLERER TEIL -->
                         <div class="col-sm-12 col-lg-6 offset-lg-3 noPadding">
                             <div class="namelistContainer" contenteditable="false">
-                                <name-input name="namelist1" />
+                                <item-input 
+                                    name="namelist1"
+                                    type="itemlistDraggable"
+                                    :placeholder="'Hier Namen eingeben'"
+                                    :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                    v-model="namelist1"
+                                />
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-3 offset-lg-3 padding75Right noPadding991Left">
@@ -276,12 +282,24 @@
                         <!-- MITTLERER TEIL -->
                         <div class="col-sm-12 col-lg-5 offset-lg-1 padding75Right noPadding991Left">
                             <div class="namelistContainer" contenteditable="false">
-                                <name-input name="namelist1" />
+                                <item-input 
+                                    name="namelist1"
+                                    type="itemlistDraggable"
+                                    :placeholder="'Hier Namen eingeben'"
+                                    :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                    v-model="namelist1"
+                                />
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-5 padding75Left noPadding991Right">
                             <div class="namelistContainer" contenteditable="false">
-                                <name-input name="namelist2" />
+                                <item-input 
+                                    name="namelist1"
+                                    type="itemlistDraggable"
+                                    :placeholder="'Hier Namen eingeben'"
+                                    :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                    v-model="namelist2"
+                                />
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-5 offset-lg-1 padding75Right noPadding991Left">
@@ -365,22 +383,46 @@
                         <!-- MITTLERER TEIL -->
                         <div class="col-lg-5 offset-lg-1 padding75Right noPadding991Left">
                             <div class="namelistContainer" contenteditable="false">
-                                <name-input name="namelist1" />
+                                <item-input 
+                                    name="namelist1"
+                                    type="itemlistDraggable"
+                                    :placeholder="'Hier Namen eingeben'"
+                                    :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                    v-model="namelist1"
+                                />
                             </div>
                         </div>
                         <div class="col-lg-5 padding75Left noPadding991Right">
                             <div class="namelistContainer" contenteditable="false">
-                                <name-input name="namelist2" />
+                                <item-input 
+                                    name="namelist1"
+                                    type="itemlistDraggable"
+                                    :placeholder="'Hier Namen eingeben'"
+                                    :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                    v-model="namelist2"
+                                />
                             </div>
                         </div>
                         <div class="col-lg-5 offset-lg-1 padding75Right noPadding991Left">
                             <div class="namelistContainer" contenteditable="false">
-                                <name-input name="namelist3" />
+                                <item-input 
+                                    name="namelist1"
+                                    type="itemlistDraggable"
+                                    :placeholder="'Hier Namen eingeben'"
+                                    :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                    v-model="namelist3"
+                                />
                             </div>
                         </div>
                         <div class="col-lg-5 padding75Left noPadding991Right">
                             <div class="namelistContainer" contenteditable="false">
-                                <name-input name="namelist4" />
+                                <item-input 
+                                    name="namelist1"
+                                    type="itemlistDraggable"
+                                    :placeholder="'Hier Namen eingeben'"
+                                    :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                    v-model="namelist4"
+                                />
                             </div>
                         </div>
                         <div class="col-lg-5 offset-lg-1 padding75Right noPadding991Left">
@@ -803,6 +845,7 @@
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkerUnterarm">
                                     <p class="sonderdruckEingabe">Shirts - Linker Unterarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                        <item-input v-model="printOptions.sleevePrint.namelist" name="sleeves" type="taglist"/>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarmS" placeholder="Name, .."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarmM" placeholder="Name, Name, Name, .."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarmL" placeholder="Name, Name, .."></div>
@@ -1054,7 +1097,7 @@
     import OrderFieldsetHead from './OrderFieldsetHead';
     import OrderFieldsetFooter from './OrderFieldsetFooter';
     import SizeInput from './SizeInput';
-    import NameInput from './NameInput';
+    import ItemInput from './ItemInput';
     import MotifCard from './MotifCard';
     import ColorList from './ColorList';
     import CountryFlag from 'vue-country-flag';
@@ -1065,17 +1108,29 @@ import { mapActions, mapGetters, mapState } from 'vuex';
             OrderFieldsetHead,
             OrderFieldsetFooter,
             SizeInput,
-            NameInput,
+            ItemInput,
             MotifCard,
             ColorList,
             CountryFlag
         },
         data() {
+            // TODO sort out which properties should be stored globally in vuex and which can stay in the form
             return {
                 activeTab: 1,
                 motifSelection: false,
                 nameListColumns: 2,
+                namelist1: [],
+                namelist2: [],
+                namelist3: [],
+                namelist4: [],
                 languages: languages,
+                streetInfo: {},
+                phoneInfo: {},
+                printOptions: {
+                    sleevePrint: {
+                        namelist: [],
+                    },
+                },
             }
         },
         computed: {

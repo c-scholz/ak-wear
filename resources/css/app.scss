@@ -1334,61 +1334,6 @@ hr {
 .namelistContainer .form-control {
     margin-top: 10px;
 }
-
-.nameContainer {
-    font-family: 'Muli Light', sans-serif;
-    margin-top: 15px;
-}
-
-.nameContainer > div {
-    border-bottom: 1px solid #e6e6e6;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    list-style: none;
-    padding-bottom: 7px;
-    margin-bottom: 10px;
-}
-
-.nameContainer div .namelistButtons {
-    display: flex;
-    align-items: center;
-}
-
-.nameContainer div .namelistButton:active,
-.nameContainer div .namelistButton:focus,
-.nameContainer div .namelistButton:hover {
-    background: #1a1a1a;
-    color: #fff;
-    border: 2px solid transparent;
-    transition: all 0.25s;
-}
-
-.nameContainer div .namelistButton {
-    color: #1a1a1a;
-    height: 25px;
-    width: 25px;
-    border: 2px solid #1a1a1a;
-    border-radius: 5px;
-    padding: 4px;
-}
-
-.namelistButtons:first-child {
-    padding-left: 0;
-}
-
-.namelistButtons:last-child {
-    padding-right: 0;
-}
-
-.namelistButtons:first-child .namelistButton {
-    cursor: move;
-}
-
-.namelistButtons:last-child .namelistButton {
-    cursor: pointer;
-}
 /* ###################### ONLINE SHOP - SELECT RADIO CARD CONTENT ###################### */
 
 /* ###################### ONLINE SHOP - GRÖßEN ###################### */
