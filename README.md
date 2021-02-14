@@ -35,13 +35,15 @@
         2. Run `php artisan key:generate`.
         3. Run `php artisan migrate`.
         4. Run `php artisan db:seed`.
+        5. Run `npm run dev` or `yarn run dev` to setup your project assets.
 3. b) Using other configurations:
     1. In Terminal run `composer install` to install needed composer packages
     2. Run `npm install` or `yarn install` to install the needed javascript packages
     3. Run `php artisan key:generate` to generate a random project key.
     4. Run `php artisan migrate` to automatically create all tables used in the project to your database.
     5. Run `php artisan db:seed` to fill your database with preset data.
-    6. Run `php artisan serve` to use the php development server.
+    6. Run `npm run dev` or `yarn run dev` to setup your project assets.
+    7. Run `php artisan serve` to use the php development server.
 
 ## Usage ##
 Note: When using docker, the following commands have to be executed in the workspace container (enter it by running `docker-compose exec workspace bash`).
