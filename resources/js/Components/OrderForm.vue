@@ -16,7 +16,6 @@
                 Falls du einzelne Hoodies oder Shirts zusammen mit dem Bundle bestellen möchtest, kannst du diese später
                 über dein Warenkorb hinzufügen.</p>
             <div class="row form-component product-cards">
-                <div v-if="products.count > 0">Produkte</div>
                 <div v-for="product in products" :key="product.id" class="col-sm-12 col-lg-4">
                     <a class="cardProduktLink" href="#" v-on:click="addToCart(product); nextTab();">
                         <div class="cardProdukt">
@@ -1062,7 +1061,8 @@ import { mapActions, mapGetters, mapState } from 'vuex';
         computed: {
             ...mapState([
                 'products',
-                'motifs'
+                'motifs',
+                'cart'
             ])
         },
         created() {

@@ -11,6 +11,9 @@ const state = {
 }
 
 const getters = {
+    cart: state => {
+        return state.cart
+    },
     motifs: state => {
         return state.motifs
     },
@@ -21,7 +24,12 @@ const getters = {
 
 const mutations = {
     ADD_TO_CART(state, item) {
-        state.cart.push(item || state.currentItem)
+        let idx = state.cart.push(item)
+        state.cart[idx].currentEdit = true
+    },
+    UPDATE_CART_ITEM(state, item) {
+        let idx = state.cart.findIndex(cartItem => cartItem.currentEdit == true)
+        state.cart[idx] = item
     },
     REMOVE_FROM_CART(state, item) {
         let idx = state.cart.items.findIndex(cartItem => cartItem.id === item.id)
