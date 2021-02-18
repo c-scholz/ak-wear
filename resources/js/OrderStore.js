@@ -2,19 +2,11 @@ import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import mockData from '../../exampleStore.json'
-import baseItem from './Mock/baseItem'
+import {baseCartItem, normalizeItem} from "./Mock/baseData"
+import exampleProducts from "./Mock/exampleProducts"
+import exampleMotifs from "./Mock/exampleProducts"
 
 Vue.use(Vuex)
-
-const exampleProducts = mockData.products
-
-const normalizeItem = inputItem => {
-    let outputItem = baseItem
-    console.log(inputItem, outputItem)
-    outputItem.item = inputItem
-    return outputItem
-}
 
 const state = {
     cart: [],
@@ -59,7 +51,8 @@ const mutations = {
 
 export const actions = {
     addToCart({commit}, item) {
-        item = normalizeItem(exampleProducts[0])
+        let commitItem = baseCartItem
+        item = normalizeItem(item)
         commit('ADD_TO_CART', item)
     },
     removeFromCart({commit}, item) {
@@ -69,7 +62,8 @@ export const actions = {
         axios
             .get('/api/motifs')
             .then(res => {
-                commit('SET_MOTIFS', res.data)
+                //commit('SET_MOTIFS', res.data)
+                commit('SET_MOTIFS', exampleMotifs)
             })
             .catch(err => console.log(err))
     },
@@ -77,7 +71,8 @@ export const actions = {
         axios
             .get('/api/products')
             .then(res => {
-                commit('SET_PRODUCTS', res.data.data)
+                //commit('SET_PRODUCTS', res.data.data)
+                commit('SET_PRODUCTS', exampleProducts)
             })
             .catch(err => console.log(err))
     },
