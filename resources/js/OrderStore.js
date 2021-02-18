@@ -2,7 +2,19 @@ import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import mockData from '../../exampleStore.json'
+import baseItem from './Mock/baseItem'
+
 Vue.use(Vuex)
+
+const exampleProducts = mockData.products
+
+const normalizeItem = inputItem => {
+    let outputItem = baseItem
+    console.log(inputItem, outputItem)
+    outputItem.item = inputItem
+    return outputItem
+}
 
 const state = {
     cart: [],
@@ -24,8 +36,10 @@ const getters = {
 
 const mutations = {
     ADD_TO_CART(state, item) {
+        console.log(item)
         let idx = state.cart.push(item)
-        state.cart[idx].currentEdit = true
+        console.log(state.cart[0])
+        state.cart[idx-1].currentEdit = true
     },
     UPDATE_CART_ITEM(state, item) {
         let idx = state.cart.findIndex(cartItem => cartItem.currentEdit == true)
@@ -45,6 +59,7 @@ const mutations = {
 
 export const actions = {
     addToCart({commit}, item) {
+        item = normalizeItem(exampleProducts[0])
         commit('ADD_TO_CART', item)
     },
     removeFromCart({commit}, item) {
