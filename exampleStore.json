@@ -535,32 +535,34 @@
                                 "key": "hoodieFlags",
                                 "price": 5
                             }
-                        ],
-                        "namelist1": [
-                            {
-                                "name": "Maxi",
-                                "options": [
-                                    {
-                                        "key": "hoodieFlags",
-                                        "flag": "de"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Maxi",
-                                "options": [
-                                    {
-                                        "key": "hoodieFlags",
-                                        "flag": "de"
-                                    }
-                                ]
-                            }
-                        ],
-                        "namelist2": [],
-                        "namelist3": [],
-                        "namelist4": []
+                        ]
                     }
                 ],
+                "namelist1": [
+                    {
+                        "name": "Maxi",
+                        "options": [
+                            {
+                                "id": 8,
+                                "key": "hoodieFlags",
+                                "price": 5
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Maxi",
+                        "options": [
+                            {
+                                "id": 8,
+                                "key": "hoodieFlags",
+                                "price": 5
+                            }
+                        ]
+                    }
+                ],
+                "namelist2": [],
+                "namelist3": [],
+                "namelist4": [],
                 "default_image": "/images/product_images/hoodies_paketbild.jpg"
             }
         },
@@ -692,27 +694,6 @@
                         "prices": [
                             22
                         ],
-                        "namelist1": [
-                            {
-                                "name": "Maxi",
-                                "options": [
-                                    {
-                                        "flag": "de"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Maxi",
-                                "options": [
-                                    {
-                                        "flag": "de"
-                                    }
-                                ]
-                            }
-                        ],
-                        "namelist2": [],
-                        "namelist3": [],
-                        "namelist4": [],
                         "preview": "data:image/png;base64,iajakwdjgawkh3g4dnhbamnmawhdjahg3kjhaxvabwsjkzh3"
                     },
                     {
@@ -836,30 +817,35 @@
                         "prices": [
                             22
                         ],
-                        "namelist1": [
-                            {
-                                "name": "Maxi",
-                                "options": [
-                                    {
-                                        "flag": "de"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Maxi",
-                                "options": [
-                                    {
-                                        "flag": "de"
-                                    }
-                                ]
-                            }
-                        ],
-                        "namelist2": [],
-                        "namelist3": [],
-                        "namelist4": [],
                         "preview": "data:image/png;base64,iajakwdjgawkh3g4dnhbamnmawhdjahg3kjhaxvabwsjkzh3"
                     }
-                ]
+                ],
+                "namelist1": [
+                    {
+                        "name": "Maxi",
+                        "options": [
+                            {
+                                "id": 8,
+                                "key": "hoodieFlags",
+                                "price": 5
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Maxi",
+                        "options": [
+                            {
+                                "id": 8,
+                                "key": "hoodieFlags",
+                                "price": 5
+                            }
+                        ]
+                    }
+                ],
+                "namelist2": [],
+                "namelist3": [],
+                "namelist4": [],
+                "default_image": "/images/product_images/bundles_paketbild.jpg"
             }
         }
     ]

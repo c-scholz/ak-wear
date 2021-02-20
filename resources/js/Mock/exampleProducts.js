@@ -5,7 +5,9 @@ export default {
             name: "Hoodies",
             products: [
                 {
+                    id: 1,
                     name: "Hoodies",
+                    defaultColor: 1,
                     colors: [
                         {
                             id: 1,
@@ -121,7 +123,9 @@ export default {
             name: "Shirts",
             products: [
                 {
+                    id: 2,
                     name: "Shirts",
+                    defaultColor: 1,
                     colors: [
                         {
                             id: 1,
@@ -209,14 +213,16 @@ export default {
                 }
             ],
             price: 16,
-            default_image: "/images/product_images/hoodies_paketbild.jpg"
+            default_image: "/images/product_images/shirts_paketbild.jpg"
         },
         {
             id: 3,
             name: "Bundle",
             products: [
                 {
+                    id: 1,
                     name: "Hoodies",
+                    defaultColor: 1,
                     colors: [
                         {
                             id: 1,
@@ -318,7 +324,9 @@ export default {
                     preview_image: "/images/vorschau.png"
                 },
                 {
+                    id: 2,
                     name: "Shirts",
+                    defaultColor: 1,
                     colors: [
                         {
                             id: 1,
@@ -407,7 +415,7 @@ export default {
                 }
             ],
             price: 33,
-            default_image: "/images/product_images/bundle_paketbild.jpg"
+            default_image: "/images/product_images/bundles_paketbild.jpg"
         }
     ]
 }

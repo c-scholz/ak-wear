@@ -5,6 +5,7 @@ export default {
             name: "Wegflix",
             front_image: "/images/motifs/M024_wegflix_druck_Kopie.svg",
             back_image: "/images/motifs/M024-R_wegflix_druck_Kopie.svg",
+            defaultColor: 1,
             colors: [
                 {
                     id: 1,

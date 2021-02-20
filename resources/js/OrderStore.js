@@ -2,7 +2,7 @@ import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import {baseCartItem, normalizeItem} from "./Mock/baseData"
+import {baseColor, baseItem, baseOption, baseProduct, baseSize, baseMotif} from "./Mock/baseData"
 import exampleProducts from "./Mock/exampleProducts"
 import exampleMotifs from "./Mock/exampleProducts"
 
@@ -27,19 +27,19 @@ const getters = {
 }
 
 const mutations = {
-    ADD_TO_CART(state, item) {
-        console.log(item)
-        let idx = state.cart.push(item)
-        console.log(state.cart[0])
-        state.cart[idx-1].currentEdit = true
+    ADD_TO_CART(state, payload) {
+        state.cart.push(payload)
     },
-    UPDATE_CART_ITEM(state, item) {
+    UPDATE_CART_ITEM(state, payload) {
         let idx = state.cart.findIndex(cartItem => cartItem.currentEdit == true)
-        state.cart[idx] = item
+        state.cart[idx] = payload
     },
-    REMOVE_FROM_CART(state, item) {
-        let idx = state.cart.items.findIndex(cartItem => cartItem.id === item.id)
+    REMOVE_FROM_CART(state, payload) {
+        let idx = state.cart.findIndex(cartItem => cartItem.cartItemId === payload.cartItemId)
         state.cart.splice(idx, 1)
+    },
+    RESET_CART(state) {
+        state.cart = []
     },
     SET_MOTIFS(state, motifs) {
         state.motifs = motifs
@@ -50,10 +50,35 @@ const mutations = {
 }
 
 export const actions = {
-    addToCart({commit}, item) {
-        let commitItem = baseCartItem
-        item = normalizeItem(item)
-        commit('ADD_TO_CART', item)
+    addToCart({commit, state}, item) {
+        let commitItem = baseItem
+        
+        // set up cart related entries
+        commitItem.cartItemId = state.cart.length
+        commitItem.currentEdit = true
+
+        // set up data from chosen product
+        commitItem.itemId = item.id
+        commitItem.name = item.name
+        commitItem.products = item.products.map(product, index => {
+            let commitProduct = baseProduct
+            if(index = 0) commitProduct.currentEdit = true
+            commitProduct.id = product.id
+            commitProduct.name = product.name
+            commitProduct.color = product.colors.find(color => color.id === product.defaultColor)
+            commitProduct.motifColor = baseColor
+            commitProduct.sizes = product.sizes.map(size => {
+                let commitSize = baseSize
+                commitSize.label = size.label
+                return commitSize
+            })
+            commit.motifColor = baseColor
+            return commitProduct
+        })
+        commitItem.default_image = item.default_image
+        commitItem.price = item.price
+
+        commit('ADD_TO_CART', commitItem)
     },
     removeFromCart({commit}, item) {
         commit('REMOVE_FROM_CART', item)
@@ -63,7 +88,7 @@ export const actions = {
             .get('/api/motifs')
             .then(res => {
                 //commit('SET_MOTIFS', res.data)
-                commit('SET_MOTIFS', exampleMotifs)
+                commit('SET_MOTIFS', exampleMotifs.data)
             })
             .catch(err => console.log(err))
     },
@@ -72,10 +97,38 @@ export const actions = {
             .get('/api/products')
             .then(res => {
                 //commit('SET_PRODUCTS', res.data.data)
-                commit('SET_PRODUCTS', exampleProducts)
+                commit('SET_PRODUCTS', exampleProducts.data)
             })
             .catch(err => console.log(err))
     },
+    setTextileColor({commit}, item) {
+        let commitItem = cart.find(cartItem => cartItem.currentEdit === true)
+        let productIdx = commitItem.products.findIndex(product => product.currentEdit === true)
+
+        commitItem.products[productIdx].color = item
+
+        commit('UPDATE_CART_ITEM', commitItem)
+    },
+    setMotif({commit}, item) {
+        let commitItem = cart.find(cartItem => cartItem.currentEdit === true)
+
+        // set default motif color
+        // TODO: check whether motifColor was already set and if the color id is in color list
+        commitItem.products = commitItems.products.map(product => {
+            product.motifColor = item.colors[item.defaultColor]
+            return product
+        })
+
+        commitItem.motif = baseMotif
+        commitItem.motif.id = item.id,
+        commitItem.motif.name = item.name,
+        commitItem.motif.front_image = item.front_image,
+        commitItem.motif.back_image = item.back_image,
+        
+        
+
+        commit('UPDATE_CART_ITEM', commitItem)
+    }
 }
 
 const store = {

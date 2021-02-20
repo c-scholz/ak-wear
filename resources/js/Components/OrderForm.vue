@@ -21,7 +21,7 @@
                         <div class="cardProdukt">
                             <img class="img-fluid card-img-top" :src="product.default_image"
                                 alt="Abschlusspulli Abschlusspullis Abschlussklamotten">
-                            <div class="produktPreis"><span>Je {{ formatPrice(product.prices) }} EUR</span></div>
+                            <div class="produktPreis"><span>Je {{ formatPrice(product.price) }} EUR</span></div>
                             <div class="card-body">
                                 <p class="card-text"><span>{{product.name}}</span></p>
                             </div>

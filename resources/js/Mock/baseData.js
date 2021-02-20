@@ -1,57 +1,27 @@
-export const baseCartItem = {
+export const baseItem = {
     currentEdit: false,
-    item: {}
-}
-
-export const normalizeCartItem = inputItem => {
-    let outputItem = baseCartItem
-    console.log(inputItem, outputItem)
-    outputItem.item = inputItem
-    return outputItem
-}
-
-export const baseData = {
-    id: null,
+    cartItemId: null,
+    itemId: null,
     name: "",
     products: [],
-    default_image: ""
-}
-
-export const normalizeItem = inputItem => {
-    console.log("NORMALIZE ITEM")
-    console.log(inputItem)
-    let outputItem = baseData
-    console.log(outputItem)
-    inputItem = normalizeProduct(inputItem)
-    console.log(outputItem)
-
-}
-
-export const baseProduct =
-{
-    id: null,
-    name: "",
-    color: {},
-    sizes: [],
-    price: 22,
-    options: [],
+    motif: {},
+    default_image: "",
+    price: null,
     namelist1: [],
     namelist2: [],
     namelist3: [],
     namelist4: []
 }
 
-export const normalizeProduct = inputItem => {
-    console.log("NORMALIZE PRODUCT")
-    console.log(inputItem)
-    let outputItem = baseProduct
-    console.log(outputItem)
-    outputItem = {...inputItem}
-    console.log(outputItem)
-    outputItem.color = {}
-    outputItem.sizes.map(size => normalizeSize(size))
-    console.log(outputItem)
-    //return outputItem
+export const baseProduct =
+{
+    currentEdit: false,
+    id: null,
+    name: "",
+    motifColor: {},
+    defaultColor: null,
+    color: {},
+    sizes: [],
 }
 
 export const baseSize = {
@@ -60,17 +30,8 @@ export const baseSize = {
     options: []
 }
 
-export const normalizeSize = inputItem => {
-    console.log("NORMALIZE SIZE")
-    console.log(inputItem)
-    let outputItem = baseSize
-    console.log(outputItem)
-    outputItem = {...inputItem}
-    console.log(outputItem)
-    //return outputItem
-}
-
 export const baseOption = {
+    id: null,
     key: "",
     label: "",
     price: null,
@@ -83,4 +44,12 @@ export const baseColor = {
     value: ""
 }
 
-export default baseCartItem
+export const baseMotif = {
+    id: null,
+    name: "",
+    front_image: "",
+    backImage: "",
+    color: {},
+}
+
+export default baseItem
