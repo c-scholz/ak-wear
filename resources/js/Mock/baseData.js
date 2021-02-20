@@ -22,6 +22,7 @@ export const baseProduct =
     defaultColor: null,
     color: {},
     sizes: [],
+    options: [],
 }
 
 export const baseSize = {

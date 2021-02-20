@@ -124,9 +124,7 @@ export const actions = {
         commitItem.motif.name = item.name,
         commitItem.motif.front_image = item.front_image,
         commitItem.motif.back_image = item.back_image,
-        
-        
-
+             
         commit('UPDATE_CART_ITEM', commitItem)
     }
 }
