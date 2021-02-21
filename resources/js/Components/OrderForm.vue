@@ -16,13 +16,12 @@
                 Falls du einzelne Hoodies oder Shirts zusammen mit dem Bundle bestellen möchtest, kannst du diese später
                 über dein Warenkorb hinzufügen.</p>
             <div class="row form-component product-cards">
-                <div v-if="products.count > 0">Produkte</div>
                 <div v-for="product in products" :key="product.id" class="col-sm-12 col-lg-4">
                     <a class="cardProduktLink" href="#" v-on:click="addToCart(product); nextTab();">
                         <div class="cardProdukt">
                             <img class="img-fluid card-img-top" :src="product.default_image"
                                 alt="Abschlusspulli Abschlusspullis Abschlussklamotten">
-                            <div class="produktPreis"><span>Je {{ formatPrice(product.prices) }} EUR</span></div>
+                            <div class="produktPreis"><span>Je {{ formatPrice(product.price) }} EUR</span></div>
                             <div class="card-body">
                                 <p class="card-text"><span>{{product.name}}</span></p>
                             </div>
@@ -101,7 +100,7 @@
                             </div>
                         </div>
                         <p class="motivPaketTextarea">Änderungen am Motiv</p>
-                        <textarea class="form-control" id="motivAenderung" rows="5"
+                        <textarea class="form-control" name="motivAenderung" rows="5"
                             placeholder="Beispiele: AK21 statt AK20, Bitte anderen Spruch über/unter dem Motiv, Über/Unter dem Motiv den Text weglassen, etc."></textarea>
                     </div>
                 </div>
@@ -404,7 +403,7 @@
                     <!-- ###################### VIERSPALTIG ###################### -->
                     <div class="rueckseiteTextareaContainer">
                         <p class="rueckseiteTextarea">Änderungen auf der Rückseite</p>
-                            <textarea class="form-control" id="motivAenderung" rows="5"
+                            <textarea class="form-control" name="motivAenderungRueckseite" rows="5"
                                 placeholder="Beispiele: Bitte eine Old English Schriftart (oder eine andere?) verwenden, Namen bitte nach dem Nachnamen alphabetisch sortieren, etc."></textarea>
                     </div>
                 </div>
@@ -703,7 +702,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -712,7 +711,7 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>                             
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -722,7 +721,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
 
@@ -732,7 +731,7 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>    
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -742,7 +741,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
 
@@ -752,7 +751,7 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>    
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -762,7 +761,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
 
@@ -772,35 +771,16 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>    
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
                                         </div>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>    
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
                                 </div>
                                 <!-- ###################### HOODIE EINGABE ###################### -->
                                 <!-- ###################### SHIRT EINGABE ###################### -->
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkerUnterarm">
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsLinkerUnterarm">
                                     <p class="sonderdruckEingabe">Shirts - Linker Unterarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarmS" placeholder="Name, .."></div>
@@ -811,7 +791,7 @@
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarm3XL" placeholder=".."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarm4XL" placeholder=".."></div>
                                 </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkerOberarm">
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsLinkerOberarm">
                                     <p class="sonderdruckEingabe">Shirts - Linker Oberarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsLinkerOberarmS" placeholder="Name, .."></div>
@@ -822,7 +802,7 @@
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsLinkerOberarm3XL" placeholder=".."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsLinkerOberarm4XL" placeholder=".."></div>
                                 </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechterUnterarm">
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsRechterUnterarm">
                                     <p class="sonderdruckEingabe">Shirts - Rechter Unterarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsRechterUnterarmS" placeholder="Name, .."></div>
@@ -833,7 +813,7 @@
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsRechterUnterarm3XL" placeholder=".."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsRechterUnterarm4XL" placeholder=".."></div>
                                 </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechterOberarm">
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsRechterOberarm">
                                     <p class="sonderdruckEingabe">Shirts - Rechter Oberarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsRechterOberarmS" placeholder="Name, .."></div>
@@ -844,7 +824,7 @@
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsRechterOberarm3XL" placeholder=".."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsRechterOberarm4XL" placeholder=".."></div>
                                 </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkeBrust">
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsLinkeBrust">
                                     <p class="sonderdruckEingabe">Shirts - Linke Brust</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsLinkeBrustS" placeholder="Name, .."></div>
@@ -855,7 +835,7 @@
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsLinkeBrust3XL" placeholder=".."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsLinkeBrust4XL" placeholder=".."></div>
                                 </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechteBrust">
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsRechteBrust">
                                     <p class="sonderdruckEingabe">Shirts - Rechte Brust</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsRechteBrustS" placeholder="Name, .."></div>
@@ -866,7 +846,7 @@
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsRechteBrust3XL" placeholder=".."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsRechteBrust4XL" placeholder=".."></div>
                                 </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesNameRueckseite">
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsNameRueckseite">
                                     <p class="sonderdruckEingabe">Shirts - Name Rückseite</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsNameRueckseiteS" placeholder="Name, .."></div>
@@ -877,14 +857,14 @@
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsNameRueckseite3XL" placeholder=".."></div>
                                         <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsNameRueckseite4XL" placeholder=".."></div>
                                 </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesFlaggen">
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsFlaggen">
                                     <p class="sonderdruckEingabe">Shirts - Flaggen</p>
                                     <p class="sonderdruckInfo">Wähle bitte die gewünschte Flagge für die jeweiligen Namen.</p>
                                         <p class="sonderdruckNamenslisteFlaggen">1. Spalte</p>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -893,7 +873,7 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>                             
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -903,7 +883,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
 
@@ -913,7 +893,7 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>    
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -923,7 +903,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
 
@@ -933,7 +913,7 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>    
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -943,7 +923,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
 
@@ -953,7 +933,7 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>    
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -962,7 +942,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
                                                     </a>
 
@@ -972,7 +952,7 @@
                                                         </div>
                                                         <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
                                                             <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>    
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -988,7 +968,7 @@
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <order-fieldset-footer button-prev v-on:prev-tab="previousTab()"
                 alert="
-                    Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt! 
+                    Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!
                     Es sind nur maximal 2 Individualisierungen pro Textil möglich!
                 " button-next v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
@@ -1079,13 +1059,15 @@ import { mapActions, mapGetters, mapState } from 'vuex';
             }
         },
         computed: {
-            ...mapState([
-                'products',
-                'motifs'
-            ])
+            ...mapState({
+                products: state => state.shop.products,
+                motifs: state => state.shop.motifs,
+                cart: state => state.cart.cart,
+            })
         },
         created() {
-            this.$store.dispatch('fetchProducts');
+            this.$store.dispatch('shop/fetchProducts')
+            this.$store.dispatch('shop/fetchMotifs')
         },
         mounted() {
             FilePond.registerPlugin(
@@ -1114,16 +1096,20 @@ import { mapActions, mapGetters, mapState } from 'vuex';
         },
         methods: {
             ...mapActions([
-                'addToCart',
-                'removeFromCart',
-                'fetchMotifs',
-                'fetchProducts'
+                'cart/addToCart',
+                'cart/setCurrentItem',
+                'cart/removeFromCart',
+                'cart/setTextileColor',
+                'cart/setMotif',
+                'cart/setMotifColor',
+                'shop/fetchMotifs',
+                'shop/fetchProducts',
             ]),
             nextTab(event) {
-                this.activeTab++;
+                this.activeTab++
             },
             previousTab(event) {
-                this.activeTab--;
+                this.activeTab--
             },
             chooseMotif() {
                 if (this.motifSelection) {
@@ -1136,7 +1122,7 @@ import { mapActions, mapGetters, mapState } from 'vuex';
                 }
             },
             formatPrice(number) {
-                return numeral(number).format("0,0.00");
+                return numeral(number).format("0,0.00")
             },
         }
     }
