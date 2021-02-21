@@ -31,14 +31,6 @@ export const baseSize = {
     options: []
 }
 
-export const baseOption = {
-    id: null,
-    key: "",
-    label: "",
-    price: null,
-    namelist: []
-}
-
 export const baseColor = {
     id: null,
     key: "",

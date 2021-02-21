@@ -1059,14 +1059,15 @@ import { mapActions, mapGetters, mapState } from 'vuex';
             }
         },
         computed: {
-            ...mapState([
-                'products',
-                'motifs',
-                'cart'
-            ])
+            ...mapState({
+                products: state => state.shop.products,
+                motifs: state => state.shop.motifs,
+                cart: state => state.cart.cart,
+            })
         },
         created() {
-            this.$store.dispatch('fetchProducts');
+            this.$store.dispatch('shop/fetchProducts')
+            this.$store.dispatch('shop/fetchMotifs')
         },
         mounted() {
             FilePond.registerPlugin(
@@ -1095,16 +1096,20 @@ import { mapActions, mapGetters, mapState } from 'vuex';
         },
         methods: {
             ...mapActions([
-                'addToCart',
-                'removeFromCart',
-                'fetchMotifs',
-                'fetchProducts'
+                'cart/addToCart',
+                'cart/setCurrentItem',
+                'cart/removeFromCart',
+                'cart/setTextileColor',
+                'cart/setMotif',
+                'cart/setMotifColor',
+                'shop/fetchMotifs',
+                'shop/fetchProducts',
             ]),
             nextTab(event) {
-                this.activeTab++;
+                this.activeTab++
             },
             previousTab(event) {
-                this.activeTab--;
+                this.activeTab--
             },
             chooseMotif() {
                 if (this.motifSelection) {
@@ -1117,7 +1122,7 @@ import { mapActions, mapGetters, mapState } from 'vuex';
                 }
             },
             formatPrice(number) {
-                return numeral(number).format("0,0.00");
+                return numeral(number).format("0,0.00")
             },
         }
     }

@@ -2,7 +2,7 @@ import 'bootstrap';
 
 import Vue from 'vue'
 
-import store from './OrderStore'
+import store from './Store'
 
 import router from './Router'
 
