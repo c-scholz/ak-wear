@@ -30,6 +30,23 @@ const mutations = {
     ADD_TO_CART(state, payload) {
         state.cart.push(payload)
     },
+    SET_CURRENT_ITEM(state, payload) {
+        state.cart = state.cart.map(cartItem => {
+            cartItem.currentEdit = false
+            if(cartItem.cartItemId === payload) cartItem.currentEdit = true
+            return cartItem
+        })
+    },
+    SET_CURRENT_PRODUCT(state, payload) {
+        state.cart = state.cart.map(cartItem => {
+            if(cartItem.currentEdit) cartItem.products = cartItem.products.map(product => {
+                product.currentEdit = false
+                if(product.id === payload) product.currentEdit = true
+                return product
+            })
+            return cartItem
+        })
+    },
     UPDATE_CART_ITEM(state, payload) {
         let idx = state.cart.findIndex(cartItem => cartItem.currentEdit == true)
         state.cart[idx] = payload
@@ -80,6 +97,9 @@ export const actions = {
 
         commit('ADD_TO_CART', commitItem)
     },
+    setCurrentItem({commit}, item){
+        commit('SET_CURRENT_ITEM', item)
+    },
     removeFromCart({commit}, item) {
         commit('REMOVE_FROM_CART', item)
     },
@@ -125,6 +145,14 @@ export const actions = {
         commitItem.motif.front_image = item.front_image,
         commitItem.motif.back_image = item.back_image,
              
+        commit('UPDATE_CART_ITEM', commitItem)
+    },
+    setMotifColor({commit}, item) {
+        let commitItem = cart.find(cartItem => cartItem.currentEdit === true)
+        let productIdx = commitItem.products.findIndex(product => product.currentEdit === true)
+        
+        commitItem.products[productIdx].motifColor = item
+    
         commit('UPDATE_CART_ITEM', commitItem)
     }
 }
