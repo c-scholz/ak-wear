@@ -193,4 +193,23 @@ export default {
 .itemlistButtons:last-child .itemlistButton {
     cursor: pointer;
 }
+
+.tag { 
+    display: flex;
+}
+
+.taglistName {
+    font-family: "Muli Light", sans-serif;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1A1A1A;
+    border: 1px solid #1A1A1A;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 3px 10px 5px;
+}
+
+.taglistButton {
+    
+}
 </style>
