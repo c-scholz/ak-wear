@@ -35,7 +35,7 @@
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
         <fieldset :class="{active: activeTab === 2}" :style="{display: activeTab === 2 ? 'block' : 'none'}">
-            <!-- ###################### CONTENT ###################### -->
+            <!-- ###################### CONTENT ###################### -->            
             <order-fieldset-head title="Vorderseite" button-prev="Textilien" v-on:prev-tab="previousTab()"
                 button-next="Rückseite" v-on:next-tab="nextTab()" />
             <p class="form-text">Konfiguriere dein Motiv.<br>
@@ -99,8 +99,8 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="motivPaketTextarea">Änderungen am Motiv</p>
-                        <textarea class="form-control" name="motivAenderung" rows="5"
+                        <p class="motivPaketTextarea">Bemerkung zum Motiv</p>
+                        <textarea class="form-control" id="motivAenderung" rows="5"
                             placeholder="Beispiele: AK21 statt AK20, Bitte anderen Spruch über/unter dem Motiv, Über/Unter dem Motiv den Text weglassen, etc."></textarea>
                     </div>
                 </div>
@@ -125,6 +125,18 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-lg-12 padding75-2">
+                                <button class="uebernehmen">
+                                   <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'copy']" />&nbsp;&nbsp;Motiv übernehmen (0,00 EUR)</span>
+                                </button>
+                            </div>
+                            <div class="col-lg-12 padding75-2">
+                                <button class="uebernehmen">
+                                    <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'share']" />&nbsp;&nbsp;Anderes Motiv auswählen (+3,50 EUR)</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
                             <motif-card v-for="index in 8" :key="index" :id="index" />
                         </div>
                     </div>
@@ -133,7 +145,7 @@
                             <div class="alert-info" role="alert">
                                 Unsere Grafikabteilung baut das von euch hochgeladene Motiv 1:1 nach. Falls
                                 Änderungswünsche beachtet werden müssen, trage diese bitte links unter
-                                <span>"Änderungen am Motiv"</span> ein!
+                                <span>"Bemerkung zum Motiv"</span> ein!
                             </div>
                             <input type="file" name="filepond" multiple data-max-file-size="3MB" data-max-files="3" />
                         </div>
@@ -145,6 +157,45 @@
             <order-fieldset-footer button-prev v-on:prev-tab="previousTab()" alert="Bitte wähle ein Motiv aus oder lade eins hoch!"
                 button-next v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
+            <div class="abstandhalterFooter"></div>
+                <footer id="shoppingCartFooter">
+                    <div class="container noPadding4Ever">
+                        <div class="row shoppingCart">
+                            <div class="col-3 padding375">
+                                <div class="shoppingCartContainer">
+                                    <div>
+                                        <img class="img-fluid" src="../../assets/img/add_product.svg">
+                                        <span class="ersteZeile">Hinzufügen</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 padding375">
+                                <div class="shoppingCartContainer inactive">
+                                    <div>
+                                        <img class="img-fluid" src="../../assets/img/add_hoodies.svg">
+                                        <span class="ersteZeile">Hoodies</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 padding375">
+                                <div class="shoppingCartContainer active">
+                                    <div>
+                                        <img class="img-fluid" src="../../assets/img/add_shirts.svg">
+                                        <span class="ersteZeile">Shirts</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 padding375">
+                                <div class="shoppingCartContainer inactive">
+                                    <div>
+                                        <img class="img-fluid" src="../../assets/img/add_bundles.svg">
+                                        <span class="ersteZeile">Bundles</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
         </fieldset>
         <fieldset :class="{active: activeTab === 3}" :style="{display: activeTab === 3 ? 'block' : 'none'}">
             <!-- ###################### CONTENT ###################### -->
@@ -402,8 +453,8 @@
                     </div>
                     <!-- ###################### VIERSPALTIG ###################### -->
                     <div class="rueckseiteTextareaContainer">
-                        <p class="rueckseiteTextarea">Änderungen auf der Rückseite</p>
-                            <textarea class="form-control" name="motivAenderungRueckseite" rows="5"
+                        <p class="rueckseiteTextarea">Bemerkung zur Rückseite</p>
+                            <textarea class="form-control" id="motivAenderung" rows="5"
                                 placeholder="Beispiele: Bitte eine Old English Schriftart (oder eine andere?) verwenden, Namen bitte nach dem Nachnamen alphabetisch sortieren, etc."></textarea>
                     </div>
                 </div>
