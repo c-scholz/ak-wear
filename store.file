@@ -1,0 +1,37 @@
+leerer Warenkorb
+-> lade aktuelles Item
+	• Produktwahl
+	? wenn aktuelles Item
+		-> zeige aktuelle Produktwahl
+	-> ersetze Item mit neuem Produkt
+	ODER
+	-> update Produkt-Eigenschaften in aktuellem Item
+	• Vorderseite
+	? wenn aktuelles Item
+		-> lade aktuelle Produktfarbwahl
+	? wenn aktuelles Item Motiv hat
+		-> lade aktuelle Motivwahl
+		-> lade aktuelle Motivfarbwahl
+	-> Auswahl Textilfarbe
+		--> übernehme Produktfarbe in Produkt-Eigenschaften von aktuellem Item
+	-> Auswahl Motiv
+		--> update Motiv von aktuellem Item
+			--> reset Motivfarbauswahl von aktuellem Item
+			ODER
+			--> update Motivfarbauswahl von aktuellem Item
+	-> Auswahl Motivfarbe
+		--> update Motivfarbauswahl von aktuellem Item
+	• Rückseite
+	? wenn aktuelles Item
+		-> lade Namensliste
+	-> Update Namensliste
+		--> update Namensliste von aktuellem Item
+	• Mengen
+	? wenn aktuelles Item
+		-> lade Mengen
+	-> Update Mengen
+		--> update Mengen von aktuellem Item
+	• Sonderdruck
+	? wenn aktuelles Item
+		-> lade Mengen
+			-> lade Sonderdruck-Optionen
