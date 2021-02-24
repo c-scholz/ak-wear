@@ -120,6 +120,8 @@ input::-webkit-inner-spin-button {
 .noPadding4Ever, .noPadding,
 .noPadding767, .noPadding991 { padding-left: 0; padding-right: 0; }
 
+.padding375 { padding-left: 3.75px; padding-right: 3.75px }
+
 .padding75, .padding75-2 { padding-left: 7.5px; padding-right: 7.5px; }
 .padding75Left,
 .padding75Left991 { padding-left: 7.5px; }
@@ -320,6 +322,119 @@ input::-webkit-inner-spin-button {
 
 /* ###################### ONLINE SHOP - PAKETAUSWAHL ###################### */
 
+/* ###################### ONLINE SHOP - SHOPPING CART ###################### */
+.abstandhalterFooter {
+    height: 73px;
+}
+
+#shoppingCartFooter {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    border-top: 2px solid #f2f2f2;
+    border-bottom: 2px solid #fff;
+    margin-top: 15px;
+}
+
+.shoppingCartContainer {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #f2f2f2;
+    border-radius: 12px;
+    padding: 7.5px 15px;
+    cursor: pointer;
+    -ms-user-select: None;
+    -moz-user-select: None;
+    -webkit-user-select: None;
+    user-select: None;
+    transition: all 0.25s;
+}
+
+.shoppingCartContainer:active,
+.shoppingCartContainer:focus,
+.shoppingCartContainer:hover {
+    border-color: #1a1a1a;
+    transition: all 0.25s;
+}
+
+.shoppingCartContainer.active {
+    border-color: #1a1a1a;
+}
+
+.shoppingCartContainer.inactive {
+    cursor: not-allowed;
+}
+
+.shoppingCartContainer.inactive:active,
+.shoppingCartContainer.inactive:focus,
+.shoppingCartContainer.inactive:hover {
+    border-color: #f2f2f2;
+}
+
+.shoppingCartContainer.inactive div {
+    opacity: 0.35;
+}
+
+.shoppingCart {
+    padding: 7.5px 3.75px 7.5px;
+    margin: 0 26px 0 19px;
+}
+
+.shoppingCart img {
+    height: 40px;
+    margin-right: 12px;
+}
+
+.shoppingCart .ersteZeile {
+    position: relative;
+    top: 3px;
+    font-family: "Futura Bold Italic", sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+    .abstandhalterFooter {
+        height: 74px;
+    }
+
+    .shoppingCartContainer {
+        height: 58px;
+        margin-bottom: -5.5px;
+    }
+    
+    .shoppingCart img {
+        margin-right: 0;
+    }
+    
+    .shoppingCart .ersteZeile {
+        display: none;
+    }
+
+    .shoppingCart > div {
+        margin-bottom: 7.5px;
+    }
+
+    .shoppingCart > div:last-child {
+        margin-bottom: 0;
+    }
+
+    .shoppingCart {
+        margin: 0 26px 0 19px;
+    }
+    
+    .shoppingCart .schwarzerBalken {
+        display: none;
+    }
+}
+/* ###################### ONLINE SHOP - SHOPPING CART ###################### */
+
 /* ###################### ONLINE SHOP - FARBEN ######################
 .colorPicker p { font-family: 'Muli ExtraBold', sans-serif; text-align: left; }
 .color-list { list-style: none; padding: 0; }
@@ -378,9 +493,50 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
   }
 ###################### ONLINE SHOP - FARBEN POPOVER ###################### */
 
+.bibliothekTab .uebernehmen {
+    font-family: "Muli ExtraBold", sans-serif;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #fff;
+    background-color: #1A1A1A;
+    border: 1px solid #1A1A1A;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 15px 0 -3px;
+    width: 100%;
+}
+
+.linear-stop1 {
+    stop-color:#ffae27;
+}
+
+.linear-stop2 {
+    stop-color: #d93548;
+}
+
+.bibliothekTab .uebernehmen:focus .uebernehmenText,
+.bibliothekTab .uebernehmen:hover .uebernehmenText {
+    background-image: linear-gradient(to bottom right, #ffae27, #d93548);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bibliothekTab .uebernehmen.inactive:focus .uebernehmenText,
+.bibliothekTab .uebernehmen.inactive:hover .uebernehmenText {
+    background-image: linear-gradient(to bottom right, #a6a6a6, #a6a6a6);
+    color: #a6a6a6;
+}
+
+.bibliothekTab .uebernehmen:focus .fa-copy path, .bibliothekTab .uebernehmen:focus .fa-copy path, .bibliothekTab .uebernehmen:focus .fa-copy path,
+.bibliothekTab .uebernehmen:hover .fa-copy path, .bibliothekTab .uebernehmen:hover .fa-copy path, .bibliothekTab .uebernehmen:hover .fa-copy path,
+.bibliothekTab .uebernehmen:focus .fa-share path, .bibliothekTab .uebernehmen:focus .fa-share path, .bibliothekTab .uebernehmen:focus .fa-share path
+.bibliothekTab .uebernehmen:hover .fa-share path, .bibliothekTab .uebernehmen:hover .fa-share path, .bibliothekTab .uebernehmen:hover .fa-share path {
+    fill: url(#linear);
+}
+
 /* ###################### ONLINE SHOP - SUCHFUNKTION ###################### */
 .suchfunktion .form-group {
-    margin-bottom: -3.5px;
+    margin-bottom: 0;
 }
 
 .suchfunktion .form-group input {
