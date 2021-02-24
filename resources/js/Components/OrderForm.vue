@@ -459,8 +459,55 @@
         </fieldset>
         <fieldset :class="{active: activeTab === 4}" :style="{display: activeTab === 4 ? 'block' : 'none'}">
             <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head title="Sonderdruck" button-prev="Rückseite" v-on:prev-tab="previousTab()"
-                button-next="Menge" v-on:next-tab="nextTab()" />
+            <order-fieldset-head title="Menge" button-prev="Rückseite" v-on:prev-tab="previousTab()"
+                button-next="Sonderdruck" v-on:next-tab="nextTab()" />
+            <p class="form-text">Trage die gewünschten Größen für dein Paket ein.<br>
+                Achte bitte darauf, dass du mindestens 10 Stück bzw. im Bundle gleich viele Hoodies und Shirts
+                einträgst.</p>
+            <div class="row groessenAuswahl">
+                <div class="col-12 col-lg-6 padding75Right991 groessenAbstand">
+                    <div class="groessenContainer">
+                        <p class="groessenText">Wähle die Größen der Hoodies im Bundle</p>
+                        <div class="row">
+                            <size-input v-for="size in ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl']" :key="size" :name="'hoodie_bundle_amount_' + size" :label-size="size.toUpperCase()" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 padding75Left991 groessenAbstand">
+                    <div class="groessenContainer">
+                        <p class="groessenText">Wähle die Größen der Shirts im Bundle</p>
+                        <div class="row">
+                            <size-input v-for="size in ['s', 'm', 'l', 'xl', '2xl', '3xl', '4xl']" :key="size" :name="'shirt_bundle_amount_' + size" :label-size="size.toUpperCase()" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 padding75Right991 groessenAbstand">
+                    <div class="groessenContainer">
+                        <p class="groessenText">Wähle die Größen der Hoodies</p>
+                        <div class="row">
+                            <size-input v-for="size in ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl']" :key="size" :name="'hoodie_amount_' + size" :label-size="size.toUpperCase()" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 padding75Left991">
+                    <div class="groessenContainer">
+                        <p class="groessenText">Wähle die Größen der Shirts</p>
+                        <div class="row">
+                            <size-input v-for="size in ['s', 'm', 'l', 'xl', '2xl', '3xl', '4xl']" :key="size" :name="'shirt_amount_' + size" :label-size="size.toUpperCase()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ###################### CONTENT ###################### -->
+            <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
+            <order-fieldset-footer button-prev v-on:prev-tab="previousTab()" button-final
+                v-on:add-to-cart="addToCart()" />
+            <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
+        </fieldset>
+        <fieldset :class="{active: activeTab === 5}" :style="{display: activeTab === 5 ? 'block' : 'none'}">
+            <!-- ###################### CONTENT ###################### -->
+            <order-fieldset-head title="Sonderdruck" button-prev="Menge" v-on:prev-tab="previousTab()" button-final
+                v-on:add-to-cart="addToCart()" />
             <p class="form-text">
                 Wähle eine Individualisierung oder überspringe diesen Schritt.<br>
                 Möglich sind bis zu zwei Individualisierungen auf einem Textil.
@@ -487,13 +534,6 @@
                                     <p class="sonderdruckEingabe">Hoodies - Linker Unterarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
                                         <item-input v-model="printOptions.sleevePrint.namelist" name="sleeves" type="taglist"/>
-                                            <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XS</div></div><input type="text" class="form-control" id="hoodiesLinkerUnterarmXS" placeholder="Name, .."></div>
-                                            <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="hoodiesLinkerUnterarmS" placeholder="Name, Name, Name, .."></div>
-                                            <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="hoodiesLinkerUnterarmM" placeholder="Name, Name, .."></div>
-                                            <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="hoodiesLinkerUnterarmL" placeholder=".."></div>
-                                            <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="hoodiesLinkerUnterarmXL" placeholder=".."></div>
-                                            <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="hoodiesLinkerUnterarm2XL" placeholder=".."></div>
-                                            <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="hoodiesLinkerUnterarm3XL" placeholder=".."></div>
                                 </div>
                                 <!-- ###################### HOODIE AUSWAHL ###################### -->
                                 <div class="row">
@@ -1042,53 +1082,6 @@
                     Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt! 
                     Es sind nur maximal 2 Individualisierungen pro Textil möglich!
                 " button-next v-on:next-tab="nextTab()" />
-            <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-        </fieldset>
-        <fieldset :class="{active: activeTab === 5}" :style="{display: activeTab === 5 ? 'block' : 'none'}">
-            <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head title="Menge" button-prev="Sonderdruck" v-on:prev-tab="previousTab()" button-final
-                v-on:add-to-cart="addToCart()" />
-            <p class="form-text">Trage die gewünschten Größen für dein Paket ein.<br>
-                Achte bitte darauf, dass du mindestens 10 Stück bzw. im Bundle gleich viele Hoodies und Shirts
-                einträgst.</p>
-            <div class="row groessenAuswahl">
-                <div class="col-12 col-lg-6 padding75Right991 groessenAbstand">
-                    <div class="groessenContainer">
-                        <p class="groessenText">Wähle die Größen der Hoodies im Bundle</p>
-                        <div class="row">
-                            <size-input v-for="size in ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl']" :key="size" :name="'hoodie_bundle_amount_' + size" :label-size="size.toUpperCase()" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 padding75Left991 groessenAbstand">
-                    <div class="groessenContainer">
-                        <p class="groessenText">Wähle die Größen der Shirts im Bundle</p>
-                        <div class="row">
-                            <size-input v-for="size in ['s', 'm', 'l', 'xl', '2xl', '3xl', '4xl']" :key="size" :name="'shirt_bundle_amount_' + size" :label-size="size.toUpperCase()" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 padding75Right991 groessenAbstand">
-                    <div class="groessenContainer">
-                        <p class="groessenText">Wähle die Größen der Hoodies</p>
-                        <div class="row">
-                            <size-input v-for="size in ['xs', 's', 'm', 'l', 'xl', '2xl', '3xl']" :key="size" :name="'hoodie_amount_' + size" :label-size="size.toUpperCase()" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 padding75Left991">
-                    <div class="groessenContainer">
-                        <p class="groessenText">Wähle die Größen der Shirts</p>
-                        <div class="row">
-                            <size-input v-for="size in ['s', 'm', 'l', 'xl', '2xl', '3xl', '4xl']" :key="size" :name="'shirt_amount_' + size" :label-size="size.toUpperCase()" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ###################### CONTENT ###################### -->
-            <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer button-prev v-on:prev-tab="previousTab()" button-final
-                v-on:add-to-cart="addToCart()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
     </form>

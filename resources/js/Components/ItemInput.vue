@@ -1,15 +1,17 @@
 <template>
     <div>
-        <div v-if="isTaglist" class='taglist'>
-            <div class="tag" v-for="(item, index) in items" :key="index">
-                <div class="taglistName noPadding">
-                    {{ item }}
-                </div>
-                <div class="taglistButtons">
-                    <font-awesome-icon class="taglistButton" :icon="['fas', 'times']" v-on:click="removeItem(index)" />
+        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input class="form-control" type="text" :name="name" :placeholder="placeholder" v-on:keydown.enter="addItem"></div>
+        <div class="taglistContainer">
+            <div v-if="isTaglist" class='taglist'>
+                <div class="tag" v-for="(item, index) in items" :key="index">
+                    <div class="taglistName noPadding">
+                        {{ item }}
+                    </div>
+                    <div class="taglistButtons">
+                        <font-awesome-icon class="taglistButton" :icon="['fas', 'times']" v-on:click="removeItem(index)" />
+                    </div>
                 </div>
             </div>
-            <input class="form-control inputAbstand" type="text" :name="name" :placeholder="placeholder" v-on:keydown.enter="addItem">
         </div>
         <div v-if="isItemlist" class="itemlist">
             <input class="form-control inputAbstand" type="text" :name="name" :placeholder="placeholder" v-on:keydown.enter="addItem">
@@ -64,7 +66,7 @@ export default {
         },
         placeholder: {
             type: String,
-            default: 'Hier Element eingeben',
+            default: 'Name, Name, ..',
         },
         type: {
             type: String,
@@ -194,22 +196,43 @@ export default {
     cursor: pointer;
 }
 
-.tag { 
-    display: flex;
+.form-control {
+    border: 2px solid #f2f2f2;
+    border-left: 0;
+    border-bottom-right-radius: 0;
+}
+.taglistContainer {
+    border: 2px solid #f2f2f2;
+    border-top: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 2.5px;
 }
 
-.taglistName {
+.tag { 
+    display: inline-flex;
     font-family: "Muli Light", sans-serif;
-    font-size: 16px;
+    font-size: 13px;
     color: #fff;
     background-color: #1A1A1A;
     border: 1px solid #1A1A1A;
     border-radius: 5px;
-    width: fit-content;
-    padding: 3px 10px 5px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.taglistName {
+    margin-right: 5px;
 }
 
 .taglistButton {
-    
+    position: relative;
+    font-size: 12px;
+    align-items: center;
+    cursor: pointer;
 }
+
+.linear-stop1 { stop-color:#ffae27; }
+.linear-stop2 { stop-color: #d93548; }
+.taglistButton:focus path, .taglistButton:hover path { fill: url(#linear); }
 </style>
