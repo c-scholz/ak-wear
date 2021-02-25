@@ -2,7 +2,7 @@ import 'bootstrap';
 
 import Vue from 'vue'
 
-import store from './OrderStore'
+import store from './Store'
 
 import router from './Router'
 
@@ -22,7 +22,8 @@ import {
     faTint,
     faExclamation,
     faGripVertical,
-    faArrowsAlt
+    faArrowsAlt,
+    faCopy
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faWhatsapp
@@ -40,7 +41,8 @@ library.add(faEllipsisV,
     faExclamation,
     faGripVertical,
     faArrowsAlt,
-    faWhatsapp)
+    faWhatsapp,
+    faCopy)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 const app = new Vue({
@@ -49,3 +51,7 @@ const app = new Vue({
   store: store,
   render: h => h(App),
 }).$mount(document.getElementById('app'));
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
