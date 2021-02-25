@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p>{{ text }}</p>
         <ul>
             <li v-for="color in colors"  
                 :key="color.name" 
@@ -35,17 +34,13 @@
 </script>
 
 <style scoped>
-    p { font-family: 'Muli ExtraBold', sans-serif; margin-bottom: -4px; }
-    ul { list-style: none; padding: 0; margin: 10px auto 0; }
+    ul { list-style: none; padding: 0; margin: 0 auto; }
     li { 
         display: inline-block;
-        height: 24px;
-        width: 24px;
+        height: 25px;
+        width: 25px;
         border-radius: 6px;
-        transition: transform 0.25s;
-        margin: 2.5px 5.5px;
+        margin: 0 3.5px;
         cursor: pointer;
     }
-    li:not(.active):hover { transform: scale(1.1); }
-    li.active { transform: scale(1.2); box-shadow: 0 0 0 2px #ffae27; }
 </style>
