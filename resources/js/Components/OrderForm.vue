@@ -226,45 +226,6 @@
             <order-fieldset-footer button-prev v-on:prev-tab="previousTab()" alert="Bitte wähle ein Motiv aus oder lade eins hoch!"
                 button-next v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <div class="abstandhalterFooter"></div>
-                <footer id="shoppingCartFooter">
-                    <div class="container noPadding4Ever">
-                        <div class="row shoppingCart">
-                            <div class="col-3 padding375">
-                                <div class="shoppingCartContainer">
-                                    <div>
-                                        <img class="img-fluid" src="../../assets/img/add_product.svg">
-                                        <span class="ersteZeile">Hinzufügen</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 padding375">
-                                <div class="shoppingCartContainer inactive">
-                                    <div>
-                                        <img class="img-fluid" src="../../assets/img/add_hoodies.svg">
-                                        <span class="ersteZeile">Hoodies</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 padding375">
-                                <div class="shoppingCartContainer active">
-                                    <div>
-                                        <img class="img-fluid" src="../../assets/img/add_shirts.svg">
-                                        <span class="ersteZeile">Shirts</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 padding375">
-                                <div class="shoppingCartContainer inactive">
-                                    <div>
-                                        <img class="img-fluid" src="../../assets/img/add_bundles.svg">
-                                        <span class="ersteZeile">Bundles</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
         </fieldset>
         <fieldset :class="{active: activeTab === 3}" :style="{display: activeTab === 3 ? 'block' : 'none'}">
             <!-- ###################### CONTENT ###################### -->
@@ -1140,6 +1101,44 @@
                 v-on:add-to-cart="addToCart()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
+            <div v-show="activeTab !== 1" id="shoppingCartFooter">
+                <div class="container noPadding4Ever">
+                    <div class="row shoppingCart">
+                        <div class="col-3 padding375">
+                            <div class="shoppingCartContainer">
+                                <div>
+                                    <img class="img-fluid" src="../../assets/img/add_product.svg">
+                                    <span class="ersteZeile">Hinzufügen</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 padding375">
+                            <div class="shoppingCartContainer inactive">
+                                <div>
+                                    <img class="img-fluid" src="../../assets/img/add_hoodies.svg">
+                                    <span class="ersteZeile">Hoodies</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 padding375">
+                            <div class="shoppingCartContainer active">
+                                <div>
+                                    <img class="img-fluid" src="../../assets/img/add_shirts.svg">
+                                    <span class="ersteZeile">Shirts</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 padding375">
+                            <div class="shoppingCartContainer inactive">
+                                <div>
+                                    <img class="img-fluid" src="../../assets/img/add_bundles.svg">
+                                    <span class="ersteZeile">Bundles</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </form>
 </template>
 <script>
