@@ -649,52 +649,17 @@
                             <!-- ###################### HOODIE AUSWAHL ###################### -->
                             <!-- ###################### SHIRT AUSWAHL ###################### -->
                             <div class="row">
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodieLeftLowerArm">
-                                    <p class="sonderdruckEingabe">Hoodies - Linker Unterarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                    <item-input 
-                                        name="sleeves" 
-                                        type="taglist"
-                                        label="S"
-                                        :placeholder="'Hier Namen eingeben'"
-                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
-                                        v-model="printOptions.sleevePrint.namelist" 
-                                    />
-                                    <item-input 
-                                        name="sleeves" 
-                                        type="taglist"
-                                        label="M"
-                                        :placeholder="'Hier Namen eingeben'"
-                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
-                                        v-model="printOptions.sleevePrint.namelist" 
-                                    />
-                                    <item-input 
-                                        name="sleeves" 
-                                        type="taglist"
-                                        label="L"
-                                        :placeholder="'Hier Namen eingeben'"
-                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
-                                        v-model="printOptions.sleevePrint.namelist" 
-                                    />
-                                    <item-input 
-                                        name="sleeves" 
-                                        type="taglist"
-                                        label="XL"
-                                        :placeholder="'Hier Namen eingeben'"
-                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
-                                        v-model="printOptions.sleevePrint.namelist" 
-                                    />
-                                </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodieLeftUpperArm">
-                                    <p class="sonderdruckEingabe">Hoodies - Linker Oberarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                    <item-input 
-                                        name="sleeves" 
-                                        type="taglist"
-                                        :placeholder="'Hier Namen eingeben'"
-                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
-                                        v-model="printOptions.sleevePrint.namelist" 
-                                    />
+                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                    <label for="sonderdruckSelected-item-12" class="sonderdruckSelected-label">
+                                        <div class="inputText">Linker Oberarm</div>
+                                        <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-12">
+                                        <span class="sonderdruckIcon">
+                                            <font-awesome-icon :icon="['fas', 'check']" /></span>
+                                        <div class="sonderdruckSelected-content">
+                                            <img class="img-fluid shirtGroessen" src="../../assets/img/shirt_linker_oberarm.png" alt="">
+                                            <div class="motivLink">+3,50 EUR</div>
+                                        </div>
+                                    </label>
                                 </div>
                                 <div class="col-md-6 padding75Left991-2 paddingRight0paddingLeft75">
                                     <label for="sonderdruckSelected-item-12" class="sonderdruckSelected-label">
@@ -759,79 +724,383 @@
                             </div>
                             <!-- ###################### SHIRT AUSWAHL ###################### -->
                             <!-- ###################### HOODIE EINGABE ###################### -->
-                                
-
-
-
-
-
-
-
+                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodieLeftLowerArm">
+                                    <p class="sonderdruckEingabe">Hoodies - Linker Unterarm</p>
+                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XS"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkerOberarm">
                                     <p class="sonderdruckEingabe">Hoodies - Linker Oberarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XS</div></div><input type="text" class="form-control" id="hoodiesLinkerOberarmXS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="hoodiesLinkerOberarmS" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="hoodiesLinkerOberarmM" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="hoodiesLinkerOberarmL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="hoodiesLinkerOberarmXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="hoodiesLinkerOberarm2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="hoodiesLinkerOberarm3XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XS"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechterUnterarm">
                                     <p class="sonderdruckEingabe">Hoodies - Rechter Unterarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XS</div></div><input type="text" class="form-control" id="hoodiesRechterUnterarmXS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="hoodiesRechterUnterarmS" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="hoodiesRechterUnterarmM" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="hoodiesRechterUnterarmL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="hoodiesRechterUnterarmXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="hoodiesRechterUnterarm2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="hoodiesRechterUnterarm3XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XS"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechterOberarm">
                                     <p class="sonderdruckEingabe">Hoodies - Rechter Oberarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XS</div></div><input type="text" class="form-control" id="hoodiesRechterOberarmXS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="hoodiesRechterOberarmS" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="hoodiesRechterOberarmM" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="hoodiesRechterOberarmL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="hoodiesRechterOberarmXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="hoodiesRechterOberarm2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="hoodiesRechterOberarm3XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XS"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkeBrust">
                                     <p class="sonderdruckEingabe">Hoodies - Linke Brust</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XS</div></div><input type="text" class="form-control" id="hoodiesLinkeBrustXS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="hoodiesLinkeBrustS" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="hoodiesLinkeBrustM" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="hoodiesLinkeBrustL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="hoodiesLinkeBrustXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="hoodiesLinkeBrust2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="hoodiesLinkeBrust3XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XS"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechteBrust">
                                     <p class="sonderdruckEingabe">Hoodies - Rechte Brust</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XS</div></div><input type="text" class="form-control" id="hoodiesRechteBrustXS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="hoodiesRechteBrustS" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="hoodiesRechteBrustM" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="hoodiesRechteBrustL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="hoodiesRechteBrustXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="hoodiesRechteBrust2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="hoodiesRechteBrust3XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XS"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesNameRueckseite">
                                     <p class="sonderdruckEingabe">Hoodies - Name Rückseite</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XS</div></div><input type="text" class="form-control" id="hoodiesNameRueckseiteXS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="hoodiesNameRueckseiteS" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="hoodiesNameRueckseiteM" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="hoodiesNameRueckseiteL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="hoodiesNameRueckseiteXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="hoodiesNameRueckseite2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="hoodiesNameRueckseite3XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XS"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesFlaggen">
                                     <p class="sonderdruckEingabe">Hoodies - Flaggen</p>
@@ -937,82 +1206,275 @@
                                 </div>
                                 <!-- ###################### HOODIE EINGABE ###################### -->
                                 <!-- ###################### SHIRT EINGABE ###################### -->
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkerUnterarm">
-                                    <p class="sonderdruckEingabe">Shirts - Linker Unterarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarmS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarmM" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarmL" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarmXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarm2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarm3XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsLinkerUnterarm4XL" placeholder=".."></div>
-                                </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkerOberarm">
                                     <p class="sonderdruckEingabe">Shirts - Linker Oberarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsLinkerOberarmS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="shirtsLinkerOberarmM" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="shirtsLinkerOberarmL" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="shirtsLinkerOberarmXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="shirtsLinkerOberarm2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsLinkerOberarm3XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsLinkerOberarm4XL" placeholder=".."></div>
-                                </div>
-                                <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechterUnterarm">
-                                    <p class="sonderdruckEingabe">Shirts - Rechter Unterarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsRechterUnterarmS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="shirtsRechterUnterarmM" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="shirtsRechterUnterarmL" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="shirtsRechterUnterarmXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="shirtsRechterUnterarm2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsRechterUnterarm3XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsRechterUnterarm4XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="4XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechterOberarm">
                                     <p class="sonderdruckEingabe">Shirts - Rechter Oberarm</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsRechterOberarmS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="shirtsRechterOberarmM" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="shirtsRechterOberarmL" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="shirtsRechterOberarmXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="shirtsRechterOberarm2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsRechterOberarm3XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsRechterOberarm4XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="4XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkeBrust">
                                     <p class="sonderdruckEingabe">Shirts - Linke Brust</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsLinkeBrustS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="shirtsLinkeBrustM" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="shirtsLinkeBrustL" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="shirtsLinkeBrustXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="shirtsLinkeBrust2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsLinkeBrust3XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsLinkeBrust4XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="4XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechteBrust">
                                     <p class="sonderdruckEingabe">Shirts - Rechte Brust</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsRechteBrustS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="shirtsRechteBrustM" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="shirtsRechteBrustL" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="shirtsRechteBrustXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="shirtsRechteBrust2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsRechteBrust3XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsRechteBrust4XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="4XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesNameRueckseite">
                                     <p class="sonderdruckEingabe">Shirts - Name Rückseite</p>
                                     <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input type="text" class="form-control" id="shirtsNameRueckseiteS" placeholder="Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">M</div></div><input type="text" class="form-control" id="shirtsNameRueckseiteM" placeholder="Name, Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">L</div></div><input type="text" class="form-control" id="shirtsNameRueckseiteL" placeholder="Name, Name, .."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">XL</div></div><input type="text" class="form-control" id="shirtsNameRueckseiteXL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">2XL</div></div><input type="text" class="form-control" id="shirtsNameRueckseite2XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">3XL</div></div><input type="text" class="form-control" id="shirtsNameRueckseite3XL" placeholder=".."></div>
-                                        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">4XL</div></div><input type="text" class="form-control" id="shirtsNameRueckseite4XL" placeholder=".."></div>
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="S"
+                                        :placeholder="'Name, ..'"
+                                        :preset="['Max Mustermann', 'Marie Musterfrau']"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="M"
+                                        :placeholder="'Name, Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="L"
+                                        :placeholder="'Name, Name, ..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="2XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="3XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
+                                    <item-input 
+                                        name="sleeves" 
+                                        type="taglist"
+                                        label="4XL"
+                                        :placeholder="'..'"
+                                        v-model="printOptions.sleevePrint.namelist" 
+                                    />
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesFlaggen">
                                     <p class="sonderdruckEingabe">Shirts - Flaggen</p>

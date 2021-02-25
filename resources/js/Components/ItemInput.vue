@@ -67,7 +67,7 @@ export default {
         },
         preset: {
             type: Array,
-            default: () => ['Item 1'],
+            default: Array
         },
         placeholder: {
             type: String,
@@ -212,6 +212,11 @@ export default {
     border-left: 0;
     border-bottom-right-radius: 0;
 }
+
+.taglist {
+    margin-bottom: 15px;
+}
+
 .taglistContainer {
     border: 2px solid #f2f2f2;
     border-top: 0;
@@ -224,11 +229,8 @@ export default {
     display: inline-flex;
     font-family: "Muli Light", sans-serif;
     font-size: 13px;
-    color: #fff;
-    background-color: #1A1A1A;
-    border: 1px solid #1A1A1A;
-    border-radius: 5px;
-    padding: 5px 10px;
+    color: #1a1a1a;
+    padding: 0 5px;
     margin: 5px;
 }
 
