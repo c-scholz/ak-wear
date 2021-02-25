@@ -51,7 +51,6 @@
                         </div>
                         <div class="motivVorschauBild">
                             <canvas>
-                                <img class="motiv horizontalesMotiv" src="../../assets/img/motiv_abschlussmeister.png">
                             </canvas>
                             <img class="img-fluid" src="../../assets/img/vorschau.png">
                         </div>
@@ -258,7 +257,6 @@
                                     </div>
                                     <img class="img-fluid" src="../../assets/img/rueckseite-vorschau.png">
                                     <canvas>
-                                      <img class="motiv horizontalesMotiv" src="../../assets/img/motiv_abschlussmeister.png">
                                     </canvas>
                                 </div>
                             </div>
