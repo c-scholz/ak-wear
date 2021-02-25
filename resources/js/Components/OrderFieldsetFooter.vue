@@ -13,7 +13,7 @@
           <span>Weiter&nbsp;&nbsp;<font-awesome-icon style="transform: scaleX(-1)" :icon="['fas', 'reply']" /></span>
         </span>
       </button>
-      <button v-if="buttonFinal" type="button" name="next" class="stepButton" v-on:click="$emit('add-to-cart')">
+      <button v-if="buttonFinal" type="button" name="next" class="next stepButton" v-on:click="$emit('add-to-cart')">
         <span>
           <span>Warenkorb&nbsp;&nbsp;<font-awesome-icon :icon="['fas', 'check']" /></span>
         </span>

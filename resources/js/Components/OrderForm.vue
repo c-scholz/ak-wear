@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="row textilMotivFarbe noPadding4Ever">
-                            <div class="col-md-6 noPadding767Left padding75Right">
+                            <div class="col-xl-6 noPadding1199Left padding75Right-2 textilMotivFarbeMobilAbstand">
                                 <div class="input-group">
                                     <span class="farbeText">Textilfarbe</span>
                                     <div class="input-group-prepend">
@@ -94,7 +94,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 noPadding767Right padding75Left">
+                            <div class="col-xl-6 noPadding1199Right padding75Left-2">
                                 <div class="input-group">
                                     <span class="farbeText">Motivfarbe</span>
                                     <div class="input-group-prepend">
@@ -263,7 +263,7 @@
                         </div>
                         <div class="col-md-12 col-lg-6 col-xl-7">
                             <div class="row namenslisteFormate">
-                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75v">
                                     <label for="selected-item-1" class="selected-label">
                                         <div class="inputText">1-Spaltig</div>
                                         <input type="radio" v-model.number="nameListColumns" name="selected-item" id="selected-item-1" value="1">
