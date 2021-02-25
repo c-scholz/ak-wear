@@ -94,7 +94,7 @@ fieldset {
 textarea.form-control,
 input.form-control,
 select.custom-select {
-    border-color: #e6e6e6;
+    border-color: #f2f2f2;
     border-radius: 12px;
     border-width: 2px;
 }
@@ -541,7 +541,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     letter-spacing: 1px;
     text-transform: uppercase;
     height: 40px;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     border-radius: 12px;
     padding: 0 0.75rem;
     margin: 0 7.5px;
@@ -795,7 +795,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
 
 .colorContainer,
 .colorContainer2 {
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     border-radius: 12px;
     padding: 10px 8.8px 4px;
 }
@@ -1161,7 +1161,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
 .hoodieAermeldruckBrustdruckEingabe {
     border: 2px solid #f2f2f2;
     border-radius: 12px;
-    padding: 14px 15px 15px;
+    padding: 14px 15px 0;
 }
 
 .hoodieAermeldruckBrustdruckEingabe input {
@@ -1188,7 +1188,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     margin: 0 0 9px 0;
 }
 
-.sonderdruck .input-group {
+#hoodiesFlaggen .input-group {
     margin-bottom: 15px;
 }
 
@@ -1216,9 +1216,8 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     padding: 0;
     color: #1a1a1a;
     background-color: transparent;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active:focus,
@@ -1240,7 +1239,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     background: transparent;
     width: 200px;
     max-width: 82px;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     border-radius: 0;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -1278,7 +1277,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     border-radius: 12px;
     height: 40px;
     padding: 0 0.75rem;
@@ -1306,7 +1305,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     font-family: "Muli Light", sans-serif;
     text-align: left;
     line-height: 1.4;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     border-left: 0;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
@@ -1331,7 +1330,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     line-height: 15px;
     border: 2px solid transparent;
     border-radius: 12px;
-    padding: 1px 5px;
+    padding: 1px 5px 0;
     -ms-user-select: None;
     -moz-user-select: None;
     -webkit-user-select: None;
@@ -1602,7 +1601,7 @@ hr {
     -webkit-appearance: textarea;
     overflow: auto;
     resize: both;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     width: 100%;
@@ -1613,61 +1612,6 @@ hr {
 
 .namelistContainer .form-control {
     margin-top: 10px;
-}
-
-.nameContainer {
-    font-family: 'Muli Light', sans-serif;
-    margin-top: 15px;
-}
-
-.nameContainer > div {
-    border-bottom: 1px solid #e6e6e6;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    list-style: none;
-    padding-bottom: 7px;
-    margin-bottom: 10px;
-}
-
-.nameContainer div .namelistButtons {
-    display: flex;
-    align-items: center;
-}
-
-.nameContainer div .namelistButton:active,
-.nameContainer div .namelistButton:focus,
-.nameContainer div .namelistButton:hover {
-    background: #1a1a1a;
-    color: #fff;
-    border: 2px solid transparent;
-    transition: all 0.25s;
-}
-
-.nameContainer div .namelistButton {
-    color: #1a1a1a;
-    height: 25px;
-    width: 25px;
-    border: 2px solid #1a1a1a;
-    border-radius: 5px;
-    padding: 4px;
-}
-
-.namelistButtons:first-child {
-    padding-left: 0;
-}
-
-.namelistButtons:last-child {
-    padding-right: 0;
-}
-
-.namelistButtons:first-child .namelistButton {
-    cursor: move;
-}
-
-.namelistButtons:last-child .namelistButton {
-    cursor: pointer;
 }
 /* ###################### ONLINE SHOP - SELECT RADIO CARD CONTENT ###################### */
 
@@ -1726,7 +1670,7 @@ hr {
     padding: 0;
     color: #1a1a1a;
     background-color: transparent;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
@@ -1737,7 +1681,7 @@ hr {
 .input-number-plus {
     font-family: 'Muli Light', sans-serif !important;
     font-size: 14px !important;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #f2f2f2;
     color: #1A1A1A;
     height: 38px;
     user-select: none;
@@ -1756,7 +1700,7 @@ hr {
 
 .input-number-minus:active,
 .input-number-plus:active {
-    background: #e6e6e6;
+    background: #f2f2f2;
 }
 
 .input-number-minus {
@@ -1765,7 +1709,7 @@ hr {
 }
 
 .input-number-plus {
-    border-left: 2px solid #e6e6e6;
+    border-left: 2px solid #f2f2f2;
     border-radius: 0 12px 12px 0;
 }
 
