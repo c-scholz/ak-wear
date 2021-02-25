@@ -1,8 +1,13 @@
 <template>
     <div>
-        <div class="input-group"><div class="input-group-prepend"><div class="input-group-text">S</div></div><input class="form-control" type="text" :name="name" :placeholder="placeholder" v-on:keydown.enter="addItem"></div>
-        <div class="taglistContainer">
-            <div v-if="isTaglist" class='taglist'>
+        <div v-if="isTaglist" class='taglist'>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">{{ label }}</div>
+                </div>
+                <input class="form-control" type="text" :name="name" :placeholder="placeholder" v-on:keydown.enter="addItem">
+            </div>
+            <div class="taglistContainer">
                 <div class="tag" v-for="(item, index) in items" :key="index">
                     <div class="taglistName noPadding">
                         {{ item }}
@@ -68,6 +73,10 @@ export default {
             type: String,
             default: 'Name, Name, ..',
         },
+        label: {
+            type: String,
+            default: ""
+        },
         type: {
             type: String,
             default: types.TAGLIST,
@@ -116,8 +125,9 @@ export default {
     methods: {
         addItem(event) {
             event.preventDefault();
-            console.log('pre add', this.items.length);
+
             var item = event.target.value;
+
             if(item.length > 0) {
                 if(this.items.length >= this.maxEntries) {
                     this.$emit('warning', `Der ausgewählten Liste können maximal ${ this.maxEntries } Elemente hinzugefügt werden!`);
@@ -126,11 +136,12 @@ export default {
                 this.items.push(item);
                 event.target.value = '';
             }
+
             this.$emit('input', this.items);
         }, 
         removeItem(index) {
-            console.log('pre remove', this.items.length)
             this.items.splice(index, 1);
+
             this.$emit('input', this.items);
         },
     },
