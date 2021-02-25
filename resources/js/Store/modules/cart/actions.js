@@ -1,4 +1,4 @@
-import {baseColor, baseItem, baseProduct, baseSize, baseMotif} from "../../mock/baseData"
+import { baseColor, baseItem, baseMotif, baseProduct, baseSize } from "../../mock/baseData"
 
 const actions = {
     addToCart({commit, state}, item) {
@@ -11,7 +11,7 @@ const actions = {
         // set up data from chosen product
         commitItem.itemId = item.id
         commitItem.name = item.name
-        commitItem.products = item.products.map(product, index => {
+        commitItem.products = item.products.map((product, index) => {
             let commitProduct = baseProduct
             if(index = 0) commitProduct.currentEdit = true
             commitProduct.id = product.id

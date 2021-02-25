@@ -223,8 +223,12 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer button-prev v-on:prev-tab="previousTab()" alert="Bitte wähle ein Motiv aus oder lade eins hoch!"
-                button-next v-on:next-tab="nextTab()" />
+            <order-fieldset-footer 
+                button-prev 
+                v-on:prev-tab="previousTab()" 
+                alert="Bitte wähle ein Motiv aus oder lade eins hoch!"
+                button-next 
+                v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <div class="abstandhalterFooter"></div>
                 <footer id="shoppingCartFooter">
@@ -268,8 +272,13 @@
         </fieldset>
         <fieldset :class="{active: activeTab === 3}" :style="{display: activeTab === 3 ? 'block' : 'none'}">
             <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head title="Rückseite" button-prev="Vorderseite" v-on:prev-tab="previousTab()"
-                button-next="Sonderdruck" v-on:next-tab="nextTab()" />
+            <order-fieldset-head 
+                title="Rückseite" 
+                button-prev="Vorderseite" 
+                v-on:prev-tab="previousTab()"
+                button-next="Menge" 
+                v-on:next-tab="nextTab()" 
+            />
             <p class="form-text">Wähle das Format deiner Rückseite.<br>
                 Die oberen zwei, sowie die unteren drei Felder für die Rückseite sind optional und werden nicht beachtet, wenn nichts
                 eingetragen wird.
@@ -590,14 +599,24 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer button-prev v-on:prev-tab="previousTab()"
-                alert="Bitte trage die Namen für die Rückseite ein!" button-next v-on:next-tab="nextTab()" />
+            <order-fieldset-footer 
+                button-prev
+                v-on:prev-tab="previousTab()"
+                alert="Bitte trage die Namen für die Rückseite ein!"
+                button-next
+                v-on:next-tab="nextTab()" 
+            />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
         <fieldset :class="{active: activeTab === 4}" :style="{display: activeTab === 4 ? 'block' : 'none'}">
             <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head title="Menge" button-prev="Rückseite" v-on:prev-tab="previousTab()"
-                button-next="Sonderdruck" v-on:next-tab="nextTab()" />
+            <order-fieldset-head 
+                title="Menge" 
+                button-prev="Rückseite" 
+                v-on:prev-tab="previousTab()"
+                button-next="Sonderdruck" 
+                v-on:next-tab="nextTab()" 
+            />
             <p class="form-text">Trage die gewünschten Größen für dein Paket ein.<br>
                 Achte bitte darauf, dass du mindestens 10 Stück bzw. im Bundle gleich viele Hoodies und Shirts
                 einträgst.</p>
@@ -637,14 +656,23 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer button-prev v-on:prev-tab="previousTab()" button-final
-                v-on:add-to-cart="addToCart()" />
+            <order-fieldset-footer 
+                button-prev
+                v-on:prev-tab="previousTab()"
+                alert="Bitte wähle aus wie viele Textilien du in welchen Größen benötigtst!"
+                button-next
+                v-on:next-tab="nextTab()"
+            />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
         <fieldset :class="{active: activeTab === 5}" :style="{display: activeTab === 5 ? 'block' : 'none'}">
             <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head title="Sonderdruck" button-prev="Menge" v-on:prev-tab="previousTab()" button-final
-                v-on:add-to-cart="addToCart()" />
+            <order-fieldset-head 
+                title="Sonderdruck" 
+                button-prev="Menge" 
+                v-on:prev-tab="previousTab()"
+                button-final
+            />
             <p class="form-text">
                 Wähle eine Individualisierung oder überspringe diesen Schritt.<br>
                 Möglich sind bis zu zwei Individualisierungen auf einem Textil.
@@ -1685,11 +1713,12 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer button-prev v-on:prev-tab="previousTab()"
-                alert="
-                    Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!
-                    Es sind nur maximal 2 Individualisierungen pro Textil möglich!
-                " button-next v-on:next-tab="nextTab()" />
+            <order-fieldset-footer 
+                button-prev
+                v-on:prev-tab="previousTab()"
+                alert="Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!<br/>Es sind nur maximal 2 Individualisierungen pro Textil möglich!"
+                button-final
+                v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
     </form>
@@ -1779,15 +1808,17 @@ import { mapActions, mapGetters, mapState } from 'vuex';
             numeral.locale('de');
         },
         methods: {
-            ...mapActions([
-                'cart/addToCart',
-                'cart/setCurrentItem',
-                'cart/removeFromCart',
-                'cart/setTextileColor',
-                'cart/setMotif',
-                'cart/setMotifColor',
-                'shop/fetchMotifs',
-                'shop/fetchProducts',
+            ...mapActions('cart', [
+                'addToCart',
+                'setCurrentItem',
+                'removeFromCart',
+                'setTextileColor',
+                'setMotif',
+                'setMotifColor',
+            ]),
+            ...mapActions('shop', [
+                'fetchMotifs',
+                'fetchProducts',
             ]),
             nextTab(event) {
                 this.activeTab++
