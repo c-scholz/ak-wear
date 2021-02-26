@@ -122,7 +122,7 @@ input::-webkit-inner-spin-button {
 
 .padding375 { padding-left: 3.75px; padding-right: 3.75px }
 
-.padding75, .padding75-2 { padding-left: 7.5px; padding-right: 7.5px; }
+.padding75, .padding75-2, .padding75-3 { padding-left: 7.5px; padding-right: 7.5px; }
 .padding75Left,
 .padding75Left-2,
 .padding75Left991 { padding-left: 7.5px; }
@@ -130,7 +130,8 @@ input::-webkit-inner-spin-button {
 .padding75Right-2,
 .padding75Right991 { padding-right: 7.5px; }
 
-.paddingRight0paddingLeft75 { padding-left: 7.5px; padding-right: 0; }
+.paddingRight0paddingLeft75,
+.paddingRight0paddingLeft75-2 { padding-left: 7.5px; padding-right: 0; }
 .paddingLeft0paddingRight75 { padding-left: 0; padding-right: 7.5px; }
 
 .noPadding575 { padding-left: 15px; padding-right: 15px; }
@@ -250,10 +251,25 @@ input::-webkit-inner-spin-button {
     border-radius: 12px;
     margin: 0 auto 15px;
     padding: 8px 15px 9px;
+    background-image: url(../assets/img/form-text_logo.png);
+    background-position-x: 15px;
+    background-position-y: -30px;
+    background-repeat: no-repeat;
+    background-size: 120px;
 }
 /* ###################### ONLINE SHOP - TITEL UND TEXT ###################### */
 
 /* ###################### ONLINE SHOP - PAKETAUSWAHL ###################### */
+.product-cards {
+    margin: 0 7.5px;
+}
+
+@media (max-width: 991px) {
+    .product-cards {
+        margin: 0 15px;
+    }
+}
+
 .cardProdukt {
     position: relative;
     z-index: 999;
@@ -1149,21 +1165,11 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     padding-left: 0;
 }
 
-.sonderdruckVorschau {
-    border: 2px solid #f2f2f2;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-.sonderdruckVorschauBild > img {
-    border-radius: 12px;
-}
-
 .hoodieAermeldruckBrustdruckEingabe {
     border: 2px solid #f2f2f2;
     border-radius: 12px;
     padding: 14px 15px 0;
+    margin-bottom: 15px;
 }
 
 .hoodieAermeldruckBrustdruckEingabe input {
@@ -1433,6 +1439,19 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
 
 .sonderdruckSelected-label input:checked~.sonderdruckSelected-content {
     border: solid 2px #1a1a1a;
+}
+
+.sonderdruckTextareaContainer {
+    border: 2px solid #f2f2f2;
+    border-radius: 12px;
+    padding: 14px 15px 15px;
+    margin: 0 15px;
+}
+
+.sonderdruckTextarea {
+    font-family: 'Muli ExtraBold', sans-serif;
+    text-align: left;
+    margin: 0 0 9px 3.5px;
 }
 /* ###################### ONLINE SHOP - SONDERDRUCK ###################### */
 
@@ -1726,6 +1745,10 @@ hr {
     .padding75Left-2 { padding-left: 0; }
     .padding75Right-2 { padding-right: 0; }
 
+    .form-text {
+        background-position-y: center;
+    }
+
     .bibliothekTab {
         height: 880px;
     }
@@ -1767,6 +1790,10 @@ hr {
 
     .padding75Left991-2 { padding-left: 7.5px; }
     .padding75Right991-2 { padding-right: 7.5px; }
+
+    .paddingLeft0paddingRight75,
+    .padding75-3,
+    .paddingRight0paddingLeft75-2 { padding: 0; }
 
     .form-text-textilien {
         margin-bottom: 0;
@@ -1934,6 +1961,10 @@ hr {
 
 @media (max-width: 575px) {
     .noPadding575 { padding-left: 0; padding-right: 0; }
+
+    .form-text {
+        background-image: none;
+    }
 
     #msform .alert-primary {
         margin: 0 15px;
