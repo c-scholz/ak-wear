@@ -13,10 +13,9 @@
             <!-- ###################### CONTENT ###################### -->
             <order-fieldset-head title="Textilien" button-next="Vorderseite" v-on:next-tab="nextTab()" />
             <p class="form-text form-text-textilien">Wähle dein gewünschtes Paket aus.<br>
-                Falls du einzelne Hoodies oder Shirts zusammen mit dem Bundle bestellen möchtest, kannst du diese später
-                über dein Warenkorb hinzufügen.</p>
+                Falls du einzelne Hoodies oder Shirts zusammen mit dem Bundle bestellen möchtest, kannst du diese im nächsten Schritt hinzufügen.</p>
             <div class="row form-component product-cards">
-                <div v-for="product in products" :key="product.id" class="col-sm-12 col-lg-4">
+                <div v-for="product in products" :key="product.id" class="col-sm-12 col-lg-4 padding75">
                     <a class="cardProduktLink" href="#" v-on:click="addToCart(product); nextTab();">
                         <div class="cardProdukt">
                             <img class="img-fluid card-img-top" :src="product.default_image"
@@ -314,7 +313,7 @@
                     <div class="row namenslisteTab einSpaltig" :style="{display: nameListColumns === 1 ? 'flex' : 'none'}">
                         <!-- OBERER TEIL -->
                         <div class="col-12 d-flex justify-content-center align-items-center">
-                            <input type="text" class="form-control" placeholder="Beispiel: Motivlogo"
+                            <input type="text" class="form-control" placeholder="Beispiel: AK2021"
                                 style="max-width: 250px;">
                         </div>
                         <div class="col-12 d-flex justify-content-center align-items-center">
@@ -358,7 +357,7 @@
                     <div class="row namenslisteTab zweiSpaltig" :style="{display: nameListColumns === 2 ? 'flex' : 'none'}">
                         <!-- OBERER TEIL -->
                         <div class="col-12 d-flex justify-content-center align-items-center">
-                            <input type="text" class="form-control" placeholder="Beispiel: Motivlogo"
+                            <input type="text" class="form-control" placeholder="Beispiel: AK2021"
                                 style="max-width: 250px;">
                         </div>
                         <div class="col-12 d-flex justify-content-center align-items-center">
@@ -412,7 +411,7 @@
                     <div class="row namenslisteTab dreiSpaltig" :style="{display: nameListColumns === 3 ? 'flex' : 'none'}">
                         <!-- OBERER TEIL -->
                         <div class="col-12 d-flex justify-content-center align-items-center">
-                            <input type="text" class="form-control" placeholder="Beispiel: Motivlogo"
+                            <input type="text" class="form-control" placeholder="Beispiel: AK2021"
                                 style="max-width: 250px;">
                         </div>
                         <div class="col-12 d-flex justify-content-center align-items-center">
@@ -477,7 +476,7 @@
                     <div class="row namenslisteTab vierSpaltig" :style="{display: nameListColumns === 4 ? 'flex' : 'none'}">
                         <!-- OBERER TEIL -->
                         <div class="col-12 d-flex justify-content-center align-items-center">
-                            <input type="text" class="form-control" placeholder="Beispiel: Motivlogo"
+                            <input type="text" class="form-control" placeholder="Beispiel: AK2021"
                                 style="max-width: 250px;">
                         </div>
                         <div class="col-12 d-flex justify-content-center align-items-center">
@@ -634,28 +633,21 @@
             />
             <p class="form-text">
                 Wähle eine Individualisierung oder überspringe diesen Schritt.<br>
-                Möglich sind bis zu zwei Individualisierungen auf einem Textil.
+                Der Preis für eine Individualisierung gilt pro Textil.
             </p>
             <div class="row">
                 <div class="col-md-12 noPadding">
                     <div class="row sonderdruck">
-                        <div class="col-md-12 col-lg-6 col-xl-5">
-                            <div class="sonderdruckVorschau">
-                                <div class="hoodieShirtWrapper">
-                                    <div class="hoodieShirtSwitch left">
-                                        <div class="hoodieShirtTab active" hoodieshirttab-direction="left">Hoodies</div>
-                                        <div class="hoodieShirtTab" hoodieshirttab-direction="right">Shirts</div>
-                                    </div>
-                                </div>
-                                <div class="sonderdruckVorschauBild">
-                                    <img class="img-fluid" src="../../assets/img/rueckseite-vorschau.png">
+                        <div class="col-md-12">
+                            <!-- ###################### HOODIE AUSWAHL ###################### -->
+                            <div class="hoodieShirtWrapper">
+                                <div class="hoodieShirtSwitch left">
+                                    <div class="hoodieShirtTab active" hoodieshirttab-direction="left">Hoodies</div>
+                                    <div class="hoodieShirtTab" hoodieshirttab-direction="right">Shirts</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12 col-lg-6 col-xl-7">
-                            <!-- ###################### HOODIE AUSWAHL ###################### -->
                             <div class="row">
-                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                <div class="col-md-12 col-lg-4 paddingLeft0paddingRight75">
                                     <label for="sonderdruckSelected-item-1" class="sonderdruckSelected-label">
                                         <div class="inputText">Linker Unterarm</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-1">
@@ -667,7 +659,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Left991-2 paddingRight0paddingLeft75">
+                                <div class="col-md-12 col-lg-4 padding75-3">
                                     <label for="sonderdruckSelected-item-2" class="sonderdruckSelected-label">
                                         <div class="inputText">Linker Oberarm</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-2">
@@ -679,7 +671,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                <div class="col-md-12 col-lg-4 paddingRight0paddingLeft75-2">
                                     <label for="sonderdruckSelected-item-3" class="sonderdruckSelected-label">
                                         <div class="inputText">Rechter Unterarm</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-3">
@@ -691,7 +683,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Left991-2 paddingRight0paddingLeft75">
+                                <div class="col-md-12 col-lg-4 paddingLeft0paddingRight75">
                                     <label for="sonderdruckSelected-item-4" class="sonderdruckSelected-label">
                                         <div class="inputText">Rechter Oberarm</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-4">
@@ -703,7 +695,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                <div class="col-md-12 col-lg-4 padding75-3">
                                     <label for="sonderdruckSelected-item-5" class="sonderdruckSelected-label">
                                         <div class="inputText">Linke Brust</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-5">
@@ -715,7 +707,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Left991-2 paddingRight0paddingLeft75">
+                                <div class="col-md-12 col-lg-4 paddingRight0paddingLeft75-2">
                                     <label for="sonderdruckSelected-item-6" class="sonderdruckSelected-label">
                                         <div class="inputText">Rechte Brust</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-6">
@@ -727,7 +719,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                <div class="col-md-12 col-lg-4 paddingLeft0paddingRight75">
                                     <label for="sonderdruckSelected-item-7" class="sonderdruckSelected-label">
                                         <div class="inputText">Name Rückseite</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-7">
@@ -739,7 +731,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Left991-2 paddingRight0paddingLeft75">
+                                <div class="col-md-12 col-lg-4 padding75-3">
                                     <label for="sonderdruckSelected-item-8" class="sonderdruckSelected-label">
                                         <div class="inputText">Flaggen</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-8">
@@ -755,7 +747,7 @@
                             <!-- ###################### HOODIE AUSWAHL ###################### -->
                             <!-- ###################### SHIRT AUSWAHL ###################### -->
                             <div class="row">
-                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                <div class="col-md-12 col-lg-4 paddingLeft0paddingRight75">
                                     <label for="sonderdruckSelected-item-12" class="sonderdruckSelected-label">
                                         <div class="inputText">Linker Oberarm</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-12">
@@ -767,7 +759,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Left991-2 paddingRight0paddingLeft75">
+                                <div class="col-md-12 col-lg-4 padding75-3">
                                     <label for="sonderdruckSelected-item-12" class="sonderdruckSelected-label">
                                         <div class="inputText">Rechter Oberarm</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-12">
@@ -779,7 +771,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                <div class="col-md-12 col-lg-4 paddingRight0paddingLeft75-2">
                                     <label for="sonderdruckSelected-item-13" class="sonderdruckSelected-label">
                                         <div class="inputText">Linke Brust</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-13">
@@ -791,7 +783,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Left991-2 paddingRight0paddingLeft75">
+                                <div class="col-md-12 col-lg-4 paddingLeft0paddingRight75">
                                     <label for="sonderdruckSelected-item-14" class="sonderdruckSelected-label">
                                         <div class="inputText">Rechte Brust</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-14">
@@ -803,7 +795,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Right991-2 paddingLeft0paddingRight75">
+                                <div class="col-md-12 col-lg-4 padding75-3">
                                     <label for="sonderdruckSelected-item-15" class="sonderdruckSelected-label">
                                         <div class="inputText">Name Rückseite</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-15">
@@ -815,7 +807,7 @@
                                         </div>
                                     </label>
                                 </div>
-                                <div class="col-md-6 padding75Left991-2 paddingRight0paddingLeft75">
+                                <div class="col-md-12 col-lg-4 paddingRight0paddingLeft75-2">
                                     <label for="sonderdruckSelected-item-16" class="sonderdruckSelected-label">
                                         <div class="inputText">Flaggen</div>
                                         <input type="checkbox" name="sonderdruckSelected-item" id="sonderdruckSelected-item-16">
@@ -832,7 +824,7 @@
                             <!-- ###################### HOODIE EINGABE ###################### -->
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodieLeftLowerArm">
                                     <p class="sonderdruckEingabe">Hoodies - Linker Unterarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -886,7 +878,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkerOberarm">
                                     <p class="sonderdruckEingabe">Hoodies - Linker Oberarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -940,7 +932,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechterUnterarm">
                                     <p class="sonderdruckEingabe">Hoodies - Rechter Unterarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -994,7 +986,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechterOberarm">
                                     <p class="sonderdruckEingabe">Hoodies - Rechter Oberarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1048,7 +1040,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkeBrust">
                                     <p class="sonderdruckEingabe">Hoodies - Linke Brust</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1102,7 +1094,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesRechteBrust">
                                     <p class="sonderdruckEingabe">Hoodies - Rechte Brust</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1156,7 +1148,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesNameRueckseite">
                                     <p class="sonderdruckEingabe">Hoodies - Name Rückseite</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1295,7 +1287,7 @@
                                 <!-- ###################### SHIRT EINGABE ###################### -->
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="hoodiesLinkerOberarm">
                                     <p class="sonderdruckEingabe">Shirts - Linker Oberarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1349,7 +1341,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsRechterOberarm">
                                     <p class="sonderdruckEingabe">Shirts - Rechter Oberarm</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1403,7 +1395,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsLinkeBrust">
                                     <p class="sonderdruckEingabe">Shirts - Linke Brust</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1457,7 +1449,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsRechteBrust">
                                     <p class="sonderdruckEingabe">Shirts - Rechte Brust</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1511,7 +1503,7 @@
                                 </div>
                                 <div class="col-md-12 hoodieAermeldruckBrustdruckEingabe" id="shirtsNameRueckseite">
                                     <p class="sonderdruckEingabe">Shirts - Name Rückseite</p>
-                                    <p class="sonderdruckInfo">Trenne bitte alle Namen hintereinander mit einem Komma.</p>
+                                    <p class="sonderdruckInfo">Trage bitte die Namen in die entsprechenden Größen ein und drücke "Enter".</p>
                                     <item-input 
                                         name="sleeves" 
                                         type="taglist"
@@ -1670,12 +1662,17 @@
                     </div>
                 </div>
             </div>
+            <div class="sonderdruckTextareaContainer">
+                <p class="sonderdruckTextarea">Bemerkung zum Sonderdruck</p>
+                    <textarea class="form-control" id="motivAenderung" rows="5"
+                        placeholder="Beispiele: Bitte die Ärmel- und/oder Brustnamen in grün, alle Namen bitte nur in Großbuchstaben, etc."></textarea>
+            </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!<br/>Es sind nur maximal 2 Individualisierungen pro Textil möglich!"
+                alert="Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!"
                 button-final
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->

@@ -12,9 +12,7 @@
                     <div class="taglistName noPadding">
                         {{ item }}
                     </div>
-                    <div class="taglistButtons">
-                        <font-awesome-icon class="taglistButton" :icon="['fas', 'times']" v-on:click="removeItem(index)" />
-                    </div>
+                    <div class="taglistButtons" v-on:click="removeItem(index)"></div>
                 </div>
             </div>
         </div>
@@ -189,6 +187,7 @@ export default {
     border: 2px solid #1a1a1a;
     border-radius: 5px;
     padding: 4px;
+    transition: all 0.25s;
 }
 
 .itemlistButtons:first-child {
@@ -207,7 +206,7 @@ export default {
     cursor: pointer;
 }
 
-.form-control {
+.taglist .form-control {
     border: 2px solid #f2f2f2;
     border-left: 0;
     border-bottom-right-radius: 0;
@@ -230,22 +229,40 @@ export default {
     font-family: "Muli Light", sans-serif;
     font-size: 13px;
     color: #1a1a1a;
-    padding: 0 5px;
-    margin: 5px;
+    padding: 0;
+    margin: 2.5px;
 }
 
 .taglistName {
-    margin-right: 5px;
+    border: 2px solid #f2f2f2;
+    border-right: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    padding: 5px 10px;
 }
 
-.taglistButton {
-    position: relative;
-    font-size: 12px;
-    align-items: center;
+.taglistButtons:before {
+    content: '+';
+    font-size: 17px;
+    display: inline-block;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.taglistButtons {
+    color: #1a1a1a;
+    border: 2px solid #f2f2f2;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 1px 8px 0px 10px;;
     cursor: pointer;
+    transition: all 0.25s;
 }
 
-.linear-stop1 { stop-color:#ffae27; }
-.linear-stop2 { stop-color: #d93548; }
-.taglistButton:focus path, .taglistButton:hover path { fill: url(#linear); }
+.taglistButtons:focus,
+.taglistButtons:hover {
+    background: #f2f2f2;
+    transition: all 0.25s;
+}
 </style>
