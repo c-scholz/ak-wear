@@ -31,23 +31,23 @@
 
 <script>
 export default {
-  props: {
-    'buttonPrev': Boolean,
-    'alert': String,
-    'buttonNext': Boolean,
-    'buttonFinal': Boolean
+    props: {
+        'buttonPrev': Boolean,
+        'alert': String,
+        'buttonNext': Boolean,
+        'buttonFinal': Boolean
     }
 }
 </script>
 
 <style>
-  .linear-stop1 {
-    stop-color:#ffae27;
-  }
-  .linear-stop2 {
-    stop-color: #d93548;
-  }
-  .stepButton:hover .fa-reply path, .stepButton:hover .fa-check path {
-    fill: url(#linear);
-  }
+    .linear-stop1 {
+        stop-color:#ffae27;
+    }
+    .linear-stop2 {
+        stop-color: #d93548;
+    }
+    .stepButton:hover .fa-reply path, .stepButton:hover .fa-check path {
+        fill: url(#linear);
+    }
 </style>

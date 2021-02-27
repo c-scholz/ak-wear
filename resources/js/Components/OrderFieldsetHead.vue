@@ -32,24 +32,24 @@
 
 <script>
 export default {
-  props: {
-    'buttonPrev': String,
-    'title': String,
-    'buttonNext': String,
-    'buttonFinal': Boolean
+    props: {
+        'buttonPrev': String,
+        'title': String,
+        'buttonNext': String,
+        'buttonFinal': Boolean
     }
 }
 </script>
 
 <style>
-  .linear-stop1 {
-    stop-color:#ffae27;
-  }
-  .linear-stop2 {
-    stop-color: #d93548;
-  }
-  .stepButton:focus .fa-reply path, .stepButton:focus .fa-check path, .stepButton:focus .fa-share path,
-  .stepButton:hover .fa-reply path, .stepButton:hover .fa-check path, .stepButton:hover .fa-share path {
-    fill: url(#linear);
-  }
+    .linear-stop1 {
+        stop-color:#ffae27;
+    }
+    .linear-stop2 {
+        stop-color: #d93548;
+    }
+    .stepButton:focus .fa-reply path, .stepButton:focus .fa-check path, .stepButton:focus .fa-share path,
+    .stepButton:hover .fa-reply path, .stepButton:hover .fa-check path, .stepButton:hover .fa-share path {
+        fill: url(#linear);
+    }
 </style>
