@@ -1669,44 +1669,7 @@
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-            <div v-show="activeTab !== 1" id="shoppingCartFooter">
-                <div class="container noPadding4Ever">
-                    <div class="row shoppingCart">
-                        <div class="col-3 padding375">
-                            <div class="shoppingCartContainer">
-                                <div>
-                                    <img class="img-fluid" src="../../assets/img/add_product.svg">
-                                    <span class="ersteZeile">Hinzufügen</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 padding375">
-                            <div class="shoppingCartContainer inactive">
-                                <div>
-                                    <img class="img-fluid" src="../../assets/img/add_hoodies.svg">
-                                    <span class="ersteZeile">Hoodies</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 padding375">
-                            <div class="shoppingCartContainer active">
-                                <div>
-                                    <img class="img-fluid" src="../../assets/img/add_shirts.svg">
-                                    <span class="ersteZeile">Shirts</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 padding375">
-                            <div class="shoppingCartContainer inactive">
-                                <div>
-                                    <img class="img-fluid" src="../../assets/img/add_bundles.svg">
-                                    <span class="ersteZeile">Bundles</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <cart-fixed v-show="activeTab !== 1" />
     </form>
 </template>
 
@@ -1726,6 +1689,7 @@ import SizeInput from './SizeInput'
 import ItemInput from './ItemInput'
 import MotifCard from './MotifCard'
 import ColorList from './ColorList'
+import CartFixed from './CartFixed'
 import CountryFlag from 'vue-country-flag'
 import languages from '../languages'
 import { mapActions, mapGetters, mapState } from 'vuex'
@@ -1739,6 +1703,7 @@ export default {
         ItemInput,
         MotifCard,
         ColorList,
+        CartFixed,
         CountryFlag
     },
     data() {

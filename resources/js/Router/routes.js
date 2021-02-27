@@ -15,6 +15,11 @@ const routes = [
         name: 'motif'
     },
     {
+        path: '/warenkorb',
+        component: require('../Pages/Cart').default,
+        name: 'cart'
+    },
+    {
         path: '/agb',
         component: require('../Pages/Agb').default,
         name: 'terms_and_conditions'
