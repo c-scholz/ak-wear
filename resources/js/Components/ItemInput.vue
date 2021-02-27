@@ -122,29 +122,29 @@ export default {
     },
     methods: {
         addItem(event) {
-            event.preventDefault();
+            event.preventDefault()
 
-            var item = event.target.value;
+            var item = event.target.value
 
             if(item.length > 0) {
                 if(this.items.length >= this.maxEntries) {
-                    this.$emit('warning', `Der ausgewählten Liste können maximal ${ this.maxEntries } Elemente hinzugefügt werden!`);
-                    return;
+                    this.$emit('warning', `Der ausgewählten Liste können maximal ${ this.maxEntries } Elemente hinzugefügt werden!`)
+                    return
                 }
-                this.items.push(item);
-                event.target.value = '';
+                this.items.push(item)
+                event.target.value = ''
             }
 
-            this.$emit('input', this.items);
+            this.$emit('input', this.items)
         }, 
         removeItem(index) {
-            this.items.splice(index, 1);
+            this.items.splice(index, 1)
 
-            this.$emit('input', this.items);
+            this.$emit('input', this.items)
         },
     },
     created: function() {
-        this.items = this.$props.preset;
+        this.items = this.$props.preset
     }
 }
 </script>

@@ -32,23 +32,19 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            id: Number,
-        },
-        data() {
-            return {
-                isFlipped: false
-            }
-        },
-        methods: {
-            flip() {
-                this.isFlipped = !this.isFlipped;
-                this.log();
-            },
-            log() {
-                console.log("clicked");
-            }
+export default {
+    props: {
+        id: Number,
+    },
+    data() {
+        return {
+            isFlipped: false
         }
+    },
+    methods: {
+        flip() {
+            this.isFlipped = !this.isFlipped
+        },
     }
+}
 </script>

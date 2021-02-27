@@ -10,31 +10,30 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            name: String,
-            labelSize: String,
+export default {
+    props: {
+        name: String,
+        labelSize: String,
+    },
+    data() {
+        return {
+            value: 0
+        }
+    },
+    methods: {
+        add() {
+            this.value += 1
         },
-        data() {
-            return {
-                value: 0
+        reduce() {
+            if (this.value > 0) {
+                this.value -= 1
             }
         },
-        methods: {
-            add() {
-                this.value += 1;
-            },
-            reduce() {
-                if (this.value > 0) {
-                    this.value -= 1;
-                }
-            },
-            update(event) {
-                this.value = Number(event.target.value);
-            }
+        update(event) {
+            this.value = Number(event.target.value)
         }
     }
-
+}
 </script>
 
 <style scoped>
@@ -47,5 +46,4 @@
     input[type="number"] {
         -moz-appearance: textfield;
     }
-
 </style>

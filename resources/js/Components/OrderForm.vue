@@ -1,14 +1,6 @@
 <template>
     <form id="msform" class="order-form">
-        <!-- svg definition for fontawesome svgs to have linear gradient-->
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="svg-settings">
-            <defs>
-                <linearGradient id="linear" gradientTransform="rotate(45)">
-                    <stop class="linear-stop1" offset="0%"></stop>
-                    <stop class="linear-stop2" offset="100%"></stop>
-                </linearGradient>
-            </defs>
-        </svg>
+        <svg-gradient />
         <fieldset :class="{active: activeTab === 1}" :style="{display: activeTab === 1 ? 'block' : 'none'}">
             <!-- ###################### CONTENT ###################### -->
             <order-fieldset-head title="Textilien" button-next="Vorderseite" v-on:next-tab="nextTab()" />
@@ -1717,136 +1709,130 @@
             </div>
     </form>
 </template>
-<script>
-    import numeral from 'numeral';
-    import locales from 'numeral/locales';
-    import * as FilePond from 'filepond';
-    import de_DE from 'filepond/locale/de-de';
-    import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
-    import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
-    import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
-    import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-    import OrderFieldsetHead from './OrderFieldsetHead';
-    import OrderFieldsetFooter from './OrderFieldsetFooter';
-    import SizeInput from './SizeInput';
-    import ItemInput from './ItemInput';
-    import MotifCard from './MotifCard';
-    import ColorList from './ColorList';
-    import CountryFlag from 'vue-country-flag';
-    import languages from '../languages';
-import { mapActions, mapGetters, mapState } from 'vuex';
-    export default {
-        components: {
-            OrderFieldsetHead,
-            OrderFieldsetFooter,
-            SizeInput,
-            ItemInput,
-            MotifCard,
-            ColorList,
-            CountryFlag
-        },
-        data() {
-            // TODO sort out which properties should be stored globally in vuex and which can stay in the form
-            return {
-                activeTab: 1,
-                motifSelection: false,
-                nameListColumns: 2,
-                namelist1: [],
-                namelist2: [],
-                namelist3: [],
-                namelist4: [],
-                languages: languages,
-                streetInfo: {},
-                phoneInfo: {},
-                printOptions: {
-                    sleevePrint: {
-                        namelist: [],
-                    },
-                },
-            }
-        },
-        computed: {
-            ...mapState({
-                products: state => state.shop.products,
-                motifs: state => state.shop.motifs,
-                cart: state => state.cart.cart,
-            })
-        },
-        created() {
-            this.$store.dispatch('shop/fetchProducts')
-            this.$store.dispatch('shop/fetchMotifs')
-        },
-        mounted() {
-            FilePond.registerPlugin(
-                // encodes the file as base64 data
-                FilePondPluginFileEncode,
-                // validates the size of the file
-                FilePondPluginFileValidateSize,
-                // corrects mobile image orientation
-                FilePondPluginImageExifOrientation,
-                // previews dropped images
-                FilePondPluginImagePreview
-            );
-            this.pond = FilePond.create(
-                document.querySelector('input[name=filepond]')
-            );
-            this.pond.setOptions(de_DE);
-            this.pond.setOptions(
-                {
-                    allowFileEncode: true,
-                    credits: false,
-                    labelIdle: 'Zieh deine Dateien in das Kästchen oder <span class="filepond--label-action">lade welche per Klick hoch</span>'
-                }
-            );
 
-            numeral.locale('de');
-        },
-        methods: {
-            ...mapActions('cart', [
-                'addToCart',
-                'setCurrentItem',
-                'removeFromCart',
-                'setTextileColor',
-                'setMotif',
-                'setMotifColor',
-            ]),
-            ...mapActions('shop', [
-                'fetchMotifs',
-                'fetchProducts',
-            ]),
-            nextTab(event) {
-                this.activeTab++
-            },
-            previousTab(event) {
-                this.activeTab--
-            },
-            chooseMotif() {
-                if (this.motifSelection) {
-                    this.motifSelection = !this.motifSelection
-                }
-            },
-            uploadMotif() {
-                if (!this.motifSelection) {
-                    this.motifSelection = !this.motifSelection
-                }
-            },
-            formatPrice(number) {
-                return numeral(number).format("0,0.00")
+<script>
+import numeral from 'numeral'
+import locales from 'numeral/locales'
+import * as FilePond from 'filepond'
+import de_DE from 'filepond/locale/de-de'
+import FilePondPluginFileEncode from 'filepond-plugin-file-encode'
+import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size'
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import SvgGradient from './SvgGradient'
+import OrderFieldsetHead from './OrderFieldsetHead'
+import OrderFieldsetFooter from './OrderFieldsetFooter'
+import SizeInput from './SizeInput'
+import ItemInput from './ItemInput'
+import MotifCard from './MotifCard'
+import ColorList from './ColorList'
+import CountryFlag from 'vue-country-flag'
+import languages from '../languages'
+import { mapActions, mapGetters, mapState } from 'vuex'
+
+export default {
+    components: {
+        SvgGradient,
+        OrderFieldsetHead,
+        OrderFieldsetFooter,
+        SizeInput,
+        ItemInput,
+        MotifCard,
+        ColorList,
+        CountryFlag
+    },
+    data() {
+        // TODO sort out which properties should be stored globally in vuex and which can stay in the form
+        return {
+            activeTab: 1,
+            motifSelection: false,
+            nameListColumns: 2,
+            namelist1: [],
+            namelist2: [],
+            namelist3: [],
+            namelist4: [],
+            languages: languages,
+            streetInfo: {},
+            phoneInfo: {},
+            printOptions: {
+                sleevePrint: {
+                    namelist: [],
+                },
             },
         }
-    }
+    },
+    computed: {
+        ...mapState({
+            products: state => state.shop.products,
+            motifs: state => state.shop.motifs,
+            cart: state => state.cart.cart,
+        })
+    },
+    created() {
+        this.$store.dispatch('shop/fetchProducts')
+        this.$store.dispatch('shop/fetchMotifs')
+    },
+    mounted() {
+        FilePond.registerPlugin(
+            // encodes the file as base64 data
+            FilePondPluginFileEncode,
+            // validates the size of the file
+            FilePondPluginFileValidateSize,
+            // corrects mobile image orientation
+            FilePondPluginImageExifOrientation,
+            // previews dropped images
+            FilePondPluginImagePreview
+        );
+        this.pond = FilePond.create(
+            document.querySelector('input[name=filepond]')
+        );
+        this.pond.setOptions(de_DE);
+        this.pond.setOptions(
+            {
+                allowFileEncode: true,
+                credits: false,
+                labelIdle: 'Zieh deine Dateien in das Kästchen oder <span class="filepond--label-action">lade welche per Klick hoch</span>'
+            }
+        );
 
-</script>
-<style>
-    /* hide svg which is used to create linear color gradient in fontawesome icons */
-    .svg-settings {
-        position: absolute !important;
-        height: 0px;
-        width: 0px;
-        overflow: hidden;
-        clip: rect(1px 1px 1px 1px);
-        /* IE6, IE7 */
-        clip: rect(1px, 1px, 1px, 1px);
+        numeral.locale('de');
+    },
+    methods: {
+        ...mapActions('cart', [
+            'addToCart',
+            'setCurrentItem',
+            'removeFromCart',
+            'setTextileColor',
+            'setMotif',
+            'setMotifColor',
+        ]),
+        ...mapActions('shop', [
+            'fetchMotifs',
+            'fetchProducts',
+        ]),
+        nextTab(event) {
+            this.activeTab++
+        },
+        previousTab(event) {
+            this.activeTab--
+        },
+        chooseMotif() {
+            if (this.motifSelection) {
+                this.motifSelection = !this.motifSelection
+            }
+        },
+        uploadMotif() {
+            if (!this.motifSelection) {
+                this.motifSelection = !this.motifSelection
+            }
+        },
+        formatPrice(number) {
+            return numeral(number).format("0,0.00")
+        },
     }
+}
+</script>
+
+<style scoped>
 
 </style>
