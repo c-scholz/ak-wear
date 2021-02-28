@@ -1179,15 +1179,6 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     margin: 0 0 9px 0;
 }
 
-#hoodiesFlaggen .input-group,
-#shirtsFlaggen .input-group {
-    margin-bottom: 15px;
-}
-
-.sonderdruck .input-group:last-child {
-    margin-bottom: 0;
-}
-
 .sonderdruck .input-group-prepend {
     margin-right: 0;
 }
@@ -1262,20 +1253,6 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     transform: translate3d(0px, 43px, 0px) !important;
 }
 
-.sonderdruckFlaggensuche { padding: 0 15px; }
-
-.sonderdruck .dropdown-menu .sonderdruckFlaggensuche input {
-    font-family: "Muli ExtraBold", sans-serif;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border: 2px solid #f2f2f2;
-    border-radius: 12px;
-    height: 40px;
-    padding: 0 0.75rem;
-    margin-bottom: 5px;
-}
-
 .sonderdruck .dropdown-item {
     font-family: "Muli Light", sans-serif;
     padding: 4px 17px;
@@ -1287,26 +1264,6 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
 .sonderdruck .dropdown-item:hover {
     color: #1a1a1a;
     background: #f4f4f4;
-}
-
-.sonderdruck .flagge {
-    margin-right: 10px;
-}
-
-.sonderdruck .namenslisteFlaggen {
-    font-family: "Muli Light", sans-serif;
-    text-align: left;
-    line-height: 1.4;
-    border: 2px solid #f2f2f2;
-    border-left: 0;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    padding: 0.375rem 0.75rem;
-    flex: auto;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 .sonderdruck .motivLink {
