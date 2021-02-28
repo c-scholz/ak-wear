@@ -1146,84 +1146,13 @@
                                     <p class="sonderdruckEingabe">Hoodies - Flaggen</p>
                                     <p class="sonderdruckInfo">Wähle bitte die gewünschte Flagge für die jeweiligen Namen.</p>
                                         <p class="sonderdruckNamenslisteFlaggen">1. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">2. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">3. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">4. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
-                                        </div>
+                                            <flag-select />
                                 </div>
                                 <!-- ###################### HOODIE EINGABE ###################### -->
                                 <!-- ###################### SHIRT EINGABE ###################### -->
@@ -1501,103 +1430,13 @@
                                     <p class="sonderdruckEingabe">Shirts - Flaggen</p>
                                     <p class="sonderdruckInfo">Wähle bitte die gewünschte Flagge für die jeweiligen Namen.</p>
                                         <p class="sonderdruckNamenslisteFlaggen">1. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">2. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">3. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">4. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
-                                        </div>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                 </div>
                                 <!-- ###################### SHIRT EINGABE ###################### -->
                         </div>
@@ -1675,8 +1514,7 @@ import ItemInput from './ItemInput'
 import AnnotationInput from './AnnotationInput'
 import MotifCard from './MotifCard'
 import ColorList from './ColorList'
-import CountryFlag from 'vue-country-flag'
-import languages from '../languages'
+import FlagSelect from './FlagSelect'
 import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default {
@@ -1689,7 +1527,7 @@ export default {
         ItemInput,
         MotifCard,
         ColorList,
-        CountryFlag
+        FlagSelect
     },
     data() {
         // TODO sort out which properties should be stored globally in vuex and which can stay in the form
@@ -1701,7 +1539,6 @@ export default {
             namelist2: [],
             namelist3: [],
             namelist4: [],
-            languages: languages,
             streetInfo: {},
             phoneInfo: {},
             printOptions: {
