@@ -810,13 +810,6 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
 .motivVorschauBild .horizontalesMotiv {
     transform: rotate(25deg);
 }
-
-.colorContainer,
-.colorContainer2 {
-    border: 2px solid #f2f2f2;
-    border-radius: 12px;
-    padding: 10px 8.8px 4px;
-}
 /* ###################### ONLINE SHOP - VORSCHAU ###################### */
 
 /* ###################### ONLINE SHOP - TEXTILFARBEN UND TEXT ###################### */
@@ -1802,10 +1795,6 @@ hr {
     #msform .stepButton {
         font-size: 10px;
         width: 188px;
-    }
-
-    .colorContainer2 {
-        margin-top: 15px;
     }
 
     .cardProdukt { 
