@@ -6,6 +6,7 @@
         <router-link :to="{ name: 'index', hash: '#team' }">Produkte</router-link>
         <router-link :to="{ name: 'index', hash: '#services' }">Produkte</router-link>
         <router-link :to="{ name: 'order'}">Bestellen</router-link>
+        <router-link :to="{ name: 'cart'}">Warenkorb</router-link>
         <a class="whatappChat" href="/whatsapp" target="_blank"><font-awesome-icon :icon="['fab', 'whatsapp']" />&nbsp;&nbsp;WhatsApp Chat</a>
   </div>
 </template>
