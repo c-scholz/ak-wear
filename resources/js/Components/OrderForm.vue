@@ -1607,7 +1607,6 @@
             <div class="textareaContainer">
                 <annotation-input id="special-print-annotation" name="special-print-annotation" label="Bemerkung zur Rückseite" placeholder="Beispiele: Bitte die Ärmel- und/oder Brustnamen in grün, alle Namen bitte nur in Großbuchstaben, etc." />
             </div>
-            </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <order-fieldset-footer 
