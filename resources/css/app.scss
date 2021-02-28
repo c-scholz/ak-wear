@@ -646,6 +646,10 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
 /* ###################### ONLINE SHOP - SWITCH ###################### */
 
 /* ###################### ONLINE SHOP - VORSCHAU ###################### */
+.textilMotivFarbe {
+    padding-bottom: 14px;
+}
+
 .textilMotivFarbe .input-group {
     margin-bottom: 15px;
 }
@@ -811,20 +815,6 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     transform: rotate(25deg);
 }
 /* ###################### ONLINE SHOP - VORSCHAU ###################### */
-
-/* ###################### ONLINE SHOP - TEXTILFARBEN UND TEXT ###################### */
-.motivPaketTextarea {
-    font-family: 'Muli ExtraBold', sans-serif;
-    text-align: left;
-    margin: 14px 0 9px 3.5px;
-}
-
-.form-control {
-    font-family: 'Muli Light', sans-serif;
-    font-size: inherit;
-}
-/* ###################### ONLINE SHOP - TEXTILFARBEN UND TEXT ###################### */
-
 /* ###################### ONLINE SHOP - MOTIVPAKET ###################### */
 .bibliothekTab {
     overflow-y: scroll;
@@ -1434,18 +1424,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     border: solid 2px #1a1a1a;
 }
 
-.sonderdruckTextareaContainer {
-    border: 2px solid #f2f2f2;
-    border-radius: 12px;
-    padding: 14px 15px 15px;
-    margin: 0 15px;
-}
 
-.sonderdruckTextarea {
-    font-family: 'Muli ExtraBold', sans-serif;
-    text-align: left;
-    margin: 0 0 9px 3.5px;
-}
 /* ###################### ONLINE SHOP - SONDERDRUCK ###################### */
 
 /* ###################### ONLINE SHOP - SELECT RADIO CARD ###################### */
@@ -1486,18 +1465,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
     border-radius: 12px;
 }
 
-.rueckseiteTextareaContainer {
-    border: 2px solid #f2f2f2;
-    border-radius: 12px;
-    padding: 14px 15px 15px;
-    margin: 15px 15px 0;
-}
 
-.rueckseiteTextarea {
-    font-family: 'Muli ExtraBold', sans-serif;
-    text-align: left;
-    margin: 0 0 9px 3.5px;
-}
 
 hr {
     margin: 20px 0;

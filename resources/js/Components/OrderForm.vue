@@ -112,10 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="motivPaketTextarea">Bemerkung zum Motiv</p>
-                        <textarea class="form-control" id="motivAenderung" rows="5"
-                            placeholder="Beispiele: AK21 statt AK20, Bitte anderen Spruch über/unter dem Motiv, Über/Unter dem Motiv den Text weglassen, etc.">
-                        </textarea>
+                        <annotation-input id="motif-annotation" name="motif-annotation" label="Bemerkung zum Motiv" placeholder="Beispiele: AK21 statt AK20, Bitte anderen Spruch über/unter dem Motiv, Über/Unter dem Motiv den Text weglassen, etc." />
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-7">
@@ -495,10 +492,8 @@
                         <!-- UNTERER TEIL -->
                     </div>
                     <!-- ###################### VIERSPALTIG ###################### -->
-                    <div class="rueckseiteTextareaContainer">
-                        <p class="rueckseiteTextarea">Bemerkung zur Rückseite</p>
-                            <textarea class="form-control" id="motivAenderung" rows="5"
-                                placeholder="Beispiele: Bitte eine Old English Schriftart (oder eine andere?) verwenden, Namen bitte nach dem Nachnamen alphabetisch sortieren, etc."></textarea>
+                    <div class="textareaContainer">
+                        <annotation-input id="backside-annotation" name="backside-annotation" label="Bemerkung zur Rückseite" placeholder="Beispiele: Bitte eine Old English Schriftart (oder eine andere?) verwenden, Namen bitte nach dem Nachnamen alphabetisch sortieren, etc." />
                     </div>
                 </div>
             </div>
@@ -1609,10 +1604,9 @@
                     </div>
                 </div>
             </div>
-            <div class="sonderdruckTextareaContainer">
-                <p class="sonderdruckTextarea">Bemerkung zum Sonderdruck</p>
-                    <textarea class="form-control" id="motivAenderung" rows="5"
-                        placeholder="Beispiele: Bitte die Ärmel- und/oder Brustnamen in grün, alle Namen bitte nur in Großbuchstaben, etc."></textarea>
+            <div class="textareaContainer">
+                <annotation-input id="special-print-annotation" name="special-print-annotation" label="Bemerkung zur Rückseite" placeholder="Beispiele: Bitte die Ärmel- und/oder Brustnamen in grün, alle Namen bitte nur in Großbuchstaben, etc." />
+            </div>
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
@@ -1679,6 +1673,7 @@ import OrderFieldsetHead from './OrderFieldsetHead'
 import OrderFieldsetFooter from './OrderFieldsetFooter'
 import SizeInput from './SizeInput'
 import ItemInput from './ItemInput'
+import AnnotationInput from './AnnotationInput'
 import MotifCard from './MotifCard'
 import ColorList from './ColorList'
 import CountryFlag from 'vue-country-flag'
@@ -1690,6 +1685,7 @@ export default {
         SvgGradient,
         OrderFieldsetHead,
         OrderFieldsetFooter,
+        AnnotationInput,
         SizeInput,
         ItemInput,
         MotifCard,
@@ -1789,5 +1785,10 @@ export default {
 </script>
 
 <style scoped>
-
+.textareaContainer {
+    border: 2px solid #f2f2f2;
+    border-radius: 12px;
+    padding: 14px 15px 15px;
+    margin: 15px 15px 0;
+}
 </style>
