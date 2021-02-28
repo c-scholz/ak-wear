@@ -48,68 +48,44 @@
 
                         <div class="row textilMotivFarbe noPadding4Ever">
                             <div class="col-xl-6 noPadding1199Left padding75Right-2 textilMotivFarbeMobilAbstand">
-                                <div class="input-group">
-                                    <span class="farbeText">Textilfarbe</span>
-                                    <div class="input-group-prepend">
-                                        <div class="dropdown show">
-                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="farbe">
-                                                    <color-list :colors="[ { color_value: '#000000', name: 'schwarz' } ]" type="textil"/>    
-                                                </span><font-awesome-icon :icon="['fas', 'share']" />
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <color-list
-                                                    :colors="[
-                                                        { color_value: '#000000', name: 'schwarz' },
-                                                        { color_value: '#f2f2f2', name: 'weiss' },
-                                                        { color_value: '#c7cccf', name: 'hellgrau' },
-                                                        { color_value: '#464644', name: 'dunkelgrau' },
-                                                        { color_value: '#002c5b', name: 'navyblau' },
-                                                        { color_value: '#3d5eab', name: 'royalblau' },
-                                                        { color_value: '#009ada', name: 'hellblau' },
-                                                        { color_value: '#acc6e9', name: 'skyblau' },
-                                                        { color_value: '#38307d', name: 'lila' },
-                                                        { color_value: '#cb1430', name: 'rot' },
-                                                        { color_value: '#610021', name: 'orange' },
-                                                        { color_value: '#d46120', name: 'pink' },
-                                                        { color_value: '#ecc2ce', name: 'burgundy' },
-                                                        { color_value: '#009c55', name: 'grün' },
-                                                        { color_value: '#304832', name: 'dunkelgrün' },
-                                                        { color_value: '#6b6e53', name: 'olive' },
-                                                        { color_value: '#f4c30f', name: 'gelb' },
-                                                        { color_value: '#483a2f', name: 'braun' }
-                                                    ]"
-                                                    type="textil"/>              
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <color-select 
+                                    label="Textilfarbe" 
+                                    id="textilfarbe" 
+                                    :colors="[
+                                        { color_value: '#000000', name: 'schwarz' },
+                                        { color_value: '#f2f2f2', name: 'weiss' },
+                                        { color_value: '#c7cccf', name: 'hellgrau' },
+                                        { color_value: '#464644', name: 'dunkelgrau' },
+                                        { color_value: '#002c5b', name: 'navyblau' },
+                                        { color_value: '#3d5eab', name: 'royalblau' },
+                                        { color_value: '#009ada', name: 'hellblau' },
+                                        { color_value: '#acc6e9', name: 'skyblau' },
+                                        { color_value: '#38307d', name: 'lila' },
+                                        { color_value: '#cb1430', name: 'rot' },
+                                        { color_value: '#610021', name: 'orange' },
+                                        { color_value: '#d46120', name: 'pink' },
+                                        { color_value: '#ecc2ce', name: 'burgundy' },
+                                        { color_value: '#009c55', name: 'grün' },
+                                        { color_value: '#304832', name: 'dunkelgrün' },
+                                        { color_value: '#6b6e53', name: 'olive' },
+                                        { color_value: '#f4c30f', name: 'gelb' },
+                                        { color_value: '#483a2f', name: 'braun' }
+                                    ]"
+                                />
                             </div>
                             <div class="col-xl-6 noPadding1199Right padding75Left-2">
-                                <div class="input-group">
-                                    <span class="farbeText">Motivfarbe</span>
-                                    <div class="input-group-prepend">
-                                        <div class="dropdown show">
-                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="farbe">
-                                                    <color-list :colors="[ { color_value: 'conic-gradient(#FF0000 0% 33.33%, #000000 33.33% 67.66%, yellow 33.33% 100%)', name: '3-farbig' } ]" type="textil"/>    
-                                                </span><font-awesome-icon :icon="['fas', 'share']" />
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <color-list
-                                                    :colors="[
-                                                        { color_value: '#000000', name: 'schwarz' },
-                                                        { color_value: '#f2f2f2', name: 'weiss' },
-                                                        { color_value: '#c7cccf', name: 'hellgrau' },
-                                                        { color_value: 'linear-gradient(135deg, #FF0000 50%, #000000 50%)', name: '2-farbig' },
-                                                        { color_value: 'conic-gradient(#FF0000 0% 33.33%, #000000 33.33% 67.66%, yellow 33.33% 100%)', name: '3-farbig' },
-                                                        { color_value: 'conic-gradient(#FF0000 0% 25%, #000000 25% 50%, blue 25% 75%, #f2f2f2 25% 100%)', name: '4-farbig' }
-                                                    ]"
-                                                    type="motiv"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <color-select
+                                    label="Motivfarbe"
+                                    id="motivfarbe"
+                                    :colors="[
+                                        { color_value: '#000000', name: 'schwarz' },
+                                        { color_value: '#f2f2f2', name: 'weiss' },
+                                        { color_value: '#c7cccf', name: 'hellgrau' },
+                                        { color_value: 'linear-gradient(135deg, #FF0000 50%, #000000 50%)', name: '2-farbig' },
+                                        { color_value: 'conic-gradient(#FF0000 0% 33.33%, #000000 33.33% 67.66%, yellow 33.33% 100%)', name: '3-farbig' },
+                                        { color_value: 'conic-gradient(#FF0000 0% 25%, #000000 25% 50%, blue 25% 75%, #f2f2f2 25% 100%)', name: '4-farbig' }
+                                    ]"
+                                />
                             </div>
                         </div>
                         <annotation-input id="motif-annotation" name="motif-annotation" label="Bemerkung zum Motiv" placeholder="Beispiele: AK21 statt AK20, Bitte anderen Spruch über/unter dem Motiv, Über/Unter dem Motiv den Text weglassen, etc." />
@@ -1513,7 +1489,7 @@ import SizeInput from './SizeInput'
 import ItemInput from './ItemInput'
 import AnnotationInput from './AnnotationInput'
 import MotifCard from './MotifCard'
-import ColorList from './ColorList'
+import ColorSelect from './ColorSelect'
 import FlagSelect from './FlagSelect'
 import { mapActions, mapGetters, mapState } from 'vuex'
 
@@ -1526,7 +1502,7 @@ export default {
         SizeInput,
         ItemInput,
         MotifCard,
-        ColorList,
+        ColorSelect,
         FlagSelect
     },
     data() {
@@ -1626,5 +1602,9 @@ export default {
     border-radius: 12px;
     padding: 14px 15px 15px;
     margin: 15px 15px 0;
+}
+
+.textilMotivFarbe {
+    padding-bottom: 14px;
 }
 </style>
