@@ -8,7 +8,7 @@
             <div class="motivPaketSelected-content">
                 <div class="flip-card">
                     <div class="front">
-                        <div class="motivPaket">
+                        <div tabindex="0" class="motivPaket">
                             <a class="motivLink vorderseite" v-on:click="flip()">Rückseite&nbsp;&nbsp;<font-awesome-icon :icon="['fas', 'share']" /></a>
                             <img class="motivPaketBild img-fluid" src="../../assets/img/textil_bg.png">
                             <div class="zentriertesMotiv">

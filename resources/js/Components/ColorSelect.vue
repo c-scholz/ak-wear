@@ -127,9 +127,8 @@ input.form-control:focus {
 .farbe {
     height: 25px;
     width: 25px;
-    border: 2px solid black;
     border-radius: 6px;
-    margin: 4px 10px -1px 0;
+    margin: 2px 10px 2px 0;
     cursor: pointer;
 }
 
@@ -170,7 +169,7 @@ input.form-control:focus {
     padding: 7px 3.5px 1px;
     width: 139px;
     z-index: 99;
-    top: 11px !important;
+    top: 7px !important;
     left: -57px !important;
 }
 
@@ -230,9 +229,12 @@ li {
     border-radius: 6px;
     margin: 0 3.5px;
     cursor: pointer;
+    transition: all .5s;
 }
 
-li.active {
-    border: 2px solid black;
+li:focus,
+li:hover {
+    transform: scale(1.1);
+    transition: all .3s;
 }
 </style>
