@@ -5,7 +5,7 @@ const actions = {
         let commitItem = baseItem
         
         // set up cart related entries
-        commitItem.cartItemId = state.cart.length
+        commitItem.cartItemId = state.cart.length + 1
         commitItem.currentEdit = true
 
         // set up data from chosen product
@@ -13,7 +13,7 @@ const actions = {
         commitItem.name = item.name
         commitItem.products = item.products.map((product, index) => {
             let commitProduct = baseProduct
-            if(index = 0) commitProduct.currentEdit = true
+            if(index === 0) commitProduct.currentEdit = true
             commitProduct.id = product.id
             commitProduct.name = product.name
             commitProduct.color = product.colors.find(color => color.id === product.defaultColor)
@@ -37,16 +37,18 @@ const actions = {
     removeFromCart({commit}, item) {
         commit('REMOVE_FROM_CART', item)
     },
-    setTextileColor({commit}, item) {
-        let commitItem = cart.find(cartItem => cartItem.currentEdit === true)
+    setTextileColor({commit, state}, item) {
+        let commitItem = state.cart.find(cartItem => cartItem.currentEdit === true)
         let productIdx = commitItem.products.findIndex(product => product.currentEdit === true)
+
+        console.log(commitItem, productIdx)
 
         commitItem.products[productIdx].color = item
 
         commit('UPDATE_CART_ITEM', commitItem)
     },
-    setMotif({commit}, item) {
-        let commitItem = cart.find(cartItem => cartItem.currentEdit === true)
+    setMotif({commit, state}, item) {
+        let commitItem = state.cart.find(cartItem => cartItem.currentEdit === true)
 
         // set default motif color
         // TODO: check whether motifColor was already set and if the color id is in color list
@@ -63,8 +65,8 @@ const actions = {
              
         commit('UPDATE_CART_ITEM', commitItem)
     },
-    setMotifColor({commit}, item) {
-        let commitItem = cart.find(cartItem => cartItem.currentEdit === true)
+    setMotifColor({commit, state}, item) {
+        let commitItem = state.cart.find(cartItem => cartItem.currentEdit === true)
         let productIdx = commitItem.products.findIndex(product => product.currentEdit === true)
         
         commitItem.products[productIdx].motifColor = item
