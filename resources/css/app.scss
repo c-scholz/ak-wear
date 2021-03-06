@@ -82,6 +82,10 @@ p {
     margin-top: 50px
 }
 
+#coform {
+    margin-top: 10px;
+}
+
 .row {
     margin: 0;
 }
@@ -116,6 +120,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.noPaddingLeft4Ever { padding-left: 0; }
+.noPaddingRight4Ever { padding-right: 0; }
 
 .noPadding4Ever, .noPadding,
 .noPadding767, .noPadding991 { padding-left: 0; padding-right: 0; }
@@ -154,7 +161,7 @@ input::-webkit-inner-spin-button {
     float: left;
 }
 
-#msform .stepButton {
+.stepButton {
     font-family: 'Muli ExtraBold', sans-serif;
     text-transform: uppercase;
     font-size: 11px;
@@ -166,12 +173,12 @@ input::-webkit-inner-spin-button {
     padding: 8px 15px;
 }
 
-#msform .stepButton:active span i,
-#msform .stepButton:focus span i,
-#msform .stepButton:hover span i,
-#msform .stepButton:active span,
-#msform .stepButton:focus span,
-#msform .stepButton:hover span {
+.stepButton:active span i,
+.stepButton:focus span i,
+.stepButton:hover span i,
+.stepButton:active span,
+.stepButton:focus span,
+.stepButton:hover span {
     background-image: linear-gradient(to bottom right, #ffae27, #d93548);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -189,7 +196,7 @@ input::-webkit-inner-spin-button {
     width: 100%;
 }
 
-#msform .alert-primary {
+.alert-primary {
     font-family: 'Muli Regular', sans-serif;
     font-size: 14px;
     color: #fff;
@@ -203,11 +210,11 @@ input::-webkit-inner-spin-button {
 /* ###################### ONLINE SHOP - TAB BUTTONS ###################### */
 
 /* ###################### ONLINE SHOP - FIELDSET ###################### */
-#msform>fieldset.active {
+fieldset.active {
     opacity: 1;
 }
 
-#msform>fieldset {
+> fieldset {
     opacity: 0;
     position: absolute;
     box-sizing: border-box;
@@ -251,11 +258,6 @@ input::-webkit-inner-spin-button {
     border-radius: 12px;
     margin: 0 auto 15px;
     padding: 8px 15px 9px;
-    background-image: url(../assets/img/form-text_logo.png);
-    background-position-x: 15px;
-    background-position-y: -30px;
-    background-repeat: no-repeat;
-    background-size: 120px;
 }
 /* ###################### ONLINE SHOP - TITEL UND TEXT ###################### */
 
@@ -1745,10 +1747,6 @@ hr {
     .padding75Left-2 { padding-left: 0; }
     .padding75Right-2 { padding-right: 0; }
 
-    .form-text {
-        background-position-y: center;
-    }
-
     .bibliothekTab {
         height: 880px;
     }
@@ -1799,7 +1797,7 @@ hr {
         margin-bottom: 0;
     }
 
-    #msform .stepButton {
+    .stepButton {
         font-size: 10px;
         width: 188px;
     }
@@ -1876,15 +1874,7 @@ hr {
 }
 
 @media (max-width: 767px) {
-    .form-title {
-        background-size: 225px;
-    }
-
-    .form-title h1 {
-        font-size: 35px;
-    }
-
-    #msform fieldset .form-card {
+    fieldset .form-card {
         padding: 20px 5px;
     }
 
@@ -1922,7 +1912,7 @@ hr {
         display: block;
     }
 
-    #msform .stepButton {
+    .stepButton {
         font-size: 10px;
         width: 116px;
     }
@@ -1962,11 +1952,7 @@ hr {
 @media (max-width: 575px) {
     .noPadding575 { padding-left: 0; padding-right: 0; }
 
-    .form-text {
-        background-image: none;
-    }
-
-    #msform .alert-primary {
+    .alert-primary {
         margin: 0 15px;
     }
 
@@ -1974,7 +1960,7 @@ hr {
         float: none !important;
     }
 
-    #msform .stepButton {
+    .stepButton {
         font-size: 11px;
         width: 124px;
     }
@@ -2040,7 +2026,7 @@ hr {
 }
 
 @media (max-width: 400px) {
-    #msform .previous {
+    .previous {
         margin-bottom: 5px;
     }
 
