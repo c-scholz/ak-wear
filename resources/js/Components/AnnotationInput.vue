@@ -29,7 +29,6 @@ export default {
 </script>
 
 <style scoped>
-
 .form-control {
     font-family: 'Muli Light', sans-serif;
     font-size: inherit;

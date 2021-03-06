@@ -3,15 +3,24 @@
         <label class="farbeText" :for="id">{{ label }}</label>
         <div class="input-group-prepend">
             <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" :id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span 
                         class="farbe" 
-                        :style="{ background: colors.find(color => color.id === selectedColor) }" 
+                        :style="{ background: activeColor > -1 ? transformToCssBackground(colors.find(color => color.id === activeColor).values) : 'gray' }" 
                     />
                     <font-awesome-icon :icon="['fas', 'share']" />
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <color-list />
+                    <ul>
+                        <li v-for="color in colors" 
+                            :key="color.id" 
+                            :class="{
+                                active: color.id === activeColor
+                            }" 
+                            :style="{background: transformToCssBackground(color.values)}" 
+                            v-on:click="selectColor(color)"
+                        />
+                    </ul>
                 </div>
             </div>
         </div>
@@ -19,8 +28,6 @@
 </template>
 
 <script>
-import ColorList from './ColorList'
-
 export default {
     props: {
         label: {
@@ -36,42 +43,68 @@ export default {
         },
         selectedColor: {
             type: Number,
+            default: -1
         }
     },
     data() {
         return {
-            selectedColor: 1
+            activeColor: -1
         }
     },
-    components: {
-        ColorList
+    created: function() {
+        this.activeColor = this.selectedColor
+    },
+    methods: {
+        selectColor(color) {
+            this.activeColor = color.id
+
+            this.$emit('color-select', color)
+        },
+        transformToCssBackground(colorValues) {
+            switch(colorValues.length) {
+                case 0:
+                    console.warn('Could not transform values to CSS background string: Empty array!')
+                    return ''
+                // single color
+                case 1:
+                    return `${colorValues[0]}`
+                // two colors as linear gradient
+                case 2:
+                    return `linear-gradient(135deg, ${colorValues[0]} 50%, ${colorValues[1]} 50%)`
+                // three or more colors as conic gradient
+                default:
+                    return `conic-gradient(${colorValues.map((colorValue, idx) => {
+                        return `${colorValue} calc((360deg/${colorValues.length})*${idx}) calc((360deg/${colorValues.length})*${idx + 1})${idx < colorValues.length - 1 ? ', ' : ''}`
+                    }).join('')})`
+            }
+        },
     }
 }
 </script>
 
 <style scoped>
-.textilMotivFarbe .input-group {
+.input-group {
     margin-bottom: 15px;
 }
 
-.textilMotivFarbe .input-group:last-child {
+.input-group:last-child {
     margin-bottom: 0;
 }
 
-.textilMotivFarbe .input-group-prepend {
+.input-group-prepend {
     margin-right: 0;
 }
 
-.textilMotivFarbe .input-group input::placeholder {
+.input-group input::placeholder {
     color: #a6a6a6;
 }
 
-.textilMotivFarbe input.form-control:focus {
+input.form-control:focus {
     color: #1a1a1a;
     border-color: #1a1a1a !important;
 }
 
-.textilMotivFarbe .input-group-text {
+.input-group-text {
     font-family: "Muli Light", sans-serif;
     justify-content: center;
     width: 60px;
@@ -83,23 +116,28 @@ export default {
     border-bottom-left-radius: 12px;
 }
 
-.textilMotivFarbe .btn-secondary:not(:disabled):not(.disabled):active:focus,
-.textilMotivFarbe .btn-secondary:not(:disabled):not(.disabled).active:focus,
-.textilMotivFarbe .show > .btn-secondary.dropdown-toggle:focus,
-.textilMotivFarbe .btn-secondary:focus,
-.textilMotivFarbe .btn-secondary.focus {
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-secondary.dropdown-toggle:focus,
+.btn-secondary:focus,
+.btn-secondary.focus {
     box-shadow: none;
 }
 
-.textilMotivFarbe .farbe {
+.farbe {
+    height: 25px;
+    width: 25px;
+    border: 2px solid black;
+    border-radius: 6px;
     margin: 4px 10px -1px 0;
+    cursor: pointer;
 }
 
-.textilMotivFarbe .dropdown .btn.btn-secondary:focus {
+.dropdown .btn.btn-secondary:focus {
     border-color: #1a1a1a;
 }
 
-.textilMotivFarbe .dropdown .btn.btn-secondary {
+.dropdown .btn.btn-secondary {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,17 +152,17 @@ export default {
     border-top-right-radius: 12px;
 }
 
-.textilMotivFarbe .dropdown .btn.btn-secondary svg {
+.dropdown .btn.btn-secondary svg {
     font-size: 11px;
     transform: rotate(45deg);
     margin-left: -2px;
 }
 
-.textilMotivFarbe .dropdown-toggle::after {
+.dropdown-toggle::after {
     display: none;
 }
 
-.textilMotivFarbe .dropdown-menu {
+.dropdown-menu {
     border: 2px solid #1a1a1a;
     border-radius: 12px;
     border-top-right-radius: 0;
@@ -136,24 +174,24 @@ export default {
     left: -57px !important;
 }
 
-.textilMotivFarbe .dropdown-menu.show {
+.dropdown-menu.show {
     transform: translate3d(0px, 43px, 0px) !important;
 }
 
-.textilMotivFarbe .dropdown-item {
+.dropdown-item {
     font-family: "Muli Light", sans-serif;
     padding: 4px 17px;
     cursor: pointer;
 }
 
-.textilMotivFarbe .dropdown-item:active,
-.textilMotivFarbe .dropdown-item:focus,
-.textilMotivFarbe .dropdown-item:hover {
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
     color: #1a1a1a;
     background: #f4f4f4;
 }
 
-.textilMotivFarbe .farbeText {
+.farbeText {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,12 +208,31 @@ export default {
 }
 
 @media (max-width: 1199px) {
-    .textilMotivFarbe .farbeText {
+    .farbeText {
         display: flex;
     }
 
-    .textilMotivFarbe .textilMotivFarbeMobilAbstand {
+    .textilMotivFarbeMobilAbstand {
         margin-bottom: 15px;
     }
+}
+
+ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0 auto; 
+}
+
+li { 
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    border-radius: 6px;
+    margin: 0 3.5px;
+    cursor: pointer;
+}
+
+li.active {
+    border: 2px solid black;
 }
 </style>
