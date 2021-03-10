@@ -22,7 +22,7 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer :alerts="['Bitte wähle ein Paket aus!']" button-next v-on:next-tab="nextTab()" />
+            <order-fieldset-footer :alerts="alerts" button-next v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
         <fieldset :class="{active: activeTab === 2}" :style="{display: activeTab === 2 ? 'block' : 'none'}">
@@ -91,6 +91,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12 padding75-2">
+                                <action-button :icon="['fa', 'copy']" label="Motiv übernehmen (0,00 EUR)" />
                                 <button class="uebernehmen">
                                    <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'copy']" />&nbsp;&nbsp;Motiv übernehmen (0,00 EUR)</span>
                                 </button>
@@ -1500,6 +1501,7 @@ export default {
                     namelist: [],
                 },
             },
+            alerts: [],
         }
     },
     computed: {
@@ -1551,8 +1553,9 @@ export default {
             'fetchMotifs',
             'fetchProducts',
         ]),
-        nextTab(event) {
+        nextTab(alert) {
             this.activeTab++
+            alert && this.alerts.push(alert)
         },
         previousTab(event) {
             this.activeTab--
