@@ -32,9 +32,6 @@
                     button-next="Daten" 
                     v-on:next-tab="nextTab()" 
                 />
-                <!-- <p class="form-text">Warenkorb</p> -->
-
-                <button type="button" class="btn btn-primary" @click="toggleModal">My Modal</button>
 
                 <div class="warenkorbLeer">
                     Dein Warenkorb ist noch leer.
@@ -74,14 +71,15 @@
                                             <td data-th="Beschreibung">
                                                 <div class="beschreibung">
                                                     <h4>Bundles</h4>
-                                                    <div class="bundlesLegende">Hoodies / Shirts</div>
+                                                    <h3>Hoodies</h3>
                                                     <div class="produktBeschreibung">
-                                                        <span>Textilfarbe</span> Schwarz / Weiß<br />
-                                                        <span>Motivfarbe</span> Orange / Schwarz<br />
-                                                        <span>Motiv</span> Abschlussmeister / Kniet nieder<br />
-                                                        <span>Rückseitenformat</span> 2-spaltig / 3-spaltig<br />
+                                                        <span>Textilfarbe</span> Schwarz<br />
+                                                        <span>Motivfarbe</span> Orange<br />
+                                                        <span>Motiv</span> Abschlussmeister <span class="bundleExtraMotiv">M004</span><br />
+                                                        <span>Rückseitenformat</span> 2-spaltig<br />
                                                         <br />
-                                                        <span>Hoodies Sonderdruck</span>
+                                                        <span>Sonderdruck</span>
+                                                        <hr>
                                                         <div class="row noPadding4Ever">
                                                             <div class="col-1 sonderdruckTabelle noPadding4Ever">
                                                                 →
@@ -100,8 +98,36 @@
                                                                 17,50 EUR
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <br />
+                                                    <h3>Shirts</h3>
+                                                    <div class="produktBeschreibung">
+                                                        <span>Textilfarbe</span> Weiß<br />
+                                                        <span>Motivfarbe</span> Schwarz<br />
+                                                        <span>Motiv</span> Kniet nieder <span class="bundleExtraMotiv">M023</span><br />
+                                                        <hr>
+                                                        <div class="row noPadding4Ever">
+                                                            <div class="col-1 sonderdruckTabelle noPadding4Ever">
+                                                                →
+                                                            </div>
+                                                            <div class="col-11 sonderdruckTabelle noPadding4Ever">
+                                                                <span>Anderes Motiv</span>
+                                                            </div>
+                                                            <div class="col-1 sonderdruckTabelle noPadding4Ever"></div>
+                                                            <div class="col-4 sonderdruckTabelle noPadding4Ever">
+                                                                je 3,50 EUR
+                                                            </div>
+                                                            <div class="col-2 sonderdruckTabelle text-center noPadding4Ever">
+                                                                12x
+                                                            </div>
+                                                            <div class="col-5 sonderdruckTabelle text-center noPadding4Ever">
+                                                                42,00 EUR
+                                                            </div>
+                                                        </div>
                                                         <br />
-                                                        <span>Shirts Sonderdruck</span> Keine Angabe
+                                                        <span>Rückseitenformat</span> 3-spaltig<br />
+                                                        <br />
+                                                        <span>Sonderdruck</span> Keine Angabe
                                                     </div>
                                                 </div>
                                             </td>
@@ -109,9 +135,7 @@
                                                 <div class="shoppingCartButtons">
                                                     <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'pen']" />
                                                 </div>
-                                                <div class="shoppingCartButtons">
-                                                    <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'trash']" />
-                                                </div>
+                                                <dialog-modal style="display: inline-block;" />
                                             </td>
                                             <td data-th="Einzelpreis">
                                                 33,99 EUR
@@ -122,6 +146,7 @@
                                             <td data-th="Menge" class="preisAbstand">
                                                 407,88 EUR<br />
                                                 +17,50 EUR<br />
+                                                +42,00 EUR
                                             </td>
                                         </tr>
                                         <tr>
@@ -134,10 +159,11 @@
                                                     <div class="produktBeschreibung">
                                                         <span>Textilfarbe</span> Schwarz<br />
                                                         <span>Motivfarbe</span> Orange<br />
-                                                        <span>Motiv</span> Abschlussmeister<br />
+                                                        <span>Motiv</span> Abschlussmeister <span class="bundleExtraMotiv">M004</span><br />
                                                         <span>Rückseitenformat</span> 2-spaltig<br />
                                                         <br />
                                                         <span>Sonderdruck</span>
+                                                        <hr>
                                                         <div class="row noPadding4Ever">
                                                             <div class="col-1 sonderdruckTabelle noPadding4Ever">
                                                                 →
@@ -182,9 +208,7 @@
                                                 <div class="shoppingCartButtons">
                                                     <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'pen']" />
                                                 </div>
-                                                <div class="shoppingCartButtons">
-                                                    <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'trash']" />
-                                                </div>
+                                                <dialog-modal style="display: inline-block;" />
                                             </td>
                                             <td data-th="Einzelpreis">
                                                 23,99 EUR
@@ -208,7 +232,7 @@
                                                     <div class="produktBeschreibung">
                                                         <span>Textilfarbe</span> Weiß<br />
                                                         <span>Motivfarbe</span> Schwarz<br />
-                                                        <span>Motiv</span> Kniet nieder<br />
+                                                        <span>Motiv</span> Kniet nieder <span class="bundleExtraMotiv">M023</span><br />
                                                         <span>Rückseitenformat</span> 3-spaltig<br />
                                                         <br />
                                                         <span>Sonderdruck</span> Keine Angabe
@@ -219,9 +243,7 @@
                                                 <div class="shoppingCartButtons">
                                                     <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'pen']" />
                                                 </div>
-                                                <div class="shoppingCartButtons">
-                                                    <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'trash']" />
-                                                </div>
+                                                <dialog-modal style="display: inline-block;" />
                                             </td>
                                             <td data-th="Einzelpreis">
                                                 17,99 EUR<br />
@@ -282,13 +304,14 @@
                                 Beschreibung
                             </div>
                                 <h4>Bundles</h4>
-                                <div class="bundlesLegende">Hoodies / Shirts</div>
-                                <span>Textilfarbe</span> Schwarz / Weiß<br />
-                                <span>Motivfarbe</span> Orange / Schwarz<br />
-                                <span>Motiv</span> Abschlussmeister / Kniet nieder<br />
-                                <span>Rückseitenformat</span> 2-spaltig / 3-spaltig<br />
+                                <h3>Hoodies</h3>
+                                <span>Textilfarbe</span> Schwarz<br />
+                                <span>Motivfarbe</span> Orange<br />
+                                <span>Motiv</span> Abschlussmeister <span class="bundleExtraMotiv">M004</span><br />
+                                <span>Rückseitenformat</span> 2-spaltig<br />
                                 <br />
                                 <span>Sonderdruck</span>
+                                <hr>
                                 <div class="row noPadding4Ever">
                                     <div class="col-1 sonderdruckTabelle noPadding4Ever">
                                         →
@@ -308,7 +331,33 @@
                                     </div>
                                 </div>
                                 <br />
-                                <span>Shirts Sonderdruck</span> Keine Angabe
+                                <h3>Shirts</h3>                       
+                                <span>Textilfarbe</span> Weiß<br />
+                                <span>Motivfarbe</span> Schwarz<br />
+                                <span>Motiv</span> Kniet nieder <span class="bundleExtraMotiv">M023</span><br />
+                                <hr>
+                                <div class="row noPadding4Ever">
+                                    <div class="col-1 sonderdruckTabelle noPadding4Ever">
+                                        →
+                                    </div>
+                                    <div class="col-11 sonderdruckTabelle noPadding4Ever">
+                                        <span>Anderes Motiv</span>
+                                    </div>
+                                    <div class="col-1 sonderdruckTabelle noPadding4Ever"></div>
+                                    <div class="col-4 sonderdruckTabelle noPadding4Ever">
+                                        je 3,50 EUR
+                                    </div>
+                                    <div class="col-2 sonderdruckTabelle text-center noPadding4Ever">
+                                        12x
+                                    </div>
+                                    <div class="col-5 sonderdruckTabelle text-center noPadding4Ever">
+                                        42,00 EUR
+                                    </div>
+                                </div>
+                                <br />
+                                <span>Rückseitenformat</span> 3-spaltig<br />
+                                <br />
+                                <span>Sonderdruck</span> Keine Angabe
                         </div>
                         <div class="col-3 d-flex align-items-end flex-column noPaddingLeft4Ever">
                             <div class="tableHeading d-flex align-items-end flex-column">
@@ -317,9 +366,7 @@
                             <div class="shoppingCartButtons">
                                 <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'pen']" />
                             </div>
-                            <div class="shoppingCartButtons">
-                                <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'trash']" />
-                            </div>
+                            <dialog-modal style="display: inline-block;" />
                         </div>
                         <div class="col-4 dreierReihe noPaddingRight4Ever">
                             <div class="tableHeading tableHeading2">
@@ -337,8 +384,9 @@
                             <div class="tableHeading tableHeading2">
                                 Preis
                             </div>
-                            <p>407,88 EUR <br />
-                            +17,50 EUR
+                            <p>407,88 EUR<br />
+                            +17,50 EUR<br />
+                            +42,00 EUR
                             </p>
                         </div>
                     </div>
@@ -351,10 +399,11 @@
                                 <h4>Hoodies</h4>
                                 <span>Textilfarbe</span> Schwarz<br />
                                 <span>Motivfarbe</span> Orange<br />
-                                <span>Motiv</span> Abschlussmeister<br />
+                                <span>Motiv</span> Abschlussmeister <span class="bundleExtraMotiv">M004</span><br />
                                 <span>Rückseitenformat</span> 2-spaltig<br />
                                 <br />
                                 <span>Sonderdruck</span>
+                                <hr>
                                 <div class="row noPadding4Ever">
                                     <div class="col-1 sonderdruckTabelle noPadding4Ever">
                                         →
@@ -400,9 +449,7 @@
                             <div class="shoppingCartButtons">
                                 <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'pen']" />
                             </div>
-                            <div class="shoppingCartButtons">
-                                <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'trash']" />
-                            </div>
+                            <dialog-modal style="display: inline-block;" />
                         </div>
                         <div class="col-4 dreierReihe noPaddingRight4Ever">
                             <div class="tableHeading tableHeading2">
@@ -435,7 +482,7 @@
                                 <h4>Shirts</h4>
                                 <span>Textilfarbe</span> Weiß<br />
                                 <span>Motivfarbe</span> Schwarz<br />
-                                <span>Motiv</span> Kniet nieder<br />
+                                <span>Motiv</span> Kniet nieder <span class="bundleExtraMotiv">M023</span><br />
                                 <span>Rückseitenformat</span> 3-spaltig<br />
                                 <br />
                                 <span>Sonderdruck</span> Keine Angabe
@@ -447,9 +494,7 @@
                             <div class="shoppingCartButtons">
                                 <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'pen']" />
                             </div>
-                            <div class="shoppingCartButtons">
-                                <font-awesome-icon class="shoppingCartButton" :icon="['fas', 'trash']" />
-                            </div>
+                            <dialog-modal style="display: inline-block;" />
                         </div>
                         <div class="col-4 dreierReihe noPaddingRight4Ever">
                             <div class="tableHeading tableHeading2">
@@ -873,14 +918,17 @@ img.produkt {
     text-align: left;
 }
 
-.beschreibung h4 {
+.beschreibung h4,
+.beschreibung h3 {
     font-family: 'Muli ExtraBold', sans-serif;
+}
+
+.beschreibung h4 {
     font-size: 25px;
 }
 
-.bundlesLegende {
-    font-size: 11px;
-    margin: -9px 0 10px;
+.beschreibung h3 {
+    font-size: 18px;
 }
 
 .produktBeschreibung,
@@ -896,6 +944,18 @@ hr {
 
 .produktBeschreibung span {
     font-family: 'Muli ExtraBold', sans-serif;
+}
+
+.bundleExtraMotiv {
+    position: relative;
+    top: -1px;
+    font-size: 11px;
+    line-height: 15px;
+    color: #fff;
+    background-color: #1a1a1a;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 0 5px;
 }
 
 thead tr th {
@@ -1015,13 +1075,18 @@ input.form-control:focus {
         display: block; 
     }
 
+    .shoppingCartMobile h4,
+    .shoppingCartMobile h3,
+    .col-9 span { 
+        font-family: 'Muli ExtraBold', sans-serif; 
+    }
+
     .shoppingCartMobile h4 {
         font-size: 25px;
     }
 
-    .shoppingCartMobile h4,
-    .col-9 span { 
-        font-family: 'Muli ExtraBold', sans-serif; 
+    .shoppingCartMobile h3 {
+        font-size: 18px;
     }
 
     .tableHeading { 
