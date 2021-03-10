@@ -123,7 +123,7 @@
             <order-fieldset-footer 
                 button-prev 
                 v-on:prev-tab="previousTab()" 
-                :alerts="['Bitte wähle ein Motiv aus oder lade eins hoch!']"
+                :alerts="alerts"
                 button-next 
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
@@ -457,7 +457,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                :alerts="['Bitte trage die Namen für die Rückseite ein!']"
+                :alerts="alerts"
                 button-next
                 v-on:next-tab="nextTab()" 
             />
@@ -514,7 +514,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                :alerts="['Bitte wähle aus wie viele Textilien du in welchen Größen benötigtst!']"
+                :alerts="alerts"
                 button-next
                 v-on:next-tab="nextTab()"
             />
@@ -1406,7 +1406,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                :alerts="['Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!']"
+                :alerts="alerts"
                 button-final
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
