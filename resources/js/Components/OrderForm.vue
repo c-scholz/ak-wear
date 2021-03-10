@@ -22,7 +22,7 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer alert="Bitte wähle ein Paket aus!" button-next v-on:next-tab="nextTab()" />
+            <order-fieldset-footer :alerts="['Bitte wähle ein Paket aus!']" button-next v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
         <fieldset :class="{active: activeTab === 2}" :style="{display: activeTab === 2 ? 'block' : 'none'}">
@@ -122,7 +122,7 @@
             <order-fieldset-footer 
                 button-prev 
                 v-on:prev-tab="previousTab()" 
-                alert="Bitte wähle ein Motiv aus oder lade eins hoch!"
+                :alerts="['Bitte wähle ein Motiv aus oder lade eins hoch!']"
                 button-next 
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
@@ -456,7 +456,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte trage die Namen für die Rückseite ein!"
+                :alerts="['Bitte trage die Namen für die Rückseite ein!']"
                 button-next
                 v-on:next-tab="nextTab()" 
             />
@@ -513,7 +513,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte wähle aus wie viele Textilien du in welchen Größen benötigtst!"
+                :alerts="['Bitte wähle aus wie viele Textilien du in welchen Größen benötigtst!']"
                 button-next
                 v-on:next-tab="nextTab()"
             />
@@ -1405,7 +1405,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!"
+                :alerts="['Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!']"
                 button-final
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
