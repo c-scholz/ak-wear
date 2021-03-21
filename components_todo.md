@@ -1,0 +1,8 @@
+- Switch
+- linker Container
+- rechter Container (Optionen / Eingabefelder)
+- Labeled Inputs
+- Dropdown Inputs (Flagge/Farbe)
+- Optionen
+- Option Inputs (abh. von Options-Typ)
+- Produktauswahl

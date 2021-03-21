@@ -9,26 +9,113 @@ export default {
                     name: "Hoodies",
                     defaultColor: 1,
                     colors: [
-                        {
-                            id: 1,
-                            key: "schwarz",
-                            values: [
-                                "rgb(0,0,0)"
-                            ]
+                        { 
+                            id: 1, 
+                            values: ['#000000'], 
+                            key: 'black', 
+                            label: 'Schwarz' 
+                        },
+                        { 
+                            id: 2, 
+                            values: ['#f2f2f2'], 
+                            key: 'white' ,
+                            label: 'Weiß'
+                        },
+                        { 
+                            id: 3, 
+                            values: ['#c7cccf'], 
+                            key: 'lightgray',
+                            label: 'Hellgrau' 
+                        },
+                        { 
+                            id: 4, 
+                            values: ['#464644'], 
+                            key: 'darkgray',
+                            label: 'Dunkelgrau'
+                        },
+                        { 
+                            id: 5, 
+                            values: ['#002c5b'], 
+                            key: 'navyblue',
+                            label: 'Navyblau' 
                         },
                         {
-                            id: 2,
-                            key: "hellgrau",
-                            values: [
-                                "rgb(199, 204, 207)"
-                            ]
+                            id: 6, 
+                            values: ['#3d5eab'], 
+                            key: 'royalblue',
+                            key: 'Königsblau' 
                         },
-                        {
-                            id: 3,
-                            key: "weiß",
-                            values: [
-                                "rgb(242, 242, 242)"
-                            ]
+                        { 
+                            id: 7, 
+                            values: ['#009ada'], 
+                            key: 'lightblue',
+                            label: 'Hellblau' 
+                        },
+                        { 
+                            id: 8, 
+                            values: ['#acc6e9'], 
+                            key: 'skyblue',
+                            label: 'Himmelsblau' 
+                        },
+                        { 
+                            id: 9, 
+                            values: ['#38307d'], 
+                            key: 'purple',
+                            label: 'Lila' 
+                        },
+                        { 
+                            id: 10, 
+                            values: ['#cb1430'], 
+                            key: 'red',
+                            label: 'Rot' 
+                        },
+                        { 
+                            id: 11, 
+                            values: ['#610021'], 
+                            key: 'orange',
+                            label: 'Orange' 
+                        },
+                        { 
+                            id: 12, 
+                            values: ['#d46120'], 
+                            key: 'pink',
+                            label: 'Pink' 
+                        },
+                        { 
+                            id: 13, 
+                            values: ['#ecc2ce'], 
+                            key: 'burgundy',
+                            label: 'Weinrot'
+                        },
+                        { 
+                            id: 14, 
+                            values: ['#009c55'], 
+                            key: 'green',
+                            label: 'Grün' 
+                        },
+                        { 
+                            id: 15, 
+                            values: ['#304832'], 
+                            key: 'darkgreen',
+                            label: 'Dunkelgrün' 
+                        },
+                        { 
+                            id: 16, 
+                            values: ['#6b6e53'], 
+                            key: 'olive',
+                            label: 'Olivgrün' 
+                        },
+                        { 
+                            id: 17, 
+                            values: ['#f4c30f'], 
+                            key: 'yellow',
+                            label: 'Gelb' 
+                        },
+                        { 
+                            id: 18, 
+                            values: ['#483a2f'], 
+                            key: 'brown',
+                            label: 'Braun' 
                         }
                     ],
                     sizes: [
