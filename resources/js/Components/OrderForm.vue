@@ -22,7 +22,7 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer alert="Bitte wähle ein Paket aus!" button-next v-on:next-tab="nextTab()" />
+            <order-fieldset-footer :alerts="alerts" button-next v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
         <fieldset :class="{active: activeTab === 2}" :style="{display: activeTab === 2 ? 'block' : 'none'}">
@@ -91,6 +91,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12 padding75-2">
+                                <action-button :icon="['fa', 'copy']" label="Motiv übernehmen (0,00 EUR)" />
                                 <button class="uebernehmen">
                                    <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'copy']" />&nbsp;&nbsp;Motiv übernehmen (0,00 EUR)</span>
                                 </button>
@@ -122,7 +123,7 @@
             <order-fieldset-footer 
                 button-prev 
                 v-on:prev-tab="previousTab()" 
-                alert="Bitte wähle ein Motiv aus oder lade eins hoch!"
+                :alerts="alerts"
                 button-next 
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
@@ -456,7 +457,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte trage die Namen für die Rückseite ein!"
+                :alerts="alerts"
                 button-next
                 v-on:next-tab="nextTab()" 
             />
@@ -513,7 +514,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte wähle aus wie viele Textilien du in welchen Größen benötigtst!"
+                :alerts="alerts"
                 button-next
                 v-on:next-tab="nextTab()"
             />
@@ -1405,7 +1406,7 @@
             <order-fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!"
+                :alerts="alerts"
                 button-final
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
@@ -1500,6 +1501,7 @@ export default {
                     namelist: [],
                 },
             },
+            alerts: [],
         }
     },
     computed: {
@@ -1551,8 +1553,9 @@ export default {
             'fetchMotifs',
             'fetchProducts',
         ]),
-        nextTab(event) {
+        nextTab(alert) {
             this.activeTab++
+            alert && this.alerts.push(alert)
         },
         previousTab(event) {
             this.activeTab--

@@ -21,7 +21,7 @@
     </div>
     <div class="col-12 noPadding575">
       <div class="alertContainer">
-        <div class="alert-primary" role="alert">
+        <div v-for="alert, index in alerts" class="alert-primary" role="alert" v-bind:key="index">
           &nbsp;<font-awesome-icon style="transform: scaleX(-1)" :icon="['fas', 'exclamation']" />&nbsp;&nbsp;{{ alert }}
         </div>
       </div>
@@ -33,7 +33,7 @@
 export default {
     props: {
         'buttonPrev': Boolean,
-        'alert': String,
+        'alerts': Array,
         'buttonNext': Boolean,
         'buttonFinal': Boolean
     }

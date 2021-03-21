@@ -1,7 +1,6 @@
 - Switch
 - linker Container
 - rechter Container (Optionen / Eingabefelder)
-- Alert
 - Labeled Inputs
 - Dropdown Inputs (Flagge/Farbe)
 - Optionen
