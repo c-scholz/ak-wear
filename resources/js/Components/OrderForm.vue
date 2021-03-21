@@ -530,7 +530,7 @@
                 title="Sonderdruck" 
                 button-prev="Menge" 
                 v-on:prev-tab="previousTab()"
-                button-final
+                button-final="Zum Warenkorb"
             />
             <p class="form-text">
                 Wähle eine Individualisierung oder überspringe diesen Schritt.<br>
@@ -1411,7 +1411,7 @@
                 button-prev
                 v-on:prev-tab="previousTab()"
                 :alerts="alerts"
-                button-final
+                button-final="Zum Warenkorb"
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
