@@ -623,7 +623,7 @@ export default {
         FieldsetHead,
         FieldsetFooter,
         DialogModal,
-        PillNav
+        PillNav,
     },
     data() {
         return {

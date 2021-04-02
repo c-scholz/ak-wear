@@ -15,7 +15,7 @@
                 Falls du einzelne Hoodies oder Shirts zusammen mit dem Bundle bestellen möchtest, kannst du diese im nächsten Schritt hinzufügen.</p>
             <div class="row form-component product-cards">
                 <div v-for="product in products" :key="product.id" class="col-sm-12 col-lg-4 padding75">
-                    <a class="cardProduktLink" href="#" v-on:click="addToCart(product); nextTab();">
+                    <a class="cardProduktLink" href="#" v-on:click="addToCart(product); nextTab(steps.ORDER_STEP_MOTIF);">
                         <div class="cardProdukt">
                             <img class="img-fluid card-img-top" :src="product.default_image"
                                 alt="Abschlusspulli Abschlusspullis Abschlussklamotten">
@@ -32,7 +32,7 @@
             <fieldset-footer 
                 :alerts="alerts" 
                 button-next 
-                v-on:next-tab="nextTab()" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_MOTIF)" 
             />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
@@ -44,9 +44,9 @@
             <fieldset-head 
                 title="Vorderseite" 
                 button-prev="Textilien" 
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_PRODUCT)"
                 button-next="Rückseite" 
-                v-on:next-tab="nextTab()" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_FRONT)" 
             />
             <p class="form-text">Konfiguriere dein Motiv.<br>
                 Wähle zwischen einer Vielzahl von Motiven oder lade selbst welche hoch!</p>
@@ -111,14 +111,9 @@
                         <div class="row">
                             <div class="col-lg-12 padding75-2">
                                 <action-button :icon="['fa', 'copy']" label="Motiv übernehmen (0,00 EUR)" />
-                                <button class="uebernehmen">
-                                   <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'copy']" />&nbsp;&nbsp;Motiv übernehmen (je +0,00 EUR)</span>
-                                </button>
                             </div>
                             <div class="col-lg-12 padding75-2">
-                                <button class="uebernehmen">
-                                    <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'share']" />&nbsp;&nbsp;Anderes Motiv auswählen (je +3,50 EUR)</span>
-                                </button>
+                                <action-button :icon="['fa', 'share']" label="Anderes Motiv auswählen (je +3,50 EUR)" />
                             </div>
                         </div>
                         <div class="row">
@@ -141,10 +136,10 @@
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <fieldset-footer 
                 button-prev 
-                v-on:prev-tab="previousTab()" 
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_PRODUCT)" 
                 :alerts="alerts"
                 button-next 
-                v-on:next-tab="nextTab()" />
+                v-on:next-tab="nextTab(steps.ORDER_STEP_FRONT)" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
         <fieldset 
@@ -155,9 +150,9 @@
             <fieldset-head 
                 title="Rückseite" 
                 button-prev="Vorderseite" 
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_MOTIF)"
                 button-next="Menge" 
-                v-on:next-tab="nextTab()" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_BACK)" 
             />
             <p class="form-text">Wähle das Format deiner Rückseite.<br>
                 Die oberen zwei, sowie die unteren drei Felder für die Rückseite sind optional und werden nicht beachtet, wenn nichts
@@ -478,10 +473,10 @@
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <fieldset-footer 
                 button-prev
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_MOTIF)"
                 :alerts="alerts"
                 button-next
-                v-on:next-tab="nextTab()" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_BACK)"
             />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
@@ -493,9 +488,9 @@
             <fieldset-head 
                 title="Menge" 
                 button-prev="Rückseite" 
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_FRONT)"
                 button-next="Sonderdruck" 
-                v-on:next-tab="nextTab()" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_OPTIONS)" 
             />
             <p class="form-text">Trage die gewünschten Größen für dein Paket ein.<br>
                 Achte bitte darauf, dass du mindestens 10 Stück bzw. im Bundle gleich viele Hoodies und Shirts
@@ -538,10 +533,10 @@
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <fieldset-footer 
                 button-prev
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_FRONT)"
                 :alerts="alerts"
                 button-next
-                v-on:next-tab="nextTab()"
+                v-on:next-tab="nextTab(steps.ORDER_STEP_OPTIONS)"
             />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
@@ -553,8 +548,9 @@
             <fieldset-head 
                 title="Sonderdruck" 
                 button-prev="Menge" 
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_BACK)"
                 button-final="Zum Warenkorb"
+                v-on:next-tab="validateCurrentTab()"
             />
             <p class="form-text">
                 Wähle eine Individualisierung oder überspringe diesen Schritt.<br>
@@ -1433,10 +1429,10 @@
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <fieldset-footer 
                 button-prev
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_BACK)"
                 :alerts="alerts"
-                button-final="Zum Warenkorb"
-                v-on:next-tab="nextTab()" />
+                button-final
+                v-on:next-tab="validateCurrentTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
             <div v-show="activeTab !== steps.ORDER_STEP_PRODUCT" id="shoppingCartFooter">
@@ -1498,6 +1494,7 @@ import AnnotationInput from './AnnotationInput'
 import MotifCard from './MotifCard'
 import ColorSelect from './ColorSelect'
 import FlagSelect from './FlagSelect'
+import ActionButton from './ActionButton'
 import { mapActions, mapGetters, mapState } from 'vuex'
 import { orderFormSteps } from '../Settings/formSteps'
 
@@ -1511,7 +1508,8 @@ export default {
         ItemInput,
         MotifCard,
         ColorSelect,
-        FlagSelect
+        FlagSelect,
+        ActionButton
     },
     data() {
         // TODO sort out which properties should be stored globally in vuex and which can stay in the form
@@ -1583,14 +1581,24 @@ export default {
             'fetchMotifs',
             'fetchProducts',
         ]),
-        validateTab() {
-            
+        validateCurrentTab() {
+            switch(this.activeTab) {
+                case orderFormSteps.ORDER_STEP_PRODUCT:
+                    break
+                case orderFormSteps.ORDER_STEP_MOTIF:
+                    break
+                case orderFormSteps.ORDER_STEP_FRONT:                    
+                    break
+                case orderFormSteps.ORDER_STEP_BACK:
+                    break
+                case orderFormSteps.ORDER_STEP_OPTIONS:
+                    break
+            }
+            return true
         },
-        nextTab({step, alert}) {
-            this.activeTab = step
-    
-            if(alert) {
-                setAlerts(alert)
+        nextTab(step) {
+            if(this.validateCurrentTab()){
+                this.activeTab = step
             }
         },
         previousTab(step) {

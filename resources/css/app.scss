@@ -509,46 +509,6 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
   }
 ###################### ONLINE SHOP - FARBEN POPOVER ###################### */
 
-.bibliothekTab .uebernehmen {
-    font-family: "Muli ExtraBold", sans-serif;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #fff;
-    background-color: #1A1A1A;
-    border: 1px solid #1A1A1A;
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 15px;
-    width: 100%;
-}
-
-.linear-stop1 {
-    stop-color:#ffae27;
-}
-
-.linear-stop2 {
-    stop-color: #d93548;
-}
-
-.bibliothekTab .uebernehmen:focus .uebernehmenText,
-.bibliothekTab .uebernehmen:hover .uebernehmenText {
-    background-image: linear-gradient(to bottom right, #ffae27, #d93548);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.bibliothekTab .uebernehmen.inactive:focus .uebernehmenText,
-.bibliothekTab .uebernehmen.inactive:hover .uebernehmenText {
-    background-image: linear-gradient(to bottom right, #a6a6a6, #a6a6a6);
-    color: #a6a6a6;
-}
-
-.bibliothekTab .uebernehmen:focus .fa-copy path, .bibliothekTab .uebernehmen:focus .fa-copy path, .bibliothekTab .uebernehmen:focus .fa-copy path,
-.bibliothekTab .uebernehmen:hover .fa-copy path, .bibliothekTab .uebernehmen:hover .fa-copy path, .bibliothekTab .uebernehmen:hover .fa-copy path,
-.bibliothekTab .uebernehmen:focus .fa-share path, .bibliothekTab .uebernehmen:focus .fa-share path, .bibliothekTab .uebernehmen:focus .fa-share path
-.bibliothekTab .uebernehmen:hover .fa-share path, .bibliothekTab .uebernehmen:hover .fa-share path, .bibliothekTab .uebernehmen:hover .fa-share path {
-    fill: url(#linear);
-}
 
 /* ###################### ONLINE SHOP - SUCHFUNKTION ###################### */
 .suchfunktion .form-group {
