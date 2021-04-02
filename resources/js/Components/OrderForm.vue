@@ -1,14 +1,21 @@
 <template>
     <form id="msform" class="order-form">
         <svg-gradient />
-        <fieldset :class="{active: activeTab === 1}" :style="{display: activeTab === 1 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_PRODUCT}" 
+            :style="{display: activeTab === steps.ORDER_STEP_PRODUCT ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head title="Textilien" button-next="Vorderseite" v-on:next-tab="nextTab()" />
+            <fieldset-head 
+                title="Textilien" 
+                button-next="Vorderseite" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_MOTIF)" 
+            />
             <p class="form-text form-text-textilien">Wähle dein gewünschtes Paket aus.<br>
                 Falls du einzelne Hoodies oder Shirts zusammen mit dem Bundle bestellen möchtest, kannst du diese im nächsten Schritt hinzufügen.</p>
             <div class="row form-component product-cards">
                 <div v-for="product in products" :key="product.id" class="col-sm-12 col-lg-4 padding75">
-                    <a class="cardProduktLink" href="#" v-on:click="addToCart(product); nextTab();">
+                    <a class="cardProduktLink" href="#" v-on:click="addToCart(product); nextTab(steps.ORDER_STEP_MOTIF);">
                         <div class="cardProdukt">
                             <img class="img-fluid card-img-top" :src="product.default_image"
                                 alt="Abschlusspulli Abschlusspullis Abschlussklamotten">
@@ -22,13 +29,25 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer :alerts="alerts" button-next v-on:next-tab="nextTab()" />
+            <fieldset-footer 
+                :alerts="alerts" 
+                button-next 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_MOTIF)" 
+            />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-        <fieldset :class="{active: activeTab === 2}" :style="{display: activeTab === 2 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_MOTIF}" 
+            :style="{display: activeTab === steps.ORDER_STEP_MOTIF ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->            
-            <order-fieldset-head title="Vorderseite" button-prev="Textilien" v-on:prev-tab="previousTab()"
-                button-next="Rückseite" v-on:next-tab="nextTab()" />
+            <fieldset-head 
+                title="Vorderseite" 
+                button-prev="Textilien" 
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_PRODUCT)"
+                button-next="Rückseite" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_FRONT)" 
+            />
             <p class="form-text">Konfiguriere dein Motiv.<br>
                 Wähle zwischen einer Vielzahl von Motiven oder lade selbst welche hoch!</p>
             <div class="row">
@@ -92,14 +111,9 @@
                         <div class="row">
                             <div class="col-lg-12 padding75-2">
                                 <action-button :icon="['fa', 'copy']" label="Motiv übernehmen (0,00 EUR)" />
-                                <button class="uebernehmen">
-                                   <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'copy']" />&nbsp;&nbsp;Motiv übernehmen (0,00 EUR)</span>
-                                </button>
                             </div>
                             <div class="col-lg-12 padding75-2">
-                                <button class="uebernehmen">
-                                    <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'share']" />&nbsp;&nbsp;Anderes Motiv auswählen (+3,50 EUR)</span>
-                                </button>
+                                <action-button :icon="['fa', 'share']" label="Anderes Motiv auswählen (je +3,50 EUR)" />
                             </div>
                         </div>
                         <div class="row">
@@ -120,22 +134,25 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer 
+            <fieldset-footer 
                 button-prev 
-                v-on:prev-tab="previousTab()" 
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_PRODUCT)" 
                 :alerts="alerts"
                 button-next 
-                v-on:next-tab="nextTab()" />
+                v-on:next-tab="nextTab(steps.ORDER_STEP_FRONT)" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-        <fieldset :class="{active: activeTab === 3}" :style="{display: activeTab === 3 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_FRONT}" 
+            :style="{display: activeTab === steps.ORDER_STEP_FRONT ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head 
+            <fieldset-head 
                 title="Rückseite" 
                 button-prev="Vorderseite" 
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_MOTIF)"
                 button-next="Menge" 
-                v-on:next-tab="nextTab()" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_BACK)" 
             />
             <p class="form-text">Wähle das Format deiner Rückseite.<br>
                 Die oberen zwei, sowie die unteren drei Felder für die Rückseite sind optional und werden nicht beachtet, wenn nichts
@@ -454,23 +471,26 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer 
+            <fieldset-footer 
                 button-prev
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_MOTIF)"
                 :alerts="alerts"
                 button-next
-                v-on:next-tab="nextTab()" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_BACK)"
             />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-        <fieldset :class="{active: activeTab === 4}" :style="{display: activeTab === 4 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_BACK}" 
+            :style="{display: activeTab === steps.ORDER_STEP_BACK ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head 
+            <fieldset-head 
                 title="Menge" 
                 button-prev="Rückseite" 
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_FRONT)"
                 button-next="Sonderdruck" 
-                v-on:next-tab="nextTab()" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_OPTIONS)" 
             />
             <p class="form-text">Trage die gewünschten Größen für dein Paket ein.<br>
                 Achte bitte darauf, dass du mindestens 10 Stück bzw. im Bundle gleich viele Hoodies und Shirts
@@ -511,22 +531,26 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer 
+            <fieldset-footer 
                 button-prev
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_FRONT)"
                 :alerts="alerts"
                 button-next
-                v-on:next-tab="nextTab()"
+                v-on:next-tab="nextTab(steps.ORDER_STEP_OPTIONS)"
             />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-        <fieldset :class="{active: activeTab === 5}" :style="{display: activeTab === 5 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_OPTIONS}" 
+            :style="{display: activeTab === steps.ORDER_STEP_OPTIONS ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->
-            <order-fieldset-head 
+            <fieldset-head 
                 title="Sonderdruck" 
                 button-prev="Menge" 
-                v-on:prev-tab="previousTab()"
-                button-final
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_BACK)"
+                button-final="Zum Warenkorb"
+                v-on:next-tab="validateCurrentTab()"
             />
             <p class="form-text">
                 Wähle eine Individualisierung oder überspringe diesen Schritt.<br>
@@ -552,7 +576,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid" src="../../assets/img/hoodie_linker_unterarm.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -564,7 +588,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid" src="../../assets/img/hoodie_linker_oberarm.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -576,7 +600,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid" src="../../assets/img/hoodie_rechter_unterarm.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -588,7 +612,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid" src="../../assets/img/hoodie_rechter_oberarm.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -600,7 +624,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid" src="../../assets/img/hoodie_linke_brust.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -612,7 +636,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid" src="../../assets/img/hoodie_rechte_brust.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -624,7 +648,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid" src="../../assets/img/hoodie_name_rueckseite.png" alt="">
-                                            <div class="motivLink">+4,00 EUR</div>
+                                            <div class="motivLink">je +4,00 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -636,7 +660,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid" src="../../assets/img/hoodie_flaggen.png" alt="">
-                                            <div class="motivLink">+5,00 EUR</div>
+                                            <div class="motivLink">je +5,00 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -652,7 +676,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid shirtGroessen" src="../../assets/img/shirt_linker_oberarm.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -664,7 +688,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid shirtGroessen" src="../../assets/img/shirt_rechter_oberarm.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -676,7 +700,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid shirtGroessen" src="../../assets/img/shirt_linke_brust.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -688,7 +712,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid shirtGroessen" src="../../assets/img/shirt_rechte_brust.png" alt="">
-                                            <div class="motivLink">+3,50 EUR</div>
+                                            <div class="motivLink">je +3,50 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -700,7 +724,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid shirtGroessen" src="../../assets/img/shirt_name_rueckseite.png" alt="">
-                                            <div class="motivLink">+4,00 EUR</div>
+                                            <div class="motivLink">je +4,00 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -712,7 +736,7 @@
                                             <font-awesome-icon :icon="['fas', 'check']" /></span>
                                         <div class="sonderdruckSelected-content">
                                             <img class="img-fluid shirtGroessen" src="../../assets/img/shirt_flaggen.png" alt="">
-                                            <div class="motivLink">+5,00 EUR</div>
+                                            <div class="motivLink">je +5,00 EUR</div>
                                         </div>
                                     </label>
                                 </div>
@@ -1403,15 +1427,15 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <order-fieldset-footer 
+            <fieldset-footer 
                 button-prev
-                v-on:prev-tab="previousTab()"
+                v-on:prev-tab="previousTab(steps.ORDER_STEP_BACK)"
                 :alerts="alerts"
                 button-final
-                v-on:next-tab="nextTab()" />
+                v-on:next-tab="validateCurrentTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-            <div v-show="activeTab !== 1" id="shoppingCartFooter">
+            <div v-show="activeTab !== steps.ORDER_STEP_PRODUCT" id="shoppingCartFooter">
                 <div class="container noPadding4Ever">
                     <div class="row shoppingCart">
                         <div class="col-3 padding375">
@@ -1462,32 +1486,35 @@ import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size'
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import SvgGradient from './SvgGradient'
-import OrderFieldsetHead from './OrderFieldsetHead'
-import OrderFieldsetFooter from './OrderFieldsetFooter'
+import FieldsetHead from './FieldsetHead'
+import FieldsetFooter from './FieldsetFooter'
 import SizeInput from './SizeInput'
 import ItemInput from './ItemInput'
 import AnnotationInput from './AnnotationInput'
 import MotifCard from './MotifCard'
 import ColorSelect from './ColorSelect'
 import FlagSelect from './FlagSelect'
+import ActionButton from './ActionButton'
 import { mapActions, mapGetters, mapState } from 'vuex'
+import { orderFormSteps } from '../Settings/formSteps'
 
 export default {
     components: {
         SvgGradient,
-        OrderFieldsetHead,
-        OrderFieldsetFooter,
+        FieldsetHead,
+        FieldsetFooter,
         AnnotationInput,
         SizeInput,
         ItemInput,
         MotifCard,
         ColorSelect,
-        FlagSelect
+        FlagSelect,
+        ActionButton
     },
     data() {
         // TODO sort out which properties should be stored globally in vuex and which can stay in the form
         return {
-            activeTab: 1,
+            activeTab: orderFormSteps.ORDER_STEP_PRODUCT,
             motifSelection: false,
             nameListColumns: 2,
             namelist1: [],
@@ -1502,6 +1529,7 @@ export default {
                 },
             },
             alerts: [],
+            steps: orderFormSteps,
         }
     },
     computed: {
@@ -1553,12 +1581,28 @@ export default {
             'fetchMotifs',
             'fetchProducts',
         ]),
-        nextTab(alert) {
-            this.activeTab++
-            alert && this.alerts.push(alert)
+        validateCurrentTab() {
+            switch(this.activeTab) {
+                case orderFormSteps.ORDER_STEP_PRODUCT:
+                    break
+                case orderFormSteps.ORDER_STEP_MOTIF:
+                    break
+                case orderFormSteps.ORDER_STEP_FRONT:                    
+                    break
+                case orderFormSteps.ORDER_STEP_BACK:
+                    break
+                case orderFormSteps.ORDER_STEP_OPTIONS:
+                    break
+            }
+            return true
         },
-        previousTab(event) {
-            this.activeTab--
+        nextTab(step) {
+            if(this.validateCurrentTab()){
+                this.activeTab = step
+            }
+        },
+        previousTab(step) {
+            this.activeTab = step
         },
         chooseMotif() {
             if (this.motifSelection) {

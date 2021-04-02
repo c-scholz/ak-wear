@@ -10,6 +10,11 @@ const routes = [
         name: 'order'
     },
     {
+        path: '/checkout',
+        component: require('../Pages/Checkout').default,
+        name: 'checkout'
+    },
+    {
         path: '/motiv',
         component: require('../Pages/Motif').default,
         name: 'motif'

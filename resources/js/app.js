@@ -23,7 +23,13 @@ import {
     faExclamation,
     faGripVertical,
     faArrowsAlt,
-    faCopy
+    faCopy,
+    faShoppingCart,
+    faPaintBrush,
+    faAddressCard,
+    faDollarSign,
+    faPen,
+    faTrash
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faWhatsapp
@@ -42,7 +48,14 @@ library.add(faEllipsisV,
     faGripVertical,
     faArrowsAlt,
     faWhatsapp,
-    faCopy)
+    faCopy,
+    faShoppingCart,
+    faPaintBrush,
+    faAddressCard,
+    faDollarSign,
+    faPen,
+    faTrash
+    )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 const app = new Vue({
