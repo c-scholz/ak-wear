@@ -1,9 +1,16 @@
 <template>
     <form id="msform" class="order-form">
         <svg-gradient />
-        <fieldset :class="{active: activeTab === 1}" :style="{display: activeTab === 1 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_PRODUCT}" 
+            :style="{display: activeTab === steps.ORDER_STEP_PRODUCT ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->
-            <fieldset-head title="Textilien" button-next="Vorderseite" v-on:next-tab="nextTab()" />
+            <fieldset-head 
+                title="Textilien" 
+                button-next="Vorderseite" 
+                v-on:next-tab="nextTab(steps.ORDER_STEP_MOTIF)" 
+            />
             <p class="form-text form-text-textilien">Wähle dein gewünschtes Paket aus.<br>
                 Falls du einzelne Hoodies oder Shirts zusammen mit dem Bundle bestellen möchtest, kannst du diese im nächsten Schritt hinzufügen.</p>
             <div class="row form-component product-cards">
@@ -29,10 +36,18 @@
             />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-        <fieldset :class="{active: activeTab === 2}" :style="{display: activeTab === 2 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_MOTIF}" 
+            :style="{display: activeTab === steps.ORDER_STEP_MOTIF ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->            
-            <fieldset-head title="Vorderseite" button-prev="Textilien" v-on:prev-tab="previousTab()"
-                button-next="Rückseite" v-on:next-tab="nextTab()" />
+            <fieldset-head 
+                title="Vorderseite" 
+                button-prev="Textilien" 
+                v-on:prev-tab="previousTab()"
+                button-next="Rückseite" 
+                v-on:next-tab="nextTab()" 
+            />
             <p class="form-text">Konfiguriere dein Motiv.<br>
                 Wähle zwischen einer Vielzahl von Motiven oder lade selbst welche hoch!</p>
             <div class="row">
@@ -132,7 +147,10 @@
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-        <fieldset :class="{active: activeTab === 3}" :style="{display: activeTab === 3 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_FRONT}" 
+            :style="{display: activeTab === steps.ORDER_STEP_FRONT ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->
             <fieldset-head 
                 title="Rückseite" 
@@ -467,7 +485,10 @@
             />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-        <fieldset :class="{active: activeTab === 4}" :style="{display: activeTab === 4 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_BACK}" 
+            :style="{display: activeTab === steps.ORDER_STEP_BACK ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->
             <fieldset-head 
                 title="Menge" 
@@ -524,7 +545,10 @@
             />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-        <fieldset :class="{active: activeTab === 5}" :style="{display: activeTab === 5 ? 'block' : 'none'}">
+        <fieldset 
+            :class="{active: activeTab === steps.ORDER_STEP_OPTIONS}" 
+            :style="{display: activeTab === steps.ORDER_STEP_OPTIONS ? 'block' : 'none'}
+        ">
             <!-- ###################### CONTENT ###################### -->
             <fieldset-head 
                 title="Sonderdruck" 
@@ -1415,7 +1439,7 @@
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
-            <div v-show="activeTab !== 1" id="shoppingCartFooter">
+            <div v-show="activeTab !== steps.ORDER_STEP_PRODUCT" id="shoppingCartFooter">
                 <div class="container noPadding4Ever">
                     <div class="row shoppingCart">
                         <div class="col-3 padding375">
@@ -1475,6 +1499,7 @@ import MotifCard from './MotifCard'
 import ColorSelect from './ColorSelect'
 import FlagSelect from './FlagSelect'
 import { mapActions, mapGetters, mapState } from 'vuex'
+import { orderFormSteps } from '../Settings/formSteps'
 
 export default {
     components: {
@@ -1491,7 +1516,7 @@ export default {
     data() {
         // TODO sort out which properties should be stored globally in vuex and which can stay in the form
         return {
-            activeTab: 1,
+            activeTab: orderFormSteps.ORDER_STEP_PRODUCT,
             motifSelection: false,
             nameListColumns: 2,
             namelist1: [],
@@ -1506,6 +1531,7 @@ export default {
                 },
             },
             alerts: [],
+            steps: orderFormSteps,
         }
     },
     computed: {
@@ -1557,12 +1583,18 @@ export default {
             'fetchMotifs',
             'fetchProducts',
         ]),
-        nextTab(alert) {
-            this.activeTab++
-            alert && this.alerts.push(alert)
+        validateTab() {
+            
         },
-        previousTab(event) {
-            this.activeTab--
+        nextTab({step, alert}) {
+            this.activeTab = step
+    
+            if(alert) {
+                setAlerts(alert)
+            }
+        },
+        previousTab(step) {
+            this.activeTab = step
         },
         chooseMotif() {
             if (this.motifSelection) {
