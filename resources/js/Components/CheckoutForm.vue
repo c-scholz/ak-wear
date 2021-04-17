@@ -275,6 +275,10 @@
                                                     </div>
                                                     <input class="form-control" type="text" placeholder="Beispiel: XMAS2021">
                                                 </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                                </div>
                                             </td>
                                             <td></td>
                                             <td class="text-right">
@@ -566,9 +570,76 @@
                     button-next="Zahlung" 
                     v-on:next-tab="nextTab()" 
                 />
-                <p class="form-text">Daten</p>
 
-
+                <form class="datenForm">
+                    <div class="row noPadding4Ever">
+                        <div class="col-lg-12">
+                            <label class="datenText">Schule</label>
+                            <input type="text" class="form-control form-control-2" placeholder="Musterschule">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row noPadding4Ever">
+                        <div class="col-lg-4 padding75Right991">
+                            <label class="datenText">Anrede*</label>
+                            <select class="form-control form-control-2">
+                                <option selected>Bitte auswählen</option>
+                                <option>Frau</option>
+                                <option>Herr</option>
+                                <option>Divers</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4 padding75-4">
+                            <label class="datenText">Vorname*</label>
+                            <input type="text" class="form-control form-control-2" placeholder="Marie">
+                        </div>
+                        <div class="col-lg-4 padding75Left991">
+                            <label class="datenText">Nachname*</label>
+                            <input type="text" class="form-control form-control-2" placeholder="Mustermann">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row noPadding4Ever">
+                        <div class="col-lg-10 padding75Right991">
+                            <label class="datenText">Straße*</label>
+                            <input type="text" class="form-control form-control-2" placeholder="Musterstraße">
+                        </div>
+                        <div class="col-lg-2 padding75Left991">
+                            <label class="datenText">Hausnummer*</label>
+                            <input type="number" class="form-control form-control-2" placeholder="123">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row noPadding4Ever">
+                        <div class="col-lg-2 padding75Right991">
+                            <label class="datenText">PLZ*</label>
+                            <input type="number" class="form-control form-control-2" placeholder="12345">
+                        </div>
+                        <div class="col-lg-10 padding75Left991">
+                            <label class="datenText">Stadt*</label>
+                            <input type="text" class="form-control form-control-2" placeholder="Musterstadt">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-8">Die Lieferadresse ist eine andere?</div>
+                        <div class="col-1">
+                            <label for="selected-item-2" class="selected-label">
+                                <div class="inputText">Ja</div>
+                                <input type="radio" name="selected-item" id="selected-item-1" value="1">
+                                <span class="icon"><font-awesome-icon :icon="['fas', 'check']" /></span>
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <label for="selected-item-2" class="selected-label">
+                                <div class="inputText">Nein</div>
+                                <input type="radio" checked="checked" name="selected-item" id="selected-item-2" value="2">
+                                <span class="icon"><font-awesome-icon :icon="['fas', 'check']" /></span>
+                            </label>
+                        </div>
+                    </div>
+                    <br><br><br><br><br><br>
+                </form>
 
                 <!-- ###################### CONTENT ###################### -->
                 <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
@@ -1014,10 +1085,30 @@ thead tr th:nth-child(2) { text-align: left; }
     color: #a6a6a6;
 }
 
-input.form-control {
+.form-control {
     border-left: 0;
     border-color: #e6e6e6;
     height: auto;
+}
+
+.form-control-2 {
+    border: 2px solid #e6e6e6;
+    border-radius: 12px;
+}
+
+select.form-control:focus {
+    border-color: #1a1a1a;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url(/images/share.svg?e68fdc2…);
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 50%;
+    background-size: 12px;
 }
 
 input.form-control:focus {
@@ -1130,4 +1221,27 @@ input.form-control:focus {
         margin-bottom: 15px;
     }
 }
+
+.datenForm {
+    margin-top: 30px;
+}
+
+.datenText {
+    font-family: 'Muli ExtraBold', sans-serif;
+    display: flex;
+    margin: 0 0 1.5px 3.5px;
+}
+
+.selected-label .inputText {
+    top: 12px;
+    font-family: 'Muli Light', sans-serif;
+    font-size: 16px;
+    text-transform: none;
+}
+
+@media (max-width: 991px) {
+    .datenForm { margin-top: 15px; }
+    .datenText { margin-top: 15px; }
+}
+
 </style>

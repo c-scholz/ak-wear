@@ -110,6 +110,10 @@ select.custom-select:focus {
     box-shadow: none;
 }
 
+select.form-control:focus {
+    box-shadow: none;
+}
+
 textarea.form-control::placeholder,
 input.form-control::placeholder {
     color: #a6a6a6;
@@ -129,7 +133,7 @@ input::-webkit-inner-spin-button {
 
 .padding375 { padding-left: 3.75px; padding-right: 3.75px }
 
-.padding75, .padding75-2, .padding75-3 { padding-left: 7.5px; padding-right: 7.5px; }
+.padding75, .padding75-2, .padding75-3, .padding75-4 { padding-left: 7.5px; padding-right: 7.5px; }
 .padding75Left,
 .padding75Left-2,
 .padding75Left991 { padding-left: 7.5px; }
@@ -831,6 +835,7 @@ li.color:nth-child(16) { background: #6b6e53; } li.color:nth-child(17) { backgro
 .form-control {
     font-family: 'Muli Light', sans-serif;
     font-size: inherit;
+    color: #1a1a1a;
 }
 /* ###################### ONLINE SHOP - TEXTILFARBEN UND TEXT ###################### */
 
@@ -1783,7 +1788,7 @@ hr {
     .padding75Right { padding: 0; }
 
     .padding75 { padding-left: 0; padding-right: 0; }
-    .noPadding991 { padding-left: 15px; padding-right: 15px; }
+    .noPadding991, .padding75-4 { padding-left: 15px; padding-right: 15px; }
 
     .padding75Left991-2 { padding-left: 7.5px; }
     .padding75Right991-2 { padding-right: 7.5px; }
