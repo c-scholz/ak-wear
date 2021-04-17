@@ -22,7 +22,7 @@
       </button>
       <button v-if="buttonFinal" type="button" name="next" class="next stepButton" v-on:click="$emit('add-to-cart')">
         <span>
-          <span class="mobileNone">Zum Warenkorb&nbsp;&nbsp;<font-awesome-icon :icon="['fas', 'check']" /></span>
+          <span class="mobileNone">{{ buttonFinal }}&nbsp;&nbsp;<font-awesome-icon :icon="['fas', 'check']" /></span>
           <span class="mobile">Warenkorb&nbsp;&nbsp;<font-awesome-icon :icon="['fas', 'check']" /></span>
         </span>
       </button>
@@ -36,7 +36,7 @@ export default {
         'buttonPrev': String,
         'title': String,
         'buttonNext': String,
-        'buttonFinal': Boolean
+        'buttonFinal': String
     }
 }
 </script>

@@ -11,6 +11,7 @@ const actions = {
                 commit('SET_MOTIFS', exampleMotifs.data)
             })
             .catch(err => console.log(err))
+        commit('SET_MOTIFS', exampleMotifs.data)
     },
     fetchProducts({commit}) {
         axios

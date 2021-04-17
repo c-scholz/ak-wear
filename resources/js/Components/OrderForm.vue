@@ -22,7 +22,11 @@
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
-            <fieldset-footer alert="Bitte wähle ein Paket aus!" button-next v-on:next-tab="nextTab()" />
+            <fieldset-footer 
+                :alerts="alerts" 
+                button-next 
+                v-on:next-tab="nextTab()" 
+            />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
         <fieldset :class="{active: activeTab === 2}" :style="{display: activeTab === 2 ? 'block' : 'none'}">
@@ -48,119 +52,25 @@
 
                         <div class="row textilMotivFarbe noPadding4Ever">
                             <div class="col-xl-6 noPadding1199Left padding75Right-2 textilMotivFarbeMobilAbstand">
-                                <div class="input-group">
-                                    <span class="farbeText">Textilfarbe</span>
-                                    <div class="input-group-prepend">
-                                        <div class="dropdown show">
-                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="farbe">
-                                                    <color-list :colors="[ { color_value: '#000000', name: 'schwarz' } ]" type="textil"/>    
-                                                </span><font-awesome-icon :icon="['fas', 'share']" />
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <color-list
-                                                    :colors="[
-                                                        { color_value: '#000000', name: 'schwarz' },
-                                                        { color_value: '#f2f2f2', name: 'weiss' },
-                                                        { color_value: '#c7cccf', name: 'hellgrau' },
-                                                        { color_value: '#464644', name: 'dunkelgrau' },
-                                                        { color_value: '#002c5b', name: 'navyblau' },
-                                                        { color_value: '#3d5eab', name: 'royalblau' },
-                                                        { color_value: '#009ada', name: 'hellblau' },
-                                                        { color_value: '#acc6e9', name: 'skyblau' },
-                                                        { color_value: '#38307d', name: 'lila' },
-                                                        { color_value: '#cb1430', name: 'rot' },
-                                                        { color_value: '#610021', name: 'orange' },
-                                                        { color_value: '#d46120', name: 'pink' },
-                                                        { color_value: '#ecc2ce', name: 'burgundy' },
-                                                        { color_value: '#009c55', name: 'grün' },
-                                                        { color_value: '#304832', name: 'dunkelgrün' },
-                                                        { color_value: '#6b6e53', name: 'olive' },
-                                                        { color_value: '#f4c30f', name: 'gelb' },
-                                                        { color_value: '#483a2f', name: 'braun' }
-                                                    ]"
-                                                    type="textil"/>              
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <color-select 
+                                    label="Textilfarbe" 
+                                    id="textilfarbe" 
+                                    :selected-color="products[0].products[0].defaultColor"
+                                    :colors="products[0].products[0].colors"
+                                    v-on:color-select="setTextileColor"
+                                />
                             </div>
                             <div class="col-xl-6 noPadding1199Right padding75Left-2">
-                                <div class="input-group">
-                                    <span class="farbeText">Motivfarbe</span>
-                                    <div class="input-group-prepend">
-                                        <div class="dropdown show">
-                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="farbe">
-                                                    <color-list :colors="[ { color_value: 'conic-gradient(#FF0000 0% 33.33%, #000000 33.33% 67.66%, yellow 33.33% 100%)', name: '3-farbig' } ]" type="textil"/>    
-                                                </span><font-awesome-icon :icon="['fas', 'share']" />
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <color-list
-                                                    :colors="[
-                                                        { color_value: '#000000', name: 'schwarz' },
-                                                        { color_value: '#f2f2f2', name: 'weiss' },
-                                                        { color_value: '#c7cccf', name: 'hellgrau' },
-                                                        { color_value: 'linear-gradient(135deg, #FF0000 50%, #000000 50%)', name: '2-farbig' },
-                                                        { color_value: 'conic-gradient(#FF0000 0% 33.33%, #000000 33.33% 67.66%, yellow 33.33% 100%)', name: '3-farbig' },
-                                                        { color_value: 'conic-gradient(#FF0000 0% 25%, #000000 25% 50%, blue 25% 75%, #f2f2f2 25% 100%)', name: '4-farbig' }
-                                                    ]"
-                                                    type="motiv"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <color-select
+                                    label="Motivfarbe"
+                                    id="motivfarbe"
+                                    :selected-color="motifs[0].defaultColor"
+                                    :colors="motifs[0].colors"
+                                    v-on:color-select="setMotifColor"
+                                />
                             </div>
                         </div>
-
-                        <!-- <div class="row noPadding4Ever">
-                            <div class="col-lg-6 noPadding767Left padding75Right">
-                                <div class="colorContainer">
-                                    <color-list
-                                        text="Textilfarbe"
-                                        :colors="[
-                                            { color_value: '#000000', name: 'schwarz' },
-                                            { color_value: '#f2f2f2', name: 'weiss' },
-                                            { color_value: '#c7cccf', name: 'hellgrau' },
-                                            { color_value: '#464644', name: 'dunkelgrau' },
-                                            { color_value: '#002c5b', name: 'navyblau' },
-                                            { color_value: '#3d5eab', name: 'royalblau' },
-                                            { color_value: '#009ada', name: 'hellblau' },
-                                            { color_value: '#acc6e9', name: 'skyblau' },
-                                            { color_value: '#38307d', name: 'lila' },
-                                            { color_value: '#cb1430', name: 'rot' },
-                                            { color_value: '#610021', name: 'orange' },
-                                            { color_value: '#d46120', name: 'pink' },
-                                            { color_value: '#ecc2ce', name: 'burgundy' },
-                                            { color_value: '#009c55', name: 'grün' },
-                                            { color_value: '#304832', name: 'dunkelgrün' },
-                                            { color_value: '#6b6e53', name: 'olive' },
-                                            { color_value: '#f4c30f', name: 'gelb' },
-                                            { color_value: '#483a2f', name: 'braun' }
-                                        ]"
-                                        type="textil"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 noPadding767Right padding75Left">
-                                <div class="colorContainer2">
-                                    <color-list
-                                        text="Motivfarbe"
-                                        :colors="[
-                                            { color_value: '#000000', name: 'schwarz' },
-                                            { color_value: '#f2f2f2', name: 'weiss' },
-                                            { color_value: '#c7cccf', name: 'hellgrau' },
-                                            { color_value: 'linear-gradient(135deg, #FF0000 50%, #000000 50%)', name: '2-farbig' },
-                                            { color_value: 'conic-gradient(#FF0000 0% 33.33%, #000000 33.33% 67.66%, yellow 33.33% 100%)', name: '3-farbig' },
-                                            { color_value: 'conic-gradient(#FF0000 0% 25%, #000000 25% 50%, blue 25% 75%, #f2f2f2 25% 100%)', name: '4-farbig' }
-                                        ]"
-                                        type="motiv"/>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <p class="motivPaketTextarea">Bemerkung zum Motiv</p>
-                        <textarea class="form-control" id="motivAenderung" rows="5"
-                            placeholder="Beispiele: AK21 statt AK20, Bitte anderen Spruch über/unter dem Motiv, Über/Unter dem Motiv den Text weglassen, etc."></textarea>
+                        <annotation-input id="motif-annotation" name="motif-annotation" label="Bemerkung zum Motiv" placeholder="Beispiele: AK21 statt AK20, Bitte anderen Spruch über/unter dem Motiv, Über/Unter dem Motiv den Text weglassen, etc." />
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-7">
@@ -185,6 +95,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12 padding75-2">
+                                <action-button :icon="['fa', 'copy']" label="Motiv übernehmen (0,00 EUR)" />
                                 <button class="uebernehmen">
                                    <span class="uebernehmenText"><font-awesome-icon :icon="['fa', 'copy']" />&nbsp;&nbsp;Motiv übernehmen (je +0,00 EUR)</span>
                                 </button>
@@ -216,7 +127,7 @@
             <fieldset-footer 
                 button-prev 
                 v-on:prev-tab="previousTab()" 
-                alert="Bitte wähle ein Motiv aus oder lade eins hoch!"
+                :alerts="alerts"
                 button-next 
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
@@ -540,10 +451,8 @@
                         <!-- UNTERER TEIL -->
                     </div>
                     <!-- ###################### VIERSPALTIG ###################### -->
-                    <div class="rueckseiteTextareaContainer">
-                        <p class="rueckseiteTextarea">Bemerkung zur Rückseite</p>
-                            <textarea class="form-control" id="motivAenderung" rows="5"
-                                placeholder="Beispiele: Bitte eine Old English Schriftart (oder eine andere?) verwenden, Namen bitte nach dem Nachnamen alphabetisch sortieren, etc."></textarea>
+                    <div class="textareaContainer">
+                        <annotation-input id="backside-annotation" name="backside-annotation" label="Bemerkung zur Rückseite" placeholder="Beispiele: Bitte eine Old English Schriftart (oder eine andere?) verwenden, Namen bitte nach dem Nachnamen alphabetisch sortieren, etc." />
                     </div>
                 </div>
             </div>
@@ -552,7 +461,7 @@
             <fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte trage die Namen für die Rückseite ein!"
+                :alerts="alerts"
                 button-next
                 v-on:next-tab="nextTab()" 
             />
@@ -609,7 +518,7 @@
             <fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte wähle aus wie viele Textilien du in welchen Größen benötigtst!"
+                :alerts="alerts"
                 button-next
                 v-on:next-tab="nextTab()"
             />
@@ -621,7 +530,7 @@
                 title="Sonderdruck" 
                 button-prev="Menge" 
                 v-on:prev-tab="previousTab()"
-                button-final
+                button-final="Zum Warenkorb"
             />
             <p class="form-text">
                 Wähle eine Individualisierung oder überspringe diesen Schritt.<br>
@@ -1196,84 +1105,13 @@
                                     <p class="sonderdruckEingabe">Hoodies - Flaggen</p>
                                     <p class="sonderdruckInfo">Wähle bitte die gewünschte Flagge für die jeweiligen Namen.</p>
                                         <p class="sonderdruckNamenslisteFlaggen">1. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">2. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">3. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">4. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
-                                        </div>
+                                            <flag-select />
                                 </div>
                                 <!-- ###################### HOODIE EINGABE ###################### -->
                                 <!-- ###################### SHIRT EINGABE ###################### -->
@@ -1551,121 +1389,29 @@
                                     <p class="sonderdruckEingabe">Shirts - Flaggen</p>
                                     <p class="sonderdruckInfo">Wähle bitte die gewünschte Flagge für die jeweiligen Namen.</p>
                                         <p class="sonderdruckNamenslisteFlaggen">1. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">2. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">3. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                         <p class="sonderdruckNamenslisteFlaggen">4. Spalte</p>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Marie Musterfrau</span>
-                                        </div>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="dropdown show">
-                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="flagge">Land</span><font-awesome-icon :icon="['fas', 'share']" />
-                                                    </a>
-
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <div class="sonderdruckFlaggensuche">
-                                                            <input type="text" class="form-control" placeholder="Suchen..">
-                                                        </div>
-                                                        <div v-for="language in languages" :key="language.key" class="dropdown-item" v-on:click="alert('clicked');">
-                                                            <country-flag :country="language.flagKey" class="flagge" size='small' style="margin-right: -12px; transform: scale(.32);"/>{{ language.name }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span class="namenslisteFlaggen" id="namenslisteFlaggen">Max Mustermann</span>
-                                        </div>
+                                            <flag-select />
                                 </div>
                                 <!-- ###################### SHIRT EINGABE ###################### -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="sonderdruckTextareaContainer">
-                <p class="sonderdruckTextarea">Bemerkung zum Sonderdruck</p>
-                    <textarea class="form-control" id="motivAenderung" rows="5"
-                        placeholder="Beispiele: Bitte die Ärmel- und/oder Brustnamen in grün, alle Namen bitte nur in Großbuchstaben, etc."></textarea>
+            <div class="textareaContainer">
+                <annotation-input id="special-print-annotation" name="special-print-annotation" label="Bemerkung zur Rückseite" placeholder="Beispiele: Bitte die Ärmel- und/oder Brustnamen in grün, alle Namen bitte nur in Großbuchstaben, etc." />
             </div>
             <!-- ###################### CONTENT ###################### -->
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
             <fieldset-footer 
                 button-prev
                 v-on:prev-tab="previousTab()"
-                alert="Bitte mach eine Eingabe oder wähl deine bisherigen Schritte ab und überspringe diesen Schritt!"
-                button-final
+                :alerts="alerts"
+                button-final="Zum Warenkorb"
                 v-on:next-tab="nextTab()" />
             <!-- ###################### MOBILE BUTTONS & FEHLER ###################### -->
         </fieldset>
@@ -1724,10 +1470,10 @@ import FieldsetHead from './FieldsetHead'
 import FieldsetFooter from './FieldsetFooter'
 import SizeInput from './SizeInput'
 import ItemInput from './ItemInput'
+import AnnotationInput from './AnnotationInput'
 import MotifCard from './MotifCard'
-import ColorList from './ColorList'
-import CountryFlag from 'vue-country-flag'
-import languages from '../languages'
+import ColorSelect from './ColorSelect'
+import FlagSelect from './FlagSelect'
 import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default {
@@ -1735,11 +1481,12 @@ export default {
         SvgGradient,
         FieldsetHead,
         FieldsetFooter,
+        AnnotationInput,
         SizeInput,
         ItemInput,
         MotifCard,
-        ColorList,
-        CountryFlag
+        ColorSelect,
+        FlagSelect
     },
     data() {
         // TODO sort out which properties should be stored globally in vuex and which can stay in the form
@@ -1751,7 +1498,6 @@ export default {
             namelist2: [],
             namelist3: [],
             namelist4: [],
-            languages: languages,
             streetInfo: {},
             phoneInfo: {},
             printOptions: {
@@ -1759,6 +1505,7 @@ export default {
                     namelist: [],
                 },
             },
+            alerts: [],
         }
     },
     computed: {
@@ -1810,8 +1557,9 @@ export default {
             'fetchMotifs',
             'fetchProducts',
         ]),
-        nextTab(event) {
+        nextTab(alert) {
             this.activeTab++
+            alert && this.alerts.push(alert)
         },
         previousTab(event) {
             this.activeTab--
@@ -1834,5 +1582,14 @@ export default {
 </script>
 
 <style scoped>
+.textareaContainer {
+    border: 2px solid #f2f2f2;
+    border-radius: 12px;
+    padding: 14px 15px 15px;
+    margin: 15px 15px 0;
+}
 
+.textilMotivFarbe {
+    padding-bottom: 14px;
+}
 </style>
