@@ -40,7 +40,8 @@
 9. Run `npm run dev` or `yarn run dev` to setup your project assets.
 
 ## Usage ##
-**Note:** When using docker, the following commands have to be executed in the workspace container (enter it by running `docker-compose exec workspace bash`).
+**Note:** When using docker, the following commands have to be executed in the running workspace container 
+(enter it by running `docker-compose exec workspace bash` in the laradock directory).
 
 Use `npm run hot` or  `yarn run hot` to run with hot module replacement.
 Run `npm run watch-poll` or `yarn run watch-poll` to run live reloading of changed files. 
